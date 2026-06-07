@@ -328,11 +328,11 @@ function renderFarm(rec){
  const sameAsCur=r=>f.current&&r&&r.key===f.current.key;
  if(f.bestGold&&!sameAsCur(f.bestGold))h+=card('gold','GOLD',f.bestGold);
  if(f.bestExp&&!sameAsCur(f.bestExp)&&(!f.bestGold||f.bestExp.key!==f.bestGold.key))h+=card('exp','EXP',f.bestExp);
- if(sameAsCur(f.bestGold)&&(!f.bestExp||sameAsCur(f.bestExp)))h+=`<div class="note" style="color:var(--good)">${pt?'você já está no melhor estágio pra farmar':'already on the best farm stage'}</div>`;
+ if(sameAsCur(f.bestGold)&&(!f.bestExp||sameAsCur(f.bestExp)))h+=`<div class="note" style="color:var(--good)">${t('farm_onbest')}</div>`;
  if(f.push){const sv=rec.survival;let rd='';
- if(sv&&sv.rating){const col=sv.rating==='comfortable'?'var(--good)':sv.rating==='tight'?'var(--warn)':'var(--bad)';rd=`· ${pt?'sobrev.':'surv.'} <span style="color:${col}">${t('surv_'+sv.rating)||sv.rating}</span>`;}
- h+=card('push',pt?'DESTRAVAR':'UNLOCK',f.push,rd);}
- if(f.calibrated===false)h+=`<div class="note">${pt?'calibrando as taxas pelo seu gold/seg real, joga uns segundos':'calibrating rates from your real gold/sec, play a few seconds'}</div>`;
+ if(sv&&sv.rating){const col=sv.rating==='comfortable'?'var(--good)':sv.rating==='tight'?'var(--warn)':'var(--bad)';rd=`· ${t('f_surv')} <span style="color:${col}">${t('surv_'+sv.rating)||sv.rating}</span>`;}
+ h+=card('push',t('f_unlock'),f.push,rd);}
+ if(f.calibrated===false)h+=`<div class="note">${t('f_calnone')}</div>`;
  h+=farmTable(rec,pt);
  $('farm').innerHTML=h||'<div class="note">—</div>';
  document.querySelectorAll('.fsort').forEach(b=>b.onclick=()=>{farmSort=b.dataset.s;localStorage.setItem('tbh_farmsort',farmSort);if(lastRec)renderFarm(lastRec);});
@@ -345,8 +345,8 @@ function farmTable(rec,pt){
  all.sort((a,b)=>b[key]-a[key]);
  const fmtH=n=>n==null?'-':n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e3?Math.round(n/1e3)+'k':Math.round(n);
  const nm=f.stagesMeasured||0;
- const cal=f.calSource==='fit'?(pt?`calibrado pelos seus tempos reais em ${nm} estágios`:`calibrated from your real times across ${nm} stages`):f.calibrated?(pt?'calibrando — farme outro estágio pra cravar os distantes':'calibrating — farm another stage to lock in the distant ones'):(pt?'jogue uns segundos pra calibrar':'play a few seconds to calibrate');
- const info=`<div class="fcal">${pt?'nível':'level'} <b>${f.partyLevel||'?'}</b> · EXP <b>+${f.expBonusPct||0}%</b> · Gold <b>+${f.goldBonusPct||0}%</b> · <span class="${f.calibrated?'ok':''}">${cal}</span></div>`;
+ const cal=f.calSource==='fit'?t('f_calfit',nm):f.calibrated?t('f_calone'):t('f_calnone');
+ const info=`<div class="fcal">${t('f_level')} <b>${f.partyLevel||'?'}</b> · EXP <b>+${f.expBonusPct||0}%</b> · Gold <b>+${f.goldBonusPct||0}%</b> · <span class="${f.calibrated?'ok':''}">${cal}</span></div>`;
  const head=info+`<div class="fsort-row"><button class="fsort ${farmSort==='exp'?'on':''}" data-s="exp">EXP/h</button><button class="fsort ${farmSort==='gold'?'on':''}" data-s="gold">GOLD/h</button></div>`;
  const fitcol=v=>v>=0.9?'var(--good)':v>=0.5?'var(--mut)':'var(--dim)';
  const rows=all.map(r=>`<tr class="${r.key===cur?'cur':''}">`+
@@ -355,7 +355,7 @@ function farmTable(rec,pt){
  `<td class="fs-x">${fmtH(r.expPerHour)}</td>`+
  `<td class="fs-g">${fmtH(r.goldPerHour)}</td>`+
  `<td style="color:${fitcol(r.fit||0)}">${Math.round((r.fit||0)*100)}%</td></tr>`).join('');
- return head+`<table class="ftable"><thead><tr><th>${pt?'ESTÁGIO':'STAGE'}</th><th>CLEAR</th><th>EXP/H</th><th>GOLD/H</th><th>FIT</th></tr></thead><tbody>${rows}</tbody></table>`;
+ return head+`<table class="ftable"><thead><tr><th>${t('f_stage')}</th><th>${t('f_clear')}</th><th>EXP/H</th><th>GOLD/H</th><th>FIT</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 function renderIdle(rec){
  const i=rec.idle;if(!i.unlocked){$('idle').innerHTML=`<div class="note">${t('idle_locked')}</div>`;return;}

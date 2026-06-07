@@ -441,6 +441,26 @@
  };
  for (const l in NEW) { UI[l] = Object.assign(UI[l] || {}, NEW[l]); }
 
+ const FARM = {
+ 'en-US': { f_level: 'level', f_stage: 'STAGE', f_clear: 'CLEAR', f_unlock: 'UNLOCK', f_surv: 'surv.', f_calfit: 'calibrated from your real times across {0} stages', f_calone: 'calibrating — farm another stage to lock in the distant ones', f_calnone: 'play a few seconds to calibrate' },
+ 'pt-BR': { f_level: 'nível', f_stage: 'ESTÁGIO', f_clear: 'CLEAR', f_unlock: 'DESTRAVAR', f_surv: 'sobrev.', f_calfit: 'calibrado pelos seus tempos reais em {0} estágios', f_calone: 'calibrando — farme outro estágio pra cravar os distantes', f_calnone: 'jogue uns segundos pra calibrar' },
+ 'es-ES': { f_level: 'nivel', f_stage: 'FASE', f_clear: 'TIEMPO', f_unlock: 'DESBLOQUEAR', f_surv: 'superv.', f_calfit: 'calibrado con tus tiempos reales en {0} fases', f_calone: 'calibrando — farmea otra fase para afinar las lejanas', f_calnone: 'juega unos segundos para calibrar' },
+ 'fr-FR': { f_level: 'niveau', f_stage: 'NIVEAU', f_clear: 'TEMPS', f_unlock: 'DÉBLOQUER', f_surv: 'surv.', f_calfit: 'calibré sur tes temps réels sur {0} niveaux', f_calone: 'calibrage — farme un autre niveau pour fixer les lointains', f_calnone: 'joue quelques secondes pour calibrer' },
+ 'de-DE': { f_level: 'Stufe', f_stage: 'STUFE', f_clear: 'ZEIT', f_unlock: 'FREISCHALTEN', f_surv: 'Überl.', f_calfit: 'kalibriert anhand deiner echten Zeiten über {0} Stufen', f_calone: 'kalibriere — farme eine weitere Stufe für die entfernten', f_calnone: 'spiele ein paar Sekunden zum Kalibrieren' },
+ 'ja-JP': { f_level: 'レベル', f_stage: 'ステージ', f_clear: 'クリア', f_unlock: '解放', f_surv: '生存', f_calfit: '{0}ステージの実測タイムで較正済み', f_calone: '較正中 — 別のステージを周回して遠い数値を確定', f_calnone: '数秒プレイして較正' },
+ 'ko-KR': { f_level: '레벨', f_stage: '스테이지', f_clear: '클리어', f_unlock: '해금', f_surv: '생존', f_calfit: '{0}개 스테이지의 실측 시간으로 보정됨', f_calone: '보정 중 — 다른 스테이지를 farm해 먼 값까지 확정', f_calnone: '몇 초 플레이해서 보정' },
+ 'zh-Hans': { f_level: '等级', f_stage: '关卡', f_clear: '用时', f_unlock: '解锁', f_surv: '生存', f_calfit: '已用你 {0} 个关卡的真实时间校准', f_calone: '校准中 — 再刷一个关卡以锁定较远的', f_calnone: '玩几秒来校准' },
+ 'zh-Hant': { f_level: '等級', f_stage: '關卡', f_clear: '用時', f_unlock: '解鎖', f_surv: '生存', f_calfit: '已用你 {0} 個關卡的真實時間校準', f_calone: '校準中 — 再刷一個關卡以鎖定較遠的', f_calnone: '玩幾秒來校準' },
+ 'ru-RU': { f_level: 'уровень', f_stage: 'ЭТАП', f_clear: 'ВРЕМЯ', f_unlock: 'ОТКРЫТЬ', f_surv: 'выж.', f_calfit: 'откалибровано по вашим временам на {0} этапах', f_calone: 'калибровка — фармите ещё этап, чтобы уточнить дальние', f_calnone: 'поиграйте пару секунд для калибровки' },
+ 'pl-PL': { f_level: 'poziom', f_stage: 'ETAP', f_clear: 'CZAS', f_unlock: 'ODBLOKUJ', f_surv: 'przeż.', f_calfit: 'skalibrowane na podstawie twoich czasów z {0} etapów', f_calone: 'kalibracja — farmij inny etap, by dopiąć te dalsze', f_calnone: 'graj kilka sekund, by skalibrować' },
+ 'tr-TR': { f_level: 'seviye', f_stage: 'AŞAMA', f_clear: 'SÜRE', f_unlock: 'AÇ', f_surv: 'hayatta', f_calfit: '{0} aşamadaki gerçek sürelerinle kalibre edildi', f_calone: 'kalibre ediliyor — uzaktakileri netleştirmek için başka bir aşama farmla', f_calnone: 'kalibre etmek için birkaç saniye oyna' },
+ 'uk-UA': { f_level: 'рівень', f_stage: 'ЕТАП', f_clear: 'ЧАС', f_unlock: 'ВІДКРИТИ', f_surv: 'вижив.', f_calfit: 'відкалібровано за вашими часами на {0} етапах', f_calone: 'калібрування — фарміть інший етап, щоб уточнити дальні', f_calnone: 'пограйте кілька секунд для калібрування' },
+ 'id-ID': { f_level: 'level', f_stage: 'STAGE', f_clear: 'WAKTU', f_unlock: 'BUKA', f_surv: 'bertahan', f_calfit: 'dikalibrasi dari waktu nyatamu di {0} stage', f_calone: 'mengalibrasi — farm stage lain untuk mengunci yang jauh', f_calnone: 'main beberapa detik untuk kalibrasi' },
+ 'th-TH': { f_level: 'เลเวล', f_stage: 'ด่าน', f_clear: 'เวลา', f_unlock: 'ปลดล็อก', f_surv: 'รอด', f_calfit: 'ปรับเทียบจากเวลาจริงของคุณใน {0} ด่าน', f_calone: 'กำลังปรับเทียบ — ฟาร์มอีกด่านเพื่อล็อกด่านที่ไกล', f_calnone: 'เล่นสักครู่เพื่อปรับเทียบ' },
+ 'vi-VN': { f_level: 'cấp', f_stage: 'MÀN', f_clear: 'THỜI GIAN', f_unlock: 'MỞ KHÓA', f_surv: 'sống sót', f_calfit: 'đã hiệu chỉnh theo thời gian thực của bạn qua {0} màn', f_calone: 'đang hiệu chỉnh — farm thêm một màn để khóa các màn xa', f_calnone: 'chơi vài giây để hiệu chỉnh' },
+ };
+ for (const l in FARM) { UI[l] = Object.assign(UI[l] || {}, FARM[l]); }
+
  function t(locale, key, vars) {
  const tbl = UI[locale] || UI['en-US'];
  let s = (tbl && tbl[key] != null) ? tbl[key] : (UI['en-US'][key] != null ? UI['en-US'][key] : key);
