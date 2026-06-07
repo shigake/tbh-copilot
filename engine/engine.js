@@ -577,14 +577,15 @@
  const ROLE = { Knight: 'tank', Slayer: 'bruiser', Priest: 'support', Ranger: 'dps', Hunter: 'dps', Sorcerer: 'caster' };
  const tankiness = hk => { const h = DB.heroes[String(hk)] || {}; return (h.MaxHp || 0) + (h.Armor || 0) * 10; };
  function partyComp(psd) {
- const inParty = new Set(party(psd)), hsm = heroSaveMap(psd);
+ const fielded = party(psd), solo = fielded.length <= 1;
+ const inParty = new Set(fielded), hsm = heroSaveMap(psd);
  const roles = Object.keys(DB.heroes).map(k => Number(k)).map(hk => ({
  heroKey: hk, cls: DB.heroes[String(hk)].cls, role: ROLE[DB.heroes[String(hk)].cls] || 'dps',
  fielded: inParty.has(hk), tank: tankiness(hk), level: (hsm[hk] || {}).HeroLevel || 0,
  }));
  const hasFront = roles.some(r => r.fielded && (r.role === 'tank' || r.role === 'bruiser' || r.role === 'support'));
  const bench = roles.filter(r => !r.fielded && (r.role === 'tank' || r.role === 'bruiser')).sort((a, b) => b.tank - a.tank);
- return { roles, hasFront, recommendTank: (!hasFront && bench[0]) ? bench[0].heroKey : null };
+ return { roles, hasFront, solo, recommendTank: (!solo && !hasFront && bench[0]) ? bench[0].heroKey : null };
  }
 
  function xpForecast(psd, eps) {
