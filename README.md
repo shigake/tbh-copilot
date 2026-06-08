@@ -42,10 +42,12 @@ nothing ever leaves your machine.
 
 **Dashboard (`dashboard.html`)**
 
-1. Open it in Chrome or Edge (it uses the File System Access API and Web Crypto).
-2. Click Connect save and pick your save once:
-   `%USERPROFILE%\AppData\LocalLow\TesseractStudio\TaskbarHero\SaveFile_Live.es3`
-3. Done. It tracks the save live and updates as you play. Or click "demo" to look around first.
+1. Open it in **any modern browser** (Chrome, Edge, Firefox, etc.).
+2. Click Connect save and pick your save:
+   - **Windows**: `%USERPROFILE%\AppData\LocalLow\TesseractStudio\TaskbarHero\SaveFile_Live.es3`
+   - **Linux (Steam Flatpak)**: `~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/compatdata/3678970/pfx/drive_c/users/steamuser/AppData/LocalLow/TesseractStudio/TaskbarHero/SaveFile_Live.es3`
+   - **Linux (Steam nativo)**: `~/.local/share/Steam/steamapps/compatdata/3678970/pfx/drive_c/users/steamuser/AppData/LocalLow/TesseractStudio/TaskbarHero/SaveFile_Live.es3`
+3. Done. In Chrome/Edge it tracks the save live and updates as you play. Other browsers load the save on demand — click the refresh button to re-read. Or click "demo" to look around first.
 
 Everything lives on this one page: an **Overview** (party roster and what-to-do-now), the **Farm**
 optimizer, the **Runes** tree, a **Gear** comparator, and **History** charts.
@@ -53,7 +55,9 @@ optimizer, the **Runes** tree, a **Gear** comparator, and **History** charts.
 ## How it works
 
 The save (encrypted ES3 / AES-CBC) is decrypted with Web Crypto, and the game data the app needs is bundled
-into `engine/gamedata.js`. There are no network calls at runtime, no backend, and no build step.
+into `engine/gamedata.js`. On browsers with the File System Access API (Chrome/Edge) it watches the save
+live; on other browsers it falls back to a standard file picker. There are no network calls at runtime,
+no backend, and no build step.
 
 One engine drives both surfaces: `engine/engine.js` (UMD, runs in the browser and in Node) computes
 effective DPS/EHP/POWER, leveling, the calibrated farm optimizer, idle, the rune tree and planners, and the
