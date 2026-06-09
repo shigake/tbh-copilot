@@ -1,0 +1,10 @@
+const fs = require('fs'), path = require('path'), E = require('./engine.js');
+const items = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'wiki', 'items.json'), 'utf8'));
+const NAME = {};
+for (const it of items) if (it.name && it.name['en-US']) NAME[it.id] = it.name['en-US'];
+const g = {};
+for (const k in E.DB.items) if (E.DB.items[k].type === 'GEAR' && NAME[k]) g[k] = NAME[k];
+const payload = JSON.stringify(g);
+const out = ';(function(x){x.TBH_GEARNAMES=' + payload + ';if(typeof module!=="undefined"&&module.exports)module.exports=x.TBH_GEARNAMES;})(typeof globalThis!=="undefined"?globalThis:this);\n';
+fs.writeFileSync(path.join(__dirname, 'gearnames.js'), out);
+console.log('regenerated engine/gearnames.js (' + (out.length / 1024).toFixed(0) + ' KB raw) with ' + Object.keys(g).length + ' gear names');
