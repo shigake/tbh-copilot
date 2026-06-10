@@ -19,7 +19,7 @@
  T_WAVE: 5.1, T_FIXED: 1.0, CLEAR_DUTY: 0.65,
  CLEAR_CAP: 90,
  LEVEL_TOLERANCE: 2,
- ALMOST_FREE_SECONDS: 10,
+ ALMOST_FREE_FRACTION: 0.1,
  SAFE_DANGER: 0.6,
  DANGER_TOL: 1.15,
  SKILL_SCALE: 1.0,
@@ -387,7 +387,7 @@
  function runePlan(psd, goldPerSec, stageLevel) {
  stageLevel = stageLevel || refStageLevel(psd);
  const owned = ownedRuneLevels(psd), have = gold(psd);
- const afThreshold = (goldPerSec && goldPerSec > 0) ? goldPerSec * PARAMS.ALMOST_FREE_SECONDS : 500;
+ const afThreshold = have * PARAMS.ALMOST_FREE_FRACTION;
  const cands = [];
  for (const [key, rd] of Object.entries(DB.runes)) {
  const lv = owned[key] || 0;
@@ -433,7 +433,7 @@
  function runeTreeStatus(psd, goldPerSec, stageLevel) {
  stageLevel = stageLevel || refStageLevel(psd);
  const owned = ownedRuneLevels(psd), have = gold(psd);
- const af = (goldPerSec && goldPerSec > 0) ? goldPerSec * PARAMS.ALMOST_FREE_SECONDS : 500;
+ const af = have * PARAMS.ALMOST_FREE_FRACTION;
  const plan = runePlan(psd, goldPerSec, stageLevel);
  const dpsPath = new Set(plan.firstDpsPath ? plan.firstDpsPath.steps.map(s => s.key) : []);
  const nodes = {};
