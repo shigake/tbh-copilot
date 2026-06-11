@@ -33,6 +33,7 @@ nothing ever leaves your machine.
 
 | Area | What it does |
 |---|---|
+| **Coach & timeline** | A single "do this now" card distilling the best next action, plus a timeline of what lands when: each hero's next level, the offline-reward cap, the gold target for your next planned purchase. |
 | **Party roster** | Game sprites, POWER, DPS share, EHP, level and XP/ETA, unspent ability points, equipped gear. Click a hero for a full stat sheet that breaks every stat down by source. |
 | **Farm optimizer** | The wiki Farming Optimizer idea, automated. It calibrates your real clear rate from your measured gold/sec and ranks every cleared stage by gold/hour and exp/hour, with a sortable table (clear time, EXP/HP and Gold/HP density) and level/gold projections at 1/3/5/8 h. It sends you to the dense, fast stage instead of an unclearable floor. |
 | **Idle / return timer** | Offline reward curve, the optimal time to come back (the 8 h cap), and what to park on first. |
@@ -40,6 +41,8 @@ nothing ever leaves your machine.
 | **Gear comparator** | For any slot, the POWER delta of every item: the ones in your bag and the ones you don't have yet (capped to gear you can realistically farm), with live Steam Market prices and listing links, so you can see what to aim for. |
 | **Shop / build planner** | Pick the effects you want (Decorations, Engravings, Inscriptions), see which materials grant them, and build a cart with live Steam Market prices — then open every listing with one click. |
 | **History charts** | POWER and gold tracked over time in your browser (IndexedDB), so you can see how fast you're actually growing. |
+| **Notifications** | Opt-in browser notifications while the tab sits in the background: a hero levels up, a planned purchase becomes affordable, or your offline rewards hit the 8 h cap. |
+| **Install & themes** | Installable as an app (PWA) with offline-cached sprites; dark and light themes. |
 | **16 languages** | UI and game content localized; the stat model is calibrated against the in-game Status panel. |
 
 <div align="center">
