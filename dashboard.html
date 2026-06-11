@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TBH Co-pilot — Task Bar Hero optimizer &amp; save companion</title><meta name="description" content="Free, local optimization companion for the idle-RPG TBH: Task Bar Hero — reads your save in-browser and shows the optimal next move: farm, runes, gear, leveling."><meta property="og:title" content="TBH Co-pilot — Task Bar Hero optimizer"><meta property="og:description" content="Free, local companion for TBH: Task Bar Hero — farm, runes, gear, leveling."><meta property="og:image" content="https://shigake.github.io/tbh-copilot/screenshots/overview.png"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet"><style>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TBH Co-pilot — Task Bar Hero optimizer &amp; save companion</title><meta name="description" content="Free, local optimization companion for the idle-RPG TBH: Task Bar Hero — reads your save in-browser and shows the optimal next move: farm, runes, gear, leveling."><meta property="og:title" content="TBH Co-pilot — Task Bar Hero optimizer"><meta property="og:description" content="Free, local companion for TBH: Task Bar Hero — farm, runes, gear, leveling."><meta property="og:image" content="https://shigake.github.io/tbh-copilot/screenshots/overview.png"><meta name="twitter:card" content="summary_large_image"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0c0f18"><link rel="icon" type="image/png" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet"><style>
 :root{
  --bg:#080a10;--bg2:#0c0f18;--panel:#10141f;--panel2:#0d1119;--line:#1d2536;--line2:#2a3550;
  --ink:#cdd8f2;--mut:#67769b;--dim:#48566f;
@@ -265,7 +265,38 @@ select.lang{font-family:var(--mono);font-size:12px;color:var(--ink);background:#
 .mktnote{display:none;margin:4px 0 8px;font-size:11.5px;color:var(--warn)}.mktnote.show{display:block}
 .chip.drift{color:var(--warn);cursor:help}
 .rsmore{display:block;margin:10px auto 2px}
-.coachcard{display:flex;align-items:center;gap:14px;margin-bottom:14px;padding:14px 18px;border:1px solid var(--gold);border-radius:12px;background:linear-gradient(110deg,#1a1505 0%,var(--panel) 55%);box-shadow:0 0 18px var(--gold-glow)}
+.coachcard{display:flex;align-items:center;gap:14px;margin-bottom:14px;padding:14px 18px;border:1px solid var(--gold);border-radius:12px;background:linear-gradient(110deg,var(--coach-bg,#1a1505) 0%,var(--panel) 55%);box-shadow:0 0 18px var(--gold-glow)}
+body.light{
+ --bg:#eef1f7;--bg2:#e7ebf4;--panel:#ffffff;--panel2:#f3f6fb;--line:#d8dfee;--line2:#bfcadf;
+ --ink:#26304a;--mut:#5d6a8b;--dim:#8d99b6;
+ --gold:#a87900;--gold-glow:#a8790026;--exp:#0a7f93;--good:#1d8c4c;--warn:#c2511a;--bad:#bd3a2e;--pow:#c03279;--violet:#6a4ecf;
+ --coach-bg:#fdf3da;
+ background:radial-gradient(1200px 600px at 78% -10%,#dde5f5 0%,transparent 55%),radial-gradient(900px 500px at 10% 110%,#e2e8f5 0%,transparent 55%),var(--bg);
+}
+body.light::before{background-image:radial-gradient(rgba(60,80,140,.10) 1px,transparent 1px)}
+body.light .logo{color:var(--ink);text-shadow:none}
+body.light .chip,body.light .rfbtn,body.light select.lang,body.light .act .ai,body.light .tab,body.light .catbtn,body.light .rsbtn,body.light .gsl-num,body.light .btn.ghost{background:var(--panel2)}
+body.light .rfbtn:hover{background:#e6ebf6}
+body.light .toast{background:var(--panel);box-shadow:0 14px 34px -12px #93a3c799}
+body.light .strip{background:linear-gradient(180deg,#ffffff,#f2f5fb);box-shadow:inset 0 1px 0 #fff,0 18px 40px -30px #aab8d8}
+body.light .s-gold .num{color:#7a5a00;text-shadow:none}
+body.light .s-stat .v{color:var(--ink)}
+body.light .tab.on{background:linear-gradient(180deg,#33415f,#222c44);border-color:#222c44;color:#f2f5fc;box-shadow:0 6px 18px -10px #22305088}
+body.light .tab.on .bdg{background:#fff}
+body.light .panel,body.light .rcard,body.light .hs-card,body.light .gcard{box-shadow:inset 0 1px 0 #fff}
+body.light .rcard{background:linear-gradient(180deg,#ffffff,#f1f4fa)}
+body.light .hs-card,body.light .gcard{background:linear-gradient(180deg,#ffffff,#eef2f9);box-shadow:0 30px 80px -30px #7e8db066,inset 0 1px 0 #fff}
+body.light .ftable tr.cur td{background:#e9eef8}
+body.light .note{background:var(--panel2)}
+body.light .treewrap{background:radial-gradient(700px 400px at 50% 40%,#dfe6f3,#eef1f7)}
+body.light .gsl input[type=range]{background:linear-gradient(90deg,#e3d9b8,var(--gold))}
+body.light .gsl input[type=range]::-webkit-slider-thumb{border-color:#fff}
+body.light .reco img,body.light .rsico{background:#e7ecf6}
+body.light .tdetail{background:#ffffffee}
+body.light .gate{background:radial-gradient(800px 500px at 50% 30%,#dbe3f2cc,#eef1f7ee)}
+body.light .rsrow.has{border-color:#9ed0b1}
+body.light .rpow b{color:var(--ink);text-shadow:none}
+body.light .tctl button{background:#ffffffcc}
 .coachcard .ai svg{width:26px;height:26px}.coachcard .cbody{min-width:0}
 .coachcard .ck{font-family:var(--px);font-size:11px;letter-spacing:.12em;color:var(--gold);margin-bottom:2px}
 .coachcard .cv{font-size:15.5px;font-weight:700}
@@ -273,7 +304,7 @@ select.lang{font-family:var(--mono);font-size:12px;color:var(--ink);background:#
 .tlrow:last-child{border-bottom:0}
 .tlrow .tlw{min-width:118px;color:var(--exp);font-variant-numeric:tabular-nums}.tlrow .tlw .tld{color:var(--dim);font-size:12px}
 .tlrow .tll{color:var(--ink)}
-</style></head><body><div class="wrap" id="stage"><div class="top"><div class="logo">TBH <b>CO·PILOT</b></div><div class="live"><span class="dot" id="dot"></span><span id="connTxt">—</span></div><button class="rfbtn" id="refreshBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3.5v5h-5"/></svg></button><div class="sp"></div><select class="lang" id="lang"></select><div class="chip" id="ptime">—</div><div class="chip" id="ver">v—</div></div><div class="banner" id="banner"></div><div class="strip"><div class="s-gold"><div class="lbl"><span id="lblGold">GOLD</span></div><div class="num" id="gold">0</div><div class="sub"><b id="ghr">—</b><span id="lblPerH">/h</span> · <span id="curStage">—</span></div></div><div class="s-stat"><div class="k" id="lblPow">POWER</div><div class="v pow" id="partyPow">—</div><div class="sm" id="partyDps">—</div></div></div><div class="tabs" id="tabs"></div><div class="pane" id="pane-overview"><div id="coachCard"></div><div id="ovHeroes"></div><div class="grid2"><div class="panel"><div class="ptitle" id="tDoNow">DO NOW</div><div id="doNow"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tSummary">SUMMARY</div><div id="ovSummary"></div></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--exp)" id="tTimeline">TIMELINE</div><div id="timeline"></div></div></div><div class="pane" id="pane-farm"><div class="grid2"><div class="panel"><div class="ptitle" style="--c:var(--exp)" id="tFarm2">FARM</div><div id="farm"></div></div><div class="panel"><div class="ptitle" style="--c:var(--warn)" id="tIdle2">IDLE</div><div id="idle"></div></div></div><div class="panel" id="fpTable" style="margin-top:14px"><div class="ptitle" style="--c:var(--gold)" id="tStages">STAGES</div><div id="farmtable"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--violet)" id="tPets">PETS</div><div id="pets"></div></div></div><div class="pane" id="pane-runes"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tRunes2">RUNES</div><div class="treewrap"><svg id="tree" preserveAspectRatio="xMidYMid meet"></svg><div class="tctl"><button id="tFit">fit</button><button id="tIn">+</button><button id="tOut">−</button></div><div class="thint" id="thint"></div><div class="tdetail" id="tdetail"></div></div><div class="legend" id="legend"></div><div class="gsl"><span class="gsl-pre" id="gslPre">enable up to</span><input type="range" id="gslRange" min="0" max="1000" value="1000"><input type="number" id="gslNum" class="gsl-num" min="0" placeholder="gold"><span class="gsl-val" id="gslVal">all</span></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tReco">RECOMENDAR</div><div class="catbtns" id="catBtns"></div><div id="recoList"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--good)" id="tCartPlan">SPENDING PLAN</div><div class="note" id="cartHint" style="margin-top:0"></div><div id="goldCart"></div></div></div><div class="pane" id="pane-whatif"><div class="panel"><div class="ptitle" style="--c:#9db4ff" id="tGear">GEAR</div><div class="herobar" id="wfHeroBar"></div><div class="gsl"><span class="gsl-pre" id="gearLvlPre">up to level</span><input type="range" id="gearLvlRange" min="1" max="100" step="1" value="30"><span class="gsl-val" id="gearLvlVal">30</span></div><div class="slotbar" id="wfSlots"></div><div class="mktnote"></div><div id="wfCands"></div></div><div class="grid2" style="margin-top:14px"><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tProg">PROGRESSION</div><div id="gearProg"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tSynth">SYNTHESIS</div><div id="synth"></div></div></div></div><div class="pane" id="pane-research"><div class="panel" id="rsCartPanel"><div class="ptitle" style="--c:var(--gold)" id="tCart">CART</div><div id="rsCart"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tResearch">RESEARCH</div><div class="mktnote"></div><div id="rsTop"></div><div id="rsList"></div></div></div><div class="pane" id="pane-hist"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tHistPow">HISTORY · POWER</div><svg class="spark" id="sparkPow" preserveAspectRatio="none"></svg><div id="histPow" class="sub"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tHistGold">HISTORY · GOLD</div><svg class="spark" id="sparkGold" preserveAspectRatio="none"></svg><div id="histGold" class="sub"></div></div><div class="note" id="histNote">—</div></div><div class="foot" id="foot">100% local</div></div><div class="gate" id="gate"><div class="gcard"><div class="glogo">TBH <b>CO·PILOT</b></div><p id="gateMsg">—</p><button class="btn" id="connectBtn"> CONNECT</button><button class="btn ghost" id="demoBtn">demo</button><div class="gerr" id="gerr"></div><div class="gnote" id="gnote">SaveFile_Live.es3 · AppData\LocalLow\TesseractStudio\TaskbarHero</div><input type="file" id="fileInput" accept=".es3" style="display:none"></div></div><div class="hsheet" id="hsheet"><div class="hs-card" id="hsCard"></div></div><div class="toast" id="toast"></div><script src="engine/gamedata.js?v=45"></script><script src="engine/i18n.js?v=45"></script><script src="engine/engine.js?v=45"></script><script src="engine/demo.js?v=45"></script><script src="engine/gearnames.js?v=45"></script><script src="engine/materialfx.js?v=45"></script><script>
+</style></head><body><div class="wrap" id="stage"><div class="top"><div class="logo">TBH <b>CO·PILOT</b></div><div class="live"><span class="dot" id="dot"></span><span id="connTxt">—</span></div><button class="rfbtn" id="refreshBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3.5v5h-5"/></svg></button><button class="rfbtn" id="notifBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 22a2.3 2.3 0 0 0 2.3-2.3H9.7A2.3 2.3 0 0 0 12 22Zm7-5.5v-1l-1.6-1.6V9.6c0-3-1.8-5.4-4.4-6V3a1 1 0 1 0-2 0v.6c-2.6.6-4.4 3-4.4 6v4.3L5 15.5v1Z"/></svg></button><button class="rfbtn" id="themeBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 4a8 8 0 1 0 8 8c0-.4 0-.8-.1-1.2A6.2 6.2 0 0 1 11.2 4.1c.3-.1.5-.1.8-.1Z"/></svg></button><div class="sp"></div><select class="lang" id="lang"></select><div class="chip" id="ptime">—</div><div class="chip" id="ver">v—</div></div><div class="banner" id="banner"></div><div class="strip"><div class="s-gold"><div class="lbl"><span id="lblGold">GOLD</span></div><div class="num" id="gold">0</div><div class="sub"><b id="ghr">—</b><span id="lblPerH">/h</span> · <span id="curStage">—</span></div></div><div class="s-stat"><div class="k" id="lblPow">POWER</div><div class="v pow" id="partyPow">—</div><div class="sm" id="partyDps">—</div></div></div><div class="tabs" id="tabs"></div><div class="pane" id="pane-overview"><div id="coachCard"></div><div id="ovHeroes"></div><div class="grid2"><div class="panel"><div class="ptitle" id="tDoNow">DO NOW</div><div id="doNow"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tSummary">SUMMARY</div><div id="ovSummary"></div></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--exp)" id="tTimeline">TIMELINE</div><div id="timeline"></div></div></div><div class="pane" id="pane-farm"><div class="grid2"><div class="panel"><div class="ptitle" style="--c:var(--exp)" id="tFarm2">FARM</div><div id="farm"></div></div><div class="panel"><div class="ptitle" style="--c:var(--warn)" id="tIdle2">IDLE</div><div id="idle"></div></div></div><div class="panel" id="fpTable" style="margin-top:14px"><div class="ptitle" style="--c:var(--gold)" id="tStages">STAGES</div><div id="farmtable"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--violet)" id="tPets">PETS</div><div id="pets"></div></div></div><div class="pane" id="pane-runes"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tRunes2">RUNES</div><div class="treewrap"><svg id="tree" preserveAspectRatio="xMidYMid meet"></svg><div class="tctl"><button id="tFit">fit</button><button id="tIn">+</button><button id="tOut">−</button></div><div class="thint" id="thint"></div><div class="tdetail" id="tdetail"></div></div><div class="legend" id="legend"></div><div class="gsl"><span class="gsl-pre" id="gslPre">enable up to</span><input type="range" id="gslRange" min="0" max="1000" value="1000"><input type="number" id="gslNum" class="gsl-num" min="0" placeholder="gold"><span class="gsl-val" id="gslVal">all</span></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tReco">RECOMENDAR</div><div class="catbtns" id="catBtns"></div><div id="recoList"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--good)" id="tCartPlan">SPENDING PLAN</div><div class="note" id="cartHint" style="margin-top:0"></div><div id="goldCart"></div></div></div><div class="pane" id="pane-whatif"><div class="panel"><div class="ptitle" style="--c:#9db4ff" id="tGear">GEAR</div><div class="herobar" id="wfHeroBar"></div><div class="gsl"><span class="gsl-pre" id="gearLvlPre">up to level</span><input type="range" id="gearLvlRange" min="1" max="100" step="1" value="30"><span class="gsl-val" id="gearLvlVal">30</span></div><div class="slotbar" id="wfSlots"></div><div class="mktnote"></div><div id="wfCands"></div></div><div class="grid2" style="margin-top:14px"><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tProg">PROGRESSION</div><div id="gearProg"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tSynth">SYNTHESIS</div><div id="synth"></div></div></div></div><div class="pane" id="pane-research"><div class="panel" id="rsCartPanel"><div class="ptitle" style="--c:var(--gold)" id="tCart">CART</div><div id="rsCart"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tResearch">RESEARCH</div><div class="mktnote"></div><div id="rsTop"></div><div id="rsList"></div></div></div><div class="pane" id="pane-hist"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tHistPow">HISTORY · POWER</div><svg class="spark" id="sparkPow" preserveAspectRatio="none"></svg><div id="histPow" class="sub"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tHistGold">HISTORY · GOLD</div><svg class="spark" id="sparkGold" preserveAspectRatio="none"></svg><div id="histGold" class="sub"></div></div><div class="note" id="histNote">—</div></div><div class="foot" id="foot">100% local</div></div><div class="gate" id="gate"><div class="gcard"><div class="glogo">TBH <b>CO·PILOT</b></div><p id="gateMsg">—</p><button class="btn" id="connectBtn"> CONNECT</button><button class="btn ghost" id="demoBtn">demo</button><div class="gerr" id="gerr"></div><div class="gnote" id="gnote">SaveFile_Live.es3 · AppData\LocalLow\TesseractStudio\TaskbarHero</div><input type="file" id="fileInput" accept=".es3" style="display:none"></div></div><div class="hsheet" id="hsheet"><div class="hs-card" id="hsCard"></div></div><div class="toast" id="toast"></div><script src="engine/gamedata.js?v=46"></script><script src="engine/i18n.js?v=46"></script><script src="engine/engine.js?v=46"></script><script src="engine/demo.js?v=46"></script><script src="engine/gearnames.js?v=46"></script><script src="engine/materialfx.js?v=46"></script><script>
 const PASSWORD='emuMqG3bLYJ938ZDCfieWJ';
 const $=id=>document.getElementById(id);
 const DB=window.TBH_DB,I18N=window.TBH_I18N,ENG=window.TBHEngine;
@@ -502,6 +533,7 @@ function render(rec,meta){
  $('partyDps').textContent=t('dps')+' '+fmtK(rec.meta.partyDPS);
  var _tl=$('tTimeline');if(_tl)_tl.textContent=t('tl_title');
  var _tt=[['tPets','pets_title'],['tProg','prog_title'],['tSynth','synth_title'],['tCartPlan','cart_title']];for(const[id,k]of _tt){const e=$(id);if(e)e.textContent=t(k);}
+ syncNotifBtn();
  renderTabs(rec);renderCoach(rec);renderOvHeroes(rec);renderDoNow(rec);renderSummary(rec,meta);renderTimeline(rec);renderFarm(rec);renderIdle(rec);renderPets(rec);renderGearProg(rec);renderSynth(rec);renderGoldCart(rec);renderRunes(rec);renderLab();
 }
 function renderOvHeroes(rec){
@@ -850,6 +882,33 @@ async function idbSet(k,v){const db=await idb();return new Promise((res,rej)=>{c
 async function idbGet(k){const db=await idb();return new Promise((res,rej)=>{const x=db.transaction('kv','readonly'),q=x.objectStore('kv').get(k);q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error);});}
 const CLEAR_SEC_MIN=5,CLEAR_SEC_MAX=900;
 let handle=null,lastMtime=-1,timer=null,pollMs=2000,lastFileTime=0,toastTimer=null;
+
+// ── Web Notifications: only fire while the tab is in the background ─────────
+const notifOn=()=>{try{return localStorage.getItem('tbh_notif')==='1'&&typeof Notification!=='undefined'&&Notification.permission==='granted';}catch(e){return false;}};
+function notify(body){if(!notifOn()||!document.hidden)return;try{new Notification('TBH Co-pilot',{body,icon:'icon-192.png'});}catch(e){}}
+function syncNotifBtn(){const b=$('notifBtn');if(!b)return;b.classList.toggle('on',notifOn());b.title=t('ntf_btn');}
+async function toggleNotif(){
+ if(typeof Notification==='undefined'){showToast(t('ntf_denied'));return;}
+ if(notifOn()){localStorage.setItem('tbh_notif','0');syncNotifBtn();showToast(t('ntf_off'));return;}
+ let p=Notification.permission;
+ if(p==='default')p=await Notification.requestPermission();
+ if(p!=='granted'){showToast(t('ntf_denied'));return;}
+ localStorage.setItem('tbh_notif','1');syncNotifBtn();showToast(' '+t('ntf_on'));
+}
+let prevLevels=null,goldNotified=new Set(),idleNotifMtime=0;
+function checkNotifications(rec){
+ if(demoMode)return;
+ const lv=Object.fromEntries(rec.level.map(l=>[l.heroKey,l.level]));
+ if(prevLevels)for(const k in lv)if(prevLevels[k]&&lv[k]>prevLevels[k])notify(t('ntf_lvl',heroName(+k),lv[k]));
+ prevLevels=lv;
+ const gp=rec.goldPlan;if(gp&&gp.cart)for(const c of gp.cart){if(c.affordable&&!goldNotified.has(c.key)){
+ // only announce items that were a target before (seen unaffordable once)
+ if(goldNotified.has('w'+c.key)){goldNotified.add(c.key);notify(t('ntf_gold',nm(c.name),fmtK(c.cost)));}
+ }else if(!c.affordable)goldNotified.add('w'+c.key);}
+}
+// game closed for 8h+ = offline rewards capped; check once a minute, alert once per save-write
+setInterval(()=>{if(demoMode||!lastFileTime||!notifOn())return;
+ if(Date.now()-lastFileTime>=28800*1000&&idleNotifMtime!==lastFileTime){idleNotifMtime=lastFileTime;notify(' '+t('ntf_idle'));}},60000);
 function showToast(html){const el=$('toast');if(!el)return;el.innerHTML=html;el.classList.add('show');if(toastTimer)clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),4200);}
 function refreshToast(){let tm='—';try{tm=new Date(lastFileTime).toLocaleTimeString(LOC,{hour:'2-digit',minute:'2-digit',second:'2-digit'});}catch(e){}showToast(`<b>${t('refreshed')}</b> · ${t('refresh_savedat',tm)}<div class="t2">${t('refresh_nosync')}</div>`);}
 function setLive(on){$('dot').classList.toggle('on',on);$('connTxt').textContent=on?t('live'):t('reconnecting');}
@@ -862,7 +921,7 @@ async function processSaveBuffer(buffer){
  if(cs!=null){const sk=String(c.currentStageKey),st=ENG.DB.stages[sk];if(st&&cs>CLEAR_SEC_MIN&&cs<CLEAR_SEC_MAX){clearStore[sk]={hp:st.totalHP,waves:st.waves,clearSec:cs};try{localStorage.setItem('tbh_clearmodel',JSON.stringify(clearStore))}catch(e){}}}
  lastGps=gps;lastEps=eps;lastCs=cs;lastMeta={gold:ENG.gold(psd),goldPerHour:gps!=null?Math.round(gps*3600):null,playTimeH:+(c.playTime/3600).toFixed(1),version:c.version};
  const rec=ENG.recommend(psd,{goldPerSec:gps!=null?gps:undefined,expPerSec:eps!=null?eps:undefined,clearSec:manualOn()?undefined:(cs!=null?cs:undefined),clearSamples:calSamples(),elapsedSec:0});rec.__pt=Math.round(c.playTime||0);histPut(rec);
- render(rec,lastMeta);setLive(true);
+ render(rec,lastMeta);setLive(true);checkNotifications(rec);
 }
 async function readOnce(){try{
  const file=await handle.getFile();lastFileTime=file.lastModified;if(file.lastModified===lastMtime)return false;lastMtime=file.lastModified;
@@ -880,6 +939,10 @@ function openGate(mode){$('gate').classList.remove('hide');$('stage').classList.
 
 function showDemo(){const d=window.TBH_DEMO;if(!d)return;demoMode=true;PSD=null;$('refreshBtn').classList.remove('on');$('gate').classList.add('hide');$('stage').classList.remove('locked');$('connTxt').textContent=t('demo_mode');render(d.rec,{gold:d.meta.gold,goldPerHour:d.meta.goldPerHour,playTimeH:d.meta.playTimeH,version:d.meta.version});}
 $('demoBtn').onclick=showDemo;
+$('notifBtn').onclick=toggleNotif;syncNotifBtn();
+function applyTheme(){const light=localStorage.getItem('tbh_theme')==='light';document.body.classList.toggle('light',light);const m=document.querySelector('meta[name=theme-color]');if(m)m.content=light?'#eef1f7':'#0c0f18';const b=$('themeBtn');if(b){b.title=t('theme_btn');b.classList.toggle('on',light);}}
+$('themeBtn').onclick=()=>{localStorage.setItem('tbh_theme',document.body.classList.contains('light')?'dark':'light');applyTheme();};
+applyTheme();
 $('fileInput').onchange=handleFilePick;
 $('refreshBtn').onclick=forceRefresh;
 $('gslRange').oninput=function(){goldThrManual=true;goldThr=goldFromPos(+this.value);syncGoldSlider();if(curTab==='runes')applyTreeFilters();};
@@ -891,4 +954,5 @@ sel.onchange=()=>{LOC=sel.value;localStorage.setItem('tbh_loc',LOC);document.doc
 document.documentElement.lang=LOC;
 if(window.TBH_DEMO)render(window.TBH_DEMO.rec,{gold:window.TBH_DEMO.meta.gold,goldPerHour:window.TBH_DEMO.meta.goldPerHour,playTimeH:window.TBH_DEMO.meta.playTimeH,version:window.TBH_DEMO.meta.version});
 (async()=>{try{const h=await idbGet('h');if(h){handle=h;openGate('reconnect');}else openGate('pick');}catch{openGate('pick');}})();
+if('serviceWorker'in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname)))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script></body></html>

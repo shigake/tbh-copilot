@@ -553,6 +553,30 @@
  };
  for (const l in PANELS) { UI[l] = Object.assign(UI[l] || {}, PANELS[l]); }
 
+ // Web Notifications (bell toggle in the top bar)
+ const NTF = {
+ 'en-US': { ntf_btn: 'notify me: level ups, gold targets, idle cap', ntf_on: 'notifications on', ntf_off: 'notifications off', ntf_denied: 'notifications blocked by the browser', ntf_lvl: '{0} reached level {1}', ntf_gold: 'you can afford {0} now ({1} gold)', ntf_idle: 'offline rewards capped (8h) — collect them' },
+ 'pt-BR': { ntf_btn: 'me avise: level up, metas de gold, cap de idle', ntf_on: 'notificações ligadas', ntf_off: 'notificações desligadas', ntf_denied: 'notificações bloqueadas pelo navegador', ntf_lvl: '{0} chegou ao nível {1}', ntf_gold: 'já dá pra comprar {0} ({1} de gold)', ntf_idle: 'recompensa offline no cap (8h) — vai coletar' },
+ 'es-ES': { ntf_btn: 'avísame: subidas de nivel, metas de oro, tope de idle', ntf_on: 'notificaciones activadas', ntf_off: 'notificaciones desactivadas', ntf_denied: 'notificaciones bloqueadas por el navegador', ntf_lvl: '{0} alcanzó el nivel {1}', ntf_gold: 'ya puedes comprar {0} ({1} de oro)', ntf_idle: 'recompensa offline al tope (8h) — ve a recogerla' },
+ 'fr-FR': { ntf_btn: "prévenez-moi : niveaux, objectifs d'or, plafond idle", ntf_on: 'notifications activées', ntf_off: 'notifications désactivées', ntf_denied: 'notifications bloquées par le navigateur', ntf_lvl: '{0} a atteint le niveau {1}', ntf_gold: 'vous pouvez acheter {0} ({1} or)', ntf_idle: 'récompense hors ligne au plafond (8h) — allez la récupérer' },
+ 'de-DE': { ntf_btn: 'benachrichtige mich: Level-ups, Goldziele, Idle-Limit', ntf_on: 'Benachrichtigungen an', ntf_off: 'Benachrichtigungen aus', ntf_denied: 'Benachrichtigungen vom Browser blockiert', ntf_lvl: '{0} hat Level {1} erreicht', ntf_gold: 'du kannst dir {0} jetzt leisten ({1} Gold)', ntf_idle: 'Offline-Belohnung am Limit (8h) — abholen' },
+ 'ja-JP': { ntf_btn: '通知: レベルアップ・ゴールド目標・放置上限', ntf_on: '通知オン', ntf_off: '通知オフ', ntf_denied: 'ブラウザが通知をブロックしています', ntf_lvl: '{0}がレベル{1}に到達', ntf_gold: '{0}が買えるようになりました（{1}ゴールド）', ntf_idle: 'オフライン報酬が上限です (8h) — 回収しましょう' },
+ 'ko-KR': { ntf_btn: '알림: 레벨업, 골드 목표, 방치 한도', ntf_on: '알림 켜짐', ntf_off: '알림 꺼짐', ntf_denied: '브라우저가 알림을 차단했습니다', ntf_lvl: '{0}이(가) 레벨 {1} 달성', ntf_gold: '이제 {0}을(를) 살 수 있습니다 ({1} 골드)', ntf_idle: '오프라인 보상이 한도에 도달 (8h) — 수령하세요' },
+ 'zh-Hans': { ntf_btn: '通知我：升级、金币目标、挂机上限', ntf_on: '通知已开启', ntf_off: '通知已关闭', ntf_denied: '浏览器已阻止通知', ntf_lvl: '{0} 达到等级 {1}', ntf_gold: '现在买得起 {0} 了（{1} 金币）', ntf_idle: '离线奖励已达上限 (8h) — 去领取吧' },
+ 'zh-Hant': { ntf_btn: '通知我：升級、金幣目標、掛機上限', ntf_on: '通知已開啟', ntf_off: '通知已關閉', ntf_denied: '瀏覽器已封鎖通知', ntf_lvl: '{0} 達到等級 {1}', ntf_gold: '現在買得起 {0} 了（{1} 金幣）', ntf_idle: '離線獎勵已達上限 (8h) — 去領取吧' },
+ 'ru-RU': { ntf_btn: 'уведомлять: уровни, цели по золоту, лимит простоя', ntf_on: 'уведомления включены', ntf_off: 'уведомления выключены', ntf_denied: 'браузер блокирует уведомления', ntf_lvl: '{0} достиг уровня {1}', ntf_gold: 'теперь хватает на {0} ({1} золота)', ntf_idle: 'офлайн-награда на лимите (8ч) — заберите её' },
+ };
+ for (const l in NTF) { UI[l] = Object.assign(UI[l] || {}, NTF[l]); }
+
+ const THEME = {
+ 'en-US': { theme_btn: 'light / dark theme' }, 'pt-BR': { theme_btn: 'tema claro / escuro' },
+ 'es-ES': { theme_btn: 'tema claro / oscuro' }, 'fr-FR': { theme_btn: 'thème clair / sombre' },
+ 'de-DE': { theme_btn: 'helles / dunkles Design' }, 'ja-JP': { theme_btn: 'ライト / ダークテーマ' },
+ 'ko-KR': { theme_btn: '라이트 / 다크 테마' }, 'zh-Hans': { theme_btn: '浅色 / 深色主题' },
+ 'zh-Hant': { theme_btn: '淺色 / 深色主題' }, 'ru-RU': { theme_btn: 'светлая / тёмная тема' },
+ };
+ for (const l in THEME) { UI[l] = Object.assign(UI[l] || {}, THEME[l]); }
+
  function t(locale, key, vars) {
  const tbl = UI[locale] || UI['en-US'];
  let s = (tbl && tbl[key] != null) ? tbl[key] : (UI['en-US'][key] != null ? UI['en-US'][key] : key);
