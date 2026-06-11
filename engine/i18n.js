@@ -523,6 +523,21 @@
  };
  for (const l in STATS) { UI[l] = Object.assign(UI[l] || {}, STATS[l]); }
 
+ // Coach card, timeline and summary extras (Overview)
+ const COACH = {
+ 'en-US': { coach_title: 'DO THIS NOW', tl_title: 'TIMELINE', tl_lvlup: '{0} → level {1}', tl_goldfor: 'gold for {0}', tl_idlecap: 'offline reward cap (8h)', sum_alch: 'gold sitting in loose gear' },
+ 'pt-BR': { coach_title: 'FAÇA ISSO AGORA', tl_title: 'LINHA DO TEMPO', tl_lvlup: '{0} → nível {1}', tl_goldfor: 'gold para {0}', tl_idlecap: 'cap da recompensa offline (8h)', sum_alch: 'gold parado em itens soltos' },
+ 'es-ES': { coach_title: 'HAZ ESTO AHORA', tl_title: 'CRONOLOGÍA', tl_lvlup: '{0} → nivel {1}', tl_goldfor: 'oro para {0}', tl_idlecap: 'tope de recompensa offline (8h)', sum_alch: 'oro parado en objetos sueltos' },
+ 'fr-FR': { coach_title: 'FAITES ÇA MAINTENANT', tl_title: 'CHRONOLOGIE', tl_lvlup: '{0} → niveau {1}', tl_goldfor: 'or pour {0}', tl_idlecap: 'plafond de récompense hors ligne (8h)', sum_alch: "or dormant dans l'équipement en vrac" },
+ 'de-DE': { coach_title: 'MACH DAS JETZT', tl_title: 'ZEITLEISTE', tl_lvlup: '{0} → Level {1}', tl_goldfor: 'Gold für {0}', tl_idlecap: 'Offline-Belohnungslimit (8h)', sum_alch: 'Gold in losen Items gebunden' },
+ 'ja-JP': { coach_title: '今これをやる', tl_title: 'タイムライン', tl_lvlup: '{0} → レベル{1}', tl_goldfor: '{0}のゴールド', tl_idlecap: 'オフライン報酬上限 (8h)', sum_alch: '未売却アイテムのゴールド' },
+ 'ko-KR': { coach_title: '지금 할 일', tl_title: '타임라인', tl_lvlup: '{0} → 레벨 {1}', tl_goldfor: '{0} 구매 골드', tl_idlecap: '오프라인 보상 한도 (8h)', sum_alch: '미판매 아이템에 묶인 골드' },
+ 'zh-Hans': { coach_title: '现在就做', tl_title: '时间线', tl_lvlup: '{0} → 等级 {1}', tl_goldfor: '{0} 所需金币', tl_idlecap: '离线奖励上限 (8h)', sum_alch: '闲置物品中的金币' },
+ 'zh-Hant': { coach_title: '現在就做', tl_title: '時間線', tl_lvlup: '{0} → 等級 {1}', tl_goldfor: '{0} 所需金幣', tl_idlecap: '離線獎勵上限 (8h)', sum_alch: '閒置物品中的金幣' },
+ 'ru-RU': { coach_title: 'СДЕЛАЙ ЭТО СЕЙЧАС', tl_title: 'ХРОНОЛОГИЯ', tl_lvlup: '{0} → уровень {1}', tl_goldfor: 'золото на {0}', tl_idlecap: 'лимит офлайн-награды (8ч)', sum_alch: 'золото в непроданных вещах' },
+ };
+ for (const l in COACH) { UI[l] = Object.assign(UI[l] || {}, COACH[l]); }
+
  function t(locale, key, vars) {
  const tbl = UI[locale] || UI['en-US'];
  let s = (tbl && tbl[key] != null) ? tbl[key] : (UI['en-US'][key] != null ? UI['en-US'][key] : key);
