@@ -477,16 +477,16 @@
 
  // Steam Market availability + file-open errors (price-failure UX)
  const MKT = {
- 'en-US': { mkt_down: 'Steam Market unreachable (CORS proxies failing) — prices unavailable right now', mkt_nolist: 'not listed on the Steam Market', connect_fail: 'could not open the save: {0}' },
- 'pt-BR': { mkt_down: 'Steam Market inacessível (proxies CORS falhando) — preços indisponíveis agora', mkt_nolist: 'sem anúncio no Steam Market', connect_fail: 'não consegui abrir o save: {0}' },
- 'es-ES': { mkt_down: 'Steam Market inaccesible (fallan los proxies CORS) — precios no disponibles ahora', mkt_nolist: 'sin anuncios en el Steam Market', connect_fail: 'no pude abrir la partida: {0}' },
- 'fr-FR': { mkt_down: "Steam Market injoignable (proxys CORS en panne) — prix indisponibles pour le moment", mkt_nolist: "pas d'annonce sur le Steam Market", connect_fail: "impossible d'ouvrir la sauvegarde : {0}" },
- 'de-DE': { mkt_down: 'Steam Market nicht erreichbar (CORS-Proxys ausgefallen) — Preise derzeit nicht verfügbar', mkt_nolist: 'kein Angebot auf dem Steam Market', connect_fail: 'Spielstand konnte nicht geöffnet werden: {0}' },
- 'ja-JP': { mkt_down: 'Steamマーケットに接続できません（CORSプロキシ障害）— 現在価格を取得できません', mkt_nolist: 'Steamマーケットに出品なし', connect_fail: 'セーブを開けません: {0}' },
- 'ko-KR': { mkt_down: 'Steam 장터에 연결할 수 없음 (CORS 프록시 오류) — 현재 가격을 가져올 수 없습니다', mkt_nolist: 'Steam 장터에 매물 없음', connect_fail: '세이브를 열 수 없음: {0}' },
- 'zh-Hans': { mkt_down: '无法连接 Steam 市场（CORS 代理故障）— 暂时无法获取价格', mkt_nolist: 'Steam 市场无在售', connect_fail: '无法打开存档：{0}' },
- 'zh-Hant': { mkt_down: '無法連接 Steam 市場（CORS 代理故障）— 暫時無法取得價格', mkt_nolist: 'Steam 市場無在售', connect_fail: '無法打開存檔：{0}' },
- 'ru-RU': { mkt_down: 'Steam Market недоступен (CORS-прокси не отвечают) — цены сейчас недоступны', mkt_nolist: 'нет лотов на Steam Market', connect_fail: 'не удалось открыть сохранение: {0}' },
+ 'en-US': { mkt_down: 'Steam Market unreachable (CORS proxies failing) — prices unavailable right now', mkt_nolist: 'not listed on the Steam Market', connect_fail: 'could not open the save: {0}', ver_drift: 'your game is v{0} but the bundled game data is v{1} — numbers may drift until the data is refreshed' },
+ 'pt-BR': { mkt_down: 'Steam Market inacessível (proxies CORS falhando) — preços indisponíveis agora', mkt_nolist: 'sem anúncio no Steam Market', connect_fail: 'não consegui abrir o save: {0}', ver_drift: 'seu jogo é v{0} mas os dados empacotados são v{1} — os números podem divergir até atualizar os dados' },
+ 'es-ES': { mkt_down: 'Steam Market inaccesible (fallan los proxies CORS) — precios no disponibles ahora', mkt_nolist: 'sin anuncios en el Steam Market', connect_fail: 'no pude abrir la partida: {0}', ver_drift: 'tu juego es v{0} pero los datos incluidos son v{1} — los números pueden divergir hasta actualizar los datos' },
+ 'fr-FR': { mkt_down: "Steam Market injoignable (proxys CORS en panne) — prix indisponibles pour le moment", mkt_nolist: "pas d'annonce sur le Steam Market", connect_fail: "impossible d'ouvrir la sauvegarde : {0}", ver_drift: "votre jeu est en v{0} mais les données embarquées en v{1} — les chiffres peuvent dériver jusqu'à la mise à jour des données" },
+ 'de-DE': { mkt_down: 'Steam Market nicht erreichbar (CORS-Proxys ausgefallen) — Preise derzeit nicht verfügbar', mkt_nolist: 'kein Angebot auf dem Steam Market', connect_fail: 'Spielstand konnte nicht geöffnet werden: {0}', ver_drift: 'dein Spiel ist v{0}, die gebündelten Daten sind v{1} — Zahlen können abweichen, bis die Daten aktualisiert sind' },
+ 'ja-JP': { mkt_down: 'Steamマーケットに接続できません（CORSプロキシ障害）— 現在価格を取得できません', mkt_nolist: 'Steamマーケットに出品なし', connect_fail: 'セーブを開けません: {0}', ver_drift: 'ゲームは v{0} ですが同梱データは v{1} です — データ更新まで数値がずれる可能性があります' },
+ 'ko-KR': { mkt_down: 'Steam 장터에 연결할 수 없음 (CORS 프록시 오류) — 현재 가격을 가져올 수 없습니다', mkt_nolist: 'Steam 장터에 매물 없음', connect_fail: '세이브를 열 수 없음: {0}', ver_drift: '게임은 v{0}인데 번들 데이터는 v{1}입니다 — 데이터 갱신 전까지 수치가 어긋날 수 있습니다' },
+ 'zh-Hans': { mkt_down: '无法连接 Steam 市场（CORS 代理故障）— 暂时无法获取价格', mkt_nolist: 'Steam 市场无在售', connect_fail: '无法打开存档：{0}', ver_drift: '你的游戏是 v{0}，但内置数据是 v{1} — 数据刷新前数值可能有偏差' },
+ 'zh-Hant': { mkt_down: '無法連接 Steam 市場（CORS 代理故障）— 暫時無法取得價格', mkt_nolist: 'Steam 市場無在售', connect_fail: '無法打開存檔：{0}', ver_drift: '你的遊戲是 v{0}，但內建資料是 v{1} — 資料更新前數值可能有偏差' },
+ 'ru-RU': { mkt_down: 'Steam Market недоступен (CORS-прокси не отвечают) — цены сейчас недоступны', mkt_nolist: 'нет лотов на Steam Market', connect_fail: 'не удалось открыть сохранение: {0}', ver_drift: 'игра v{0}, а встроенные данные v{1} — цифры могут расходиться до обновления данных' },
  };
  for (const l in MKT) { UI[l] = Object.assign(UI[l] || {}, MKT[l]); }
 
