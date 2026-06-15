@@ -50,6 +50,8 @@ nothing ever leaves your machine.
 <div align="center">
 <img src="screenshots/runes.png" width="49%" alt="Rune tree with recommend by category">
 <img src="screenshots/farm.png" width="49%" alt="Farm optimizer table and idle timer">
+<br>
+<img src="screenshots/sell.png" width="75%" alt="Sell advisor: tradeable inventory ranked by value per 8 h listing slot, with the four slots tracked">
 </div>
 
 ## Quick start
