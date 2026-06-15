@@ -41,6 +41,7 @@ nothing ever leaves your machine.
 | **Gear comparator** | For any slot, the POWER delta of every item: the ones in your bag and the ones you don't have yet (capped to gear you can realistically farm), with live Steam Market prices, listing links, and **where each item drops**. ★ an item and the Farm tab gains a wishlist view that ranks stages by where your favorites actually drop. |
 | **Shop / build planner** | Pick the effects you want (Decorations, Engravings, Inscriptions), see which materials grant them, and build a cart with live Steam Market prices — then open every listing with one click. |
 | **History charts** | POWER and gold tracked over time in your browser (IndexedDB), so you can see how fast you're actually growing. |
+| **Chest timers** | Auto-open countdowns for normal / stage-boss / act-boss chests, pre-filled with *your* real cooldowns (base minus your reduction runes) and capacity, read straight from the save. Repeating timer with a synthesized audio alert and a background notification each cycle. |
 | **Notifications** | Opt-in browser notifications while the tab sits in the background: a hero levels up, a planned purchase becomes affordable, or your offline rewards hit the 8 h cap. |
 | **Install & themes** | Installable as an app (PWA) with offline-cached sprites; dark and light themes. |
 | **16 languages** | UI and game content localized; the stat model is calibrated against the in-game Status panel. |

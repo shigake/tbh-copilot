@@ -154,6 +154,15 @@ const ffm = E.favFarm(psd, [bowKey]);
 ok(Array.isArray(ffm), 'favFarm computes');
 if (ffm.length) ok(ffm[0].favs.length >= 1 && ffm[0].score > 0, 'favFarm top stage carries the favorite');
 
+console.log('\n-- chest timers --');
+const ch = E.chestInfo(psd);
+ok(ch.normal && ch.boss && ch.act, 'chestInfo returns all three chest types');
+ok(ch.normal.unlocked && ch.normal.base === 300, 'normal chest base auto-open is 300s when unlocked');
+ok(ch.boss.base === 600 && ch.act.base === 60, 'boss/act chest base cooldowns read from the save');
+ok(ch.normal.cooldown === ch.normal.base - ch.normal.reduce, 'effective cooldown = base minus rune reduction');
+ok(ch.normal.cooldown <= ch.normal.base && ch.normal.cooldown >= 1, 'effective cooldown is sane');
+ok(ch.normal.capacity >= 0 && Number.isFinite(ch.normal.capacity), 'chest capacity from runes is a number');
+
 console.log('\n-- power delta (gear) --');
 const rangerSave = psd.heroSaveDatas.find(h => h.heroKey === 201);
 const d = E.powerDelta(rangerSave, psd, 0, 314141);

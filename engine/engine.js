@@ -690,6 +690,27 @@
  return rows;
  }
 
+ // ── chest auto-open timers ───────────────────────────────────────────────
+ // The game auto-opens one chest of each type every N seconds. The Unlock rune's
+ // value IS that base cooldown (Normal 300s, Stage-boss 600s, Act-boss 60s) and is 0
+ // when the player hasn't unlocked auto-open; the Reduce runes shave seconds off it.
+ // Capacity = how many chests the player can stockpile before the backpack overflows
+ // and new drops stop. All of it comes straight from the save's rune contributions.
+ const CHEST_BASE = { normal: 300, boss: 600, act: 60 };
+ function chestInfo(psd) {
+ const rc = runeContrib(psd);
+ const one = (kind, unlockKey, reduceKey, capKey) => {
+ const unlockVal = rc[unlockKey] || 0, unlocked = unlockVal > 0;
+ const base = unlockVal || CHEST_BASE[kind], reduce = rc[reduceKey] || 0;
+ return { kind, unlocked, base, reduce, cooldown: Math.max(1, base - reduce), capacity: rc[capKey] || 0 };
+ };
+ return {
+ normal: one('normal', 'UnlockAutoOpenNormalChest', 'ReduceAutoOpenNormalChestTime', 'MaxAmountNormalChest'),
+ boss: one('boss', 'UnlockAutoOpenStageBossChest', 'ReduceAutoOpenStageBossChestTime', 'MaxAmountStageBossChest'),
+ act: one('act', 'UnlockAutoOpenActBossChest', 'ReduceAutoOpenActBossChestTime', 'MaxAmountActBossChest'),
+ };
+ }
+
  function runeROI(psd, goldPerSec, stageLevel) {
  const plan = runePlan(psd, goldPerSec, stageLevel);
  return plan.combat.filter(c => c.dPower > 0).map(c => ({ key: c.key, name: c.name, st: c.st, value: c.value, cost: c.cost, dPower: c.dPower, perGold: c.dPower / c.cost, affordable: c.affordable })).sort((a, b) => b.perGold - a.perGold);
@@ -814,7 +835,7 @@
  collect, aggregate, dps, ehp, power, mitigation,
  runeContrib, gold, party, heroSaveMap, gearStatLines, expToNext, partyExp, totalClears, cumXP, ticksToUnix, stageUnlocked,
  bestParkStage, refStageLevel, refDamage, projectLevel, fitFactor,
- bandOfLevel, dropBands, dropStages, favFarm,
+ bandOfLevel, dropBands, dropStages, favFarm, chestInfo,
  OFFLINE_RUNES: { gold: OFFLINE_GOLD_RUNES, exp: OFFLINE_EXP_RUNES, unlock: OFFLINE_UNLOCK_RUNE } };
  g.TBHEngine = API;
  if (typeof module !== 'undefined' && module.exports) module.exports = API;
