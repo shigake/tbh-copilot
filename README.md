@@ -15,7 +15,7 @@ farm, when to come back, when you'll level, which runes and gear to get, and how
 
 100% local &nbsp;&middot;&nbsp; free, no ads, no tracking &nbsp;&middot;&nbsp; no server, no build step &nbsp;&middot;&nbsp; 16 languages
 
-<img src="screenshots/overview.png" width="820" alt="Overview: party roster, POWER, next actions">
+<img src="screenshots/overview.png" width="860" alt="Overview: a coach card with the single best next move, the party roster with POWER and DPS, and a what-to-do-now list">
 
 </div>
 
@@ -48,10 +48,11 @@ nothing ever leaves your machine.
 | **16 languages** | UI and game content localized; the stat model is calibrated against the in-game Status panel. |
 
 <div align="center">
-<img src="screenshots/runes.png" width="49%" alt="Rune tree with recommend by category">
-<img src="screenshots/farm.png" width="49%" alt="Farm optimizer table and idle timer">
+<img src="screenshots/runes.png" width="49%" alt="Interactive rune tree colored by category, with the cheapest buyable nodes recommended">
+<img src="screenshots/farm.png" width="49%" alt="Farm optimizer: best stage for gold and exp, idle return timer, and a sortable stage table with projections">
 <br>
-<img src="screenshots/sell.png" width="75%" alt="Sell advisor: tradeable inventory ranked by value per 8 h listing slot, with the four slots tracked">
+<img src="screenshots/sell.png" width="49%" alt="Sell advisor: inventory ranked by value per 8 h listing slot, with the four market slots tracked">
+<img src="screenshots/chests.png" width="49%" alt="Chest auto-open timers pre-filled with your real cooldowns and capacity from the save">
 </div>
 
 ## Quick start
