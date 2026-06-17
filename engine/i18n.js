@@ -672,6 +672,21 @@
  };
  for (const l in ITEMS) { UI[l] = Object.assign(UI[l] || {}, ITEMS[l]); }
 
+ // Items tab — list vs. grid (faithful stash layout) view toggle + slot number
+ const ITEMSGRID = {
+ 'en-US': { it_list: 'list', it_grid: 'stash grid', it_slot: 'slot {0}', it_gridof: '{0} · {1}/{2} slots filled', it_gridhint: 'your stash in slot order — filters highlight matches; the in-game column count isn’t in the data, but slot numbers are exact' },
+ 'pt-BR': { it_list: 'lista', it_grid: 'grade do stash', it_slot: 'slot {0}', it_gridof: '{0} · {1}/{2} slots ocupados', it_gridhint: 'seu stash na ordem dos slots — os filtros destacam o que bate; a contagem de colunas do jogo não está nos dados, mas os números de slot são exatos' },
+ 'es-ES': { it_list: 'lista', it_grid: 'cuadrícula', it_slot: 'ranura {0}', it_gridof: '{0} · {1}/{2} ranuras llenas', it_gridhint: 'tu alijo en orden de ranura — los filtros resaltan coincidencias; el nº de columnas del juego no está en los datos, pero los números de ranura son exactos' },
+ 'fr-FR': { it_list: 'liste', it_grid: 'grille', it_slot: 'emplacement {0}', it_gridof: '{0} · {1}/{2} emplacements remplis', it_gridhint: 'votre réserve dans l’ordre des emplacements — les filtres surlignent les correspondances ; le nombre de colonnes du jeu n’est pas dans les données, mais les numéros sont exacts' },
+ 'de-DE': { it_list: 'Liste', it_grid: 'Raster', it_slot: 'Platz {0}', it_gridof: '{0} · {1}/{2} Plätze belegt', it_gridhint: 'dein Lager in Platzreihenfolge — Filter heben Treffer hervor; die Spaltenzahl des Spiels steht nicht in den Daten, die Platznummern sind aber exakt' },
+ 'ja-JP': { it_list: 'リスト', it_grid: 'グリッド', it_slot: 'スロット {0}', it_gridof: '{0} · {1}/{2} スロット使用', it_gridhint: '保管庫をスロット順に表示 — フィルタは一致を強調。ゲームの列数はデータにありませんが、スロット番号は正確です' },
+ 'ko-KR': { it_list: '목록', it_grid: '그리드', it_slot: '슬롯 {0}', it_gridof: '{0} · {1}/{2} 슬롯 사용', it_gridhint: '창고를 슬롯 순서로 표시 — 필터가 일치 항목을 강조합니다. 게임의 열 수는 데이터에 없지만 슬롯 번호는 정확합니다' },
+ 'zh-Hans': { it_list: '列表', it_grid: '网格', it_slot: '格 {0}', it_gridof: '{0} · {1}/{2} 格已用', it_gridhint: '按格子顺序显示你的仓库——筛选会高亮匹配项；游戏的列数不在数据里，但格子编号是精确的' },
+ 'zh-Hant': { it_list: '列表', it_grid: '網格', it_slot: '格 {0}', it_gridof: '{0} · {1}/{2} 格已用', it_gridhint: '按格子順序顯示你的倉庫——篩選會高亮匹配項；遊戲的欄數不在資料裡，但格子編號是精確的' },
+ 'ru-RU': { it_list: 'список', it_grid: 'сетка', it_slot: 'ячейка {0}', it_gridof: '{0} · {1}/{2} ячеек занято', it_gridhint: 'ваше хранилище по порядку ячеек — фильтры подсвечивают совпадения; число столбцов из игры не в данных, но номера ячеек точны' },
+ };
+ for (const l in ITEMSGRID) { UI[l] = Object.assign(UI[l] || {}, ITEMSGRID[l]); }
+
  // Sell Advisor tab — rank tradeable inventory + track the 4 listing slots (8h relist interval)
  const SELL = {
  'en-US': { tab_sell: 'Sell', sell_title: 'BEST TO SELL', sell_slots_title: 'LISTING SLOTS', sell_intro: 'Ranked by estimated value per 8h listing slot — unit price × how fast that grade tends to sell. List your top picks first; a cheap item that sells fast can beat a pricey one that just sits.', sell_estnote: 'Liquidity (fast/slow) is an estimate by grade, not live Steam volume — treat it as a hint.', sell_manual: 'Steam hides your active listings, so this tracker is manual: hit “list” when you post an item and the slot counts down its 8h relist interval, then dings when it’s free.', sell_inuse: '{0}/{1} slots listed', sell_slotempty: 'free slot', sell_list: 'list', sell_relist: 'relist', sell_listed: 'listed', sell_ready: 'ready to relist', sell_freein: 'free in {0}', sell_pickfree: 'all {0} slots are listed — wait for one to free up', sell_owned: '×{0}', sell_npc: '{0} gold to NPC', sell_nolist: 'not listed', sell_rankhdr: 'best value per slot first', sell_liq_fast: 'sells fast', sell_liq_med: 'medium', sell_liq_slow: 'sells slow', sell_empty: 'no tradeable items in your inventory', sell_demo: 'connect your save to rank your real inventory', sell_ntf: '{0} slot is free — relist; next best: {1}', sell_anything: 'your top item' },

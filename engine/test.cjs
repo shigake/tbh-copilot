@@ -165,6 +165,11 @@ ok(inv.filter(i => i.type === 'GEAR').length > 0 && inv.filter(i => i.type === '
 ok(inv.every(i => i.level == null || (i.level >= 1 && i.level <= 100)), 'item levels are sane');
 const equippedSlots = inv.filter(i => i.loc === 'equipped');
 ok(equippedSlots.every(i => i.hero != null && i.slot != null), 'equipped items carry their hero + slot');
+const grid = E.storageGrid(psd, 'stash');
+ok(grid.length > 0, `stash grid has slots (${grid.length})`);
+ok(grid.every((s, i) => s.slot === i), 'stash grid slots are contiguous in Index order');
+ok(grid.some(s => s.uid) && grid.some(s => !s.uid), 'stash grid has both filled and empty slots');
+ok(grid.filter(s => s.uid).length === inv.filter(i => i.loc === 'stash').length, 'filled stash slots match the stash item count');
 
 console.log('\n-- chest timers --');
 const ch = E.chestInfo(psd);

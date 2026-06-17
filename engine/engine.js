@@ -740,6 +740,18 @@
  return items;
  }
 
+ // the raw slot grid of a storage container (stash / backpack / trading), in Index order,
+ // so the UI can reproduce the in-game layout: each slot is empty, locked, or holds an item.
+ // (The grid's column count is NOT in the game data — only the slot Index is, which is exact.)
+ const STORAGE_KEY = { stash: 'stashSaveDatas', inventory: 'inventorySaveDatas', trading: 'tradingStashSaveDatas' };
+ function storageGrid(psd, which) {
+ const rows = psd[STORAGE_KEY[which]] || [];
+ return rows.slice().sort((a, b) => a.Index - b.Index).map(s => {
+ const u = s.ItemUniqueId, has = u && u !== '0' && u !== 0;
+ return { slot: s.Index, locked: !(s.IsUnLock || s.IsUnlock), uid: has ? String(u) : null };
+ });
+ }
+
  function runeROI(psd, goldPerSec, stageLevel) {
  const plan = runePlan(psd, goldPerSec, stageLevel);
  return plan.combat.filter(c => c.dPower > 0).map(c => ({ key: c.key, name: c.name, st: c.st, value: c.value, cost: c.cost, dPower: c.dPower, perGold: c.dPower / c.cost, affordable: c.affordable })).sort((a, b) => b.perGold - a.perGold);
@@ -864,7 +876,7 @@
  collect, aggregate, dps, ehp, power, mitigation,
  runeContrib, gold, party, heroSaveMap, gearStatLines, expToNext, partyExp, totalClears, cumXP, ticksToUnix, stageUnlocked,
  bestParkStage, refStageLevel, refDamage, projectLevel, fitFactor,
- bandOfLevel, dropBands, dropStages, favFarm, chestInfo, inventory,
+ bandOfLevel, dropBands, dropStages, favFarm, chestInfo, inventory, storageGrid,
  OFFLINE_RUNES: { gold: OFFLINE_GOLD_RUNES, exp: OFFLINE_EXP_RUNES, unlock: OFFLINE_UNLOCK_RUNE } };
  g.TBHEngine = API;
  if (typeof module !== 'undefined' && module.exports) module.exports = API;
