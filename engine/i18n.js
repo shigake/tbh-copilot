@@ -674,16 +674,16 @@
 
  // Items tab — list vs. grid (faithful stash layout) view toggle + slot number
  const ITEMSGRID = {
- 'en-US': { it_list: 'list', it_grid: 'stash grid', it_slot: 'slot {0}', it_gridof: '{0} · {1}/{2} slots filled', it_gridhint: 'your stash in slot order — filters highlight matches; the in-game column count isn’t in the data, but slot numbers are exact' },
- 'pt-BR': { it_list: 'lista', it_grid: 'grade do stash', it_slot: 'slot {0}', it_gridof: '{0} · {1}/{2} slots ocupados', it_gridhint: 'seu stash na ordem dos slots — os filtros destacam o que bate; a contagem de colunas do jogo não está nos dados, mas os números de slot são exatos' },
- 'es-ES': { it_list: 'lista', it_grid: 'cuadrícula', it_slot: 'ranura {0}', it_gridof: '{0} · {1}/{2} ranuras llenas', it_gridhint: 'tu alijo en orden de ranura — los filtros resaltan coincidencias; el nº de columnas del juego no está en los datos, pero los números de ranura son exactos' },
- 'fr-FR': { it_list: 'liste', it_grid: 'grille', it_slot: 'emplacement {0}', it_gridof: '{0} · {1}/{2} emplacements remplis', it_gridhint: 'votre réserve dans l’ordre des emplacements — les filtres surlignent les correspondances ; le nombre de colonnes du jeu n’est pas dans les données, mais les numéros sont exacts' },
- 'de-DE': { it_list: 'Liste', it_grid: 'Raster', it_slot: 'Platz {0}', it_gridof: '{0} · {1}/{2} Plätze belegt', it_gridhint: 'dein Lager in Platzreihenfolge — Filter heben Treffer hervor; die Spaltenzahl des Spiels steht nicht in den Daten, die Platznummern sind aber exakt' },
- 'ja-JP': { it_list: 'リスト', it_grid: 'グリッド', it_slot: 'スロット {0}', it_gridof: '{0} · {1}/{2} スロット使用', it_gridhint: '保管庫をスロット順に表示 — フィルタは一致を強調。ゲームの列数はデータにありませんが、スロット番号は正確です' },
- 'ko-KR': { it_list: '목록', it_grid: '그리드', it_slot: '슬롯 {0}', it_gridof: '{0} · {1}/{2} 슬롯 사용', it_gridhint: '창고를 슬롯 순서로 표시 — 필터가 일치 항목을 강조합니다. 게임의 열 수는 데이터에 없지만 슬롯 번호는 정확합니다' },
- 'zh-Hans': { it_list: '列表', it_grid: '网格', it_slot: '格 {0}', it_gridof: '{0} · {1}/{2} 格已用', it_gridhint: '按格子顺序显示你的仓库——筛选会高亮匹配项；游戏的列数不在数据里，但格子编号是精确的' },
- 'zh-Hant': { it_list: '列表', it_grid: '網格', it_slot: '格 {0}', it_gridof: '{0} · {1}/{2} 格已用', it_gridhint: '按格子順序顯示你的倉庫——篩選會高亮匹配項；遊戲的欄數不在資料裡，但格子編號是精確的' },
- 'ru-RU': { it_list: 'список', it_grid: 'сетка', it_slot: 'ячейка {0}', it_gridof: '{0} · {1}/{2} ячеек занято', it_gridhint: 'ваше хранилище по порядку ячеек — фильтры подсвечивают совпадения; число столбцов из игры не в данных, но номера ячеек точны' },
+ 'en-US': { it_list: 'list', it_grid: 'stash grid', it_slot: 'slot {0}', it_tab: 'tab {0}', it_gridof: '{0} · {1}/{2} slots filled', it_gridhint: 'your stash laid out exactly as in-game — 7 tabs of 7×7; filters highlight matches in place' },
+ 'pt-BR': { it_list: 'lista', it_grid: 'grade do stash', it_slot: 'slot {0}', it_tab: 'aba {0}', it_gridof: '{0} · {1}/{2} slots ocupados', it_gridhint: 'seu stash exatamente como no jogo — 7 abas de 7×7; os filtros destacam o que bate no lugar' },
+ 'es-ES': { it_list: 'lista', it_grid: 'cuadrícula', it_slot: 'ranura {0}', it_tab: 'pestaña {0}', it_gridof: '{0} · {1}/{2} ranuras llenas', it_gridhint: 'tu alijo tal como en el juego — 7 pestañas de 7×7; los filtros resaltan coincidencias en su sitio' },
+ 'fr-FR': { it_list: 'liste', it_grid: 'grille', it_slot: 'emplacement {0}', it_tab: 'onglet {0}', it_gridof: '{0} · {1}/{2} emplacements remplis', it_gridhint: 'votre réserve telle qu’en jeu — 7 onglets de 7×7 ; les filtres surlignent les correspondances sur place' },
+ 'de-DE': { it_list: 'Liste', it_grid: 'Raster', it_slot: 'Platz {0}', it_tab: 'Reiter {0}', it_gridof: '{0} · {1}/{2} Plätze belegt', it_gridhint: 'dein Lager genau wie im Spiel — 7 Reiter à 7×7; Filter heben Treffer an Ort und Stelle hervor' },
+ 'ja-JP': { it_list: 'リスト', it_grid: 'グリッド', it_slot: 'スロット {0}', it_tab: 'タブ {0}', it_gridof: '{0} · {1}/{2} スロット使用', it_gridhint: 'ゲームと同じレイアウトの保管庫 — 7×7のタブが7枚。フィルタは一致をその場で強調します' },
+ 'ko-KR': { it_list: '목록', it_grid: '그리드', it_slot: '슬롯 {0}', it_tab: '탭 {0}', it_gridof: '{0} · {1}/{2} 슬롯 사용', it_gridhint: '게임과 동일한 배치의 창고 — 7×7 탭 7개. 필터가 일치 항목을 그 자리에서 강조합니다' },
+ 'zh-Hans': { it_list: '列表', it_grid: '网格', it_slot: '格 {0}', it_tab: '页 {0}', it_gridof: '{0} · {1}/{2} 格已用', it_gridhint: '与游戏内一致的仓库布局——7 页 7×7；筛选会就地高亮匹配项' },
+ 'zh-Hant': { it_list: '列表', it_grid: '網格', it_slot: '格 {0}', it_tab: '頁 {0}', it_gridof: '{0} · {1}/{2} 格已用', it_gridhint: '與遊戲內一致的倉庫佈局——7 頁 7×7；篩選會就地高亮匹配項' },
+ 'ru-RU': { it_list: 'список', it_grid: 'сетка', it_slot: 'ячейка {0}', it_tab: 'вкладка {0}', it_gridof: '{0} · {1}/{2} ячеек занято', it_gridhint: 'ваше хранилище как в игре — 7 вкладок по 7×7; фильтры подсвечивают совпадения на месте' },
  };
  for (const l in ITEMSGRID) { UI[l] = Object.assign(UI[l] || {}, ITEMSGRID[l]); }
 
