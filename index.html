@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#0c0f18">
+<meta name="theme-color" content="#0a0d16">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <title>TBH Co-pilot — Task Bar Hero optimizer &amp; save companion</title>
@@ -26,55 +26,98 @@
 <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
- --bg:#080a10;--panel:#10141f;--bg2:#0c0f18;--line:#1d2536;--line2:#2a3550;
- --ink:#cdd8f2;--mut:#67769b;--dim:#48566f;
- --gold:#f6c552;--exp:#5fd0e0;--good:#74d28e;--violet:#a98cff;
+ --bg:#0a0d16;--bg2:#0d1120;--panel:#12172a;--line:#233052;--line2:#33446e;
+ --ink:#d7e1f7;--mut:#7384ab;--dim:#50608a;
+ --gold:#ffcf4d;--exp:#5ad8ec;--good:#6fe39a;--violet:#b89bff;--neon-cyan:#38e8ff;
+ --art-screen:#0e1322;--frame:#33446e;--frame-in:rgba(255,255,255,.06);
  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;--px:'Silkscreen',var(--mono);
 }
 *{box-sizing:border-box}html,body{margin:0;min-height:100%}
-body{background:radial-gradient(1200px 600px at 80% -10%,#161d33 0,transparent 55%),radial-gradient(900px 500px at 10% 110%,#131a2b 0,transparent 55%),var(--bg);
- color:var(--ink);font-family:var(--mono);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px}
-.card{width:min(680px,100%)}
-.logo{font-family:var(--px);font-size:22px;letter-spacing:1px;color:#eaf0ff;margin-bottom:4px}.logo b{color:var(--gold)}
-.tag{color:var(--mut);font-size:14px;margin:10px 0 22px;max-width:560px}
+img{image-rendering:pixelated;image-rendering:crisp-edges}
+body{background:radial-gradient(1200px 600px at 80% -10%,#1a2546 0,transparent 55%),radial-gradient(900px 500px at 10% 110%,#16203a 0,transparent 55%),radial-gradient(700px 320px at 50% 122%,#2a220833,transparent 70%),var(--bg);
+ color:var(--ink);font-family:var(--mono);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 20px}
+.card{width:min(720px,100%)}
+/* hero lockup + party lineup */
+.lock{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.logo{font-family:var(--px);font-size:23px;letter-spacing:1px;color:#eaf0ff;text-shadow:0 0 18px #3a4a7a66}
+.logo b{color:var(--gold)}
+.live{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--mut);font-family:var(--px);letter-spacing:.5px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--good);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #6fe39a66}70%{box-shadow:0 0 0 7px #6fe39a00}100%{box-shadow:0 0 0 0 #6fe39a00}}
+.party{display:flex;gap:8px;padding:10px 12px;border-radius:14px;background:var(--art-screen);
+ border:1px solid var(--frame);box-shadow:inset 0 0 0 1px var(--frame-in),0 18px 44px -30px #000;
+ margin-bottom:8px;position:relative;overflow:hidden}
+.party::after{content:"";position:absolute;inset:0;background:radial-gradient(420px 90px at 50% 130%,#5ad8ec22,transparent 70%);pointer-events:none}
+.pf{width:clamp(40px,9vw,56px);height:clamp(48px,11vw,68px);flex:1;display:grid;place-items:end center;animation:bob 3s ease-in-out infinite}
+.pf img{max-width:100%;max-height:100%;filter:drop-shadow(0 5px 6px #000a)}
+.pf:nth-child(2){animation-delay:.4s}.pf:nth-child(3){animation-delay:.8s}.pf:nth-child(4){animation-delay:1.2s}.pf:nth-child(5){animation-delay:1.6s}.pf:nth-child(6){animation-delay:2s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.marquee{height:6px;border-radius:3px;margin-bottom:20px;background:linear-gradient(90deg,var(--gold),var(--neon-cyan),var(--gold));background-size:220% 100%;animation:sheen 8s linear infinite;box-shadow:0 0 16px -2px #5ad8ec55}
+@keyframes sheen{to{background-position:220% 0}}
+.tag{color:var(--mut);font-size:14.5px;margin:0 0 6px;max-width:600px}
 .tag b{color:var(--ink);font-weight:700}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
-a.btn{font-family:var(--px);font-size:13px;text-decoration:none;border-radius:11px;padding:14px 22px;cursor:pointer;
- background:linear-gradient(180deg,#f6c552,#e0a93a);color:#1a1306;box-shadow:0 10px 28px -12px #f6c55288}
-a.btn.ghost{background:#0d1220;color:var(--ink);border:1px solid var(--line2);box-shadow:none}
-a.btn.ghost b{color:var(--exp)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.kick{font-family:var(--px);font-size:12px;letter-spacing:.5px;color:var(--exp);margin:0 0 18px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+a.btn{font-family:var(--px);font-size:13px;letter-spacing:.5px;text-decoration:none;border-radius:11px;padding:14px 22px;cursor:pointer;
+ background:linear-gradient(180deg,#ffd964,#e0a93a);color:#1a1306;box-shadow:0 12px 30px -12px #ffcf4d88,inset 0 1px 0 #fff7;transition:transform .12s}
+a.btn:hover{transform:translateY(-2px)}
+a.btn.ghost{background:var(--panel);color:var(--ink);border:1px solid var(--line2);box-shadow:none}
+a.btn.ghost b{color:var(--gold)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:22px}
 @media(max-width:560px){.grid{grid-template-columns:1fr}}
-.feat{border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,var(--panel),var(--bg2));padding:13px 15px}
-.feat .h{font-family:var(--px);font-size:11.5px;letter-spacing:.5px;color:var(--gold);margin-bottom:6px}
-.feat.exp .h{color:var(--exp)}.feat.good .h{color:var(--good)}.feat.violet .h{color:var(--violet)}
+.feat{display:flex;gap:13px;align-items:flex-start;border:1px solid var(--line);border-top:2px solid var(--accent,var(--gold));
+ border-radius:12px;background:linear-gradient(180deg,var(--panel),var(--bg2));padding:13px 15px;box-shadow:inset 0 1px 0 var(--frame-in),0 16px 38px -30px #000c}
+.feat .ico{width:40px;height:40px;flex:none;border-radius:9px;background:var(--art-screen);border:1px solid var(--frame);
+ box-shadow:inset 0 0 0 1px var(--frame-in);display:grid;place-items:center;overflow:hidden}
+.feat .ico img{width:100%;height:100%;object-fit:contain;padding:3px;image-rendering:pixelated}
+.feat .h{font-family:var(--px);font-size:11.5px;letter-spacing:.5px;color:var(--accent,var(--gold));margin-bottom:5px}
 .feat p{margin:0;font-size:13px;color:var(--mut)}
-.note{font-size:13px;color:var(--mut);border:1px solid var(--line);border-radius:10px;background:#0c1018;padding:11px 13px;margin-bottom:20px}
+.note{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--mut);border:1px solid var(--line);border-radius:11px;
+ background:var(--panel);padding:12px 14px;margin-bottom:20px;box-shadow:inset 0 1px 0 var(--frame-in)}
+.note .dot{margin-top:5px;flex:none}
 .note b{color:var(--ink)}
 .foot{font-size:13px;color:var(--dim)}
 .foot a{color:var(--mut)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div class="card">
- <div class="logo">TBH <b>CO&middot;PILOT</b></div>
- <div class="tag">An optimization companion for the idle-RPG <b>TBH: Task Bar Hero</b>. It reads your save
+ <div class="lock">
+  <div class="logo">TBH <b>CO&middot;PILOT</b></div>
+  <span class="live"><span class="dot"></span>100% LOCAL</span>
+ </div>
+
+ <div class="party">
+  <span class="pf"><img src="assets/game/heroes/portraits/Hero_101.png" alt="" onerror="this.parentNode.style.display='none'"></span>
+  <span class="pf"><img src="assets/game/heroes/portraits/Hero_201.png" alt="" onerror="this.parentNode.style.display='none'"></span>
+  <span class="pf"><img src="assets/game/heroes/portraits/Hero_301.png" alt="" onerror="this.parentNode.style.display='none'"></span>
+  <span class="pf"><img src="assets/game/heroes/portraits/Hero_401.png" alt="" onerror="this.parentNode.style.display='none'"></span>
+  <span class="pf"><img src="assets/game/heroes/portraits/Hero_501.png" alt="" onerror="this.parentNode.style.display='none'"></span>
+  <span class="pf"><img src="assets/game/heroes/portraits/Hero_601.png" alt="" onerror="this.parentNode.style.display='none'"></span>
+ </div>
+ <div class="marquee"></div>
+
+ <p class="tag">An optimization companion for the idle-RPG <b>TBH: Task Bar Hero</b>. It reads your save
   <b>locally in your browser</b>, decrypts it, and tells you the optimal next move: where to farm, when to
-  come back, when you'll level, and which runes and gear to get.</div>
+  come back, when you'll level, and which runes and gear to get.</p>
+ <p class="kick">Drop your save. Read your next move.</p>
 
  <div class="cta">
   <a class="btn" href="dashboard.html">Open the app</a>
+  <a class="btn ghost" href="https://github.com/shigake/tbh-copilot" rel="noopener">Source <b>&#9733; GitHub</b></a>
  </div>
 
  <div class="grid">
-  <div class="feat"><div class="h">FARM</div><p>Ranks every cleared stage by gold/hour and exp/hour from your real clear speed.</p></div>
-  <div class="feat exp"><div class="h">RUNE TREE</div><p>All 197 nodes, with the cheapest buyable picks for the goal you choose.</p></div>
-  <div class="feat good"><div class="h">ROSTER &amp; GEAR</div><p>POWER, DPS and EHP per hero, plus the power delta of any gear swap.</p></div>
-  <div class="feat violet"><div class="h">IDLE</div><p>The best time to come back, and what to leave running while you're away.</p></div>
+  <div class="feat" style="--accent:var(--gold)"><span class="ico"><img src="assets/game/monsters/BerserkerRatRace/BerserkerRatRace_Idle_character_2.png" alt="" onerror="this.parentNode.style.display='none'"></span><div><div class="h">FARM</div><p>Every cleared stage ranked by gold/hour and exp/hour from your real clear speed — each wearing its monster's face.</p></div></div>
+  <div class="feat" style="--accent:var(--exp)"><span class="ico"><img src="assets/game/runes/AllHeroAttackDamage.png" alt="" onerror="this.parentNode.style.display='none'"></span><div><div class="h">RUNE TREE</div><p>All 197 nodes, with the cheapest buyable picks for the goal you choose.</p></div></div>
+  <div class="feat" style="--accent:var(--good)"><span class="ico"><img src="assets/game/heroes/portraits/Hero_201.png" alt="" onerror="this.parentNode.style.display='none'"></span><div><div class="h">ROSTER &amp; GEAR</div><p>POWER, DPS and EHP per hero, plus the power delta of any gear swap — and where it drops.</p></div></div>
+  <div class="feat" style="--accent:var(--violet)"><span class="ico"><img src="assets/game/runes/UnlockOfflineReward.png" alt="" onerror="this.parentNode.style.display='none'"></span><div><div class="h">IDLE</div><p>The best time to come back, and what to leave running while you're away.</p></div></div>
  </div>
 
- <div class="note"><b>Your save never leaves your computer.</b> Everything is read and decrypted in your browser,
-   with no servers and no tracking. Works in <b>any modern browser</b> — just pick your save file and done.</div>
+ <div class="note"><span class="dot"></span><div><b>Your save never leaves your computer.</b> Everything is read and decrypted in your browser,
+   with no servers and no tracking. Works in <b>any modern browser</b> — just pick your save file and done.</div></div>
 
  <div class="foot">Free, no ads. Source on <a href="https://github.com/shigake/tbh-copilot">GitHub</a>.
   Unofficial fan project, not affiliated with the game's developers.</div>
