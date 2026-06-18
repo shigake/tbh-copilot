@@ -24,3 +24,5 @@ Thumbs.db
 /docs/
 /monitor/README.md
 .gstack/
+
+.ferod.*

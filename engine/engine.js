@@ -711,6 +711,44 @@
  };
  }
 
+ // A save-driven chest planner. Three honest, save-grounded pieces:
+ //  (1) the per-type AUTO-OPEN cooldown + stockpile capacity (from chestInfo / runes);
+ //  (2) the FIELD-DROP cooldown — chests are server-limited to ~1 every 5 min, a single
+ //      limit SHARED across all chest types (community-measured on Steam; the reduce-time
+ //      runes only trim a few seconds). It is global, NOT per-stage — so rotating stages
+ //      cannot earn more chests; stage choice is about loot quality, not chest count;
+ //  (3) the best reachable stage to farm for chest loot — the wishlist farm (favFarm) when
+ //      the player has starred gear, else the recommended farm — annotated with the player's
+ //      real clear time and how many clears fit inside one drop window.
+ // Fill-time is only estimated for a type with NO auto-open (it then piles up at the drop
+ // cadence: capacity * dropCooldown). With auto-open faster than the drop cadence a stockpile
+ // never fills; an auto-open SLOWER than drops (boss) only slowly stockpiles — flagged, not
+ // given a false precise countdown, since the shared-cooldown interplay isn't verified.
+ const CHEST_DROP_COOLDOWN = 300;
+ function chestPlan(psd, opts) {
+ opts = opts || {};
+ const ci = chestInfo(psd), drop = CHEST_DROP_COOLDOWN;
+ const types = ['normal', 'boss', 'act'].map(k => {
+ const c = ci[k];
+ const slowOpen = c.unlocked && c.cooldown > drop;
+ const fillSec = (!c.unlocked && c.capacity > 0) ? c.capacity * drop : null;
+ return { kind: k, unlocked: c.unlocked, cooldown: c.cooldown, base: c.base, reduce: c.reduce, capacity: c.capacity, slowOpen, fillSec };
+ });
+ let best = null, source = null;
+ const favKeys = (opts.favKeys || []).map(Number).filter(Boolean);
+ const farm = opts.farm || null;
+ const byKey = {}; if (farm && farm.all) for (const r of farm.all) byKey[String(r.key)] = r;
+ if (favKeys.length) {
+ const ff = favFarm(psd, favKeys);
+ if (ff.length) { const top = ff[0], row = byKey[String(top.key)], st = DB.stages[String(top.key)] || {};
+ best = { key: top.key, lvl: top.lvl, label: (row && row.label) || st.label || null, clearTime: row ? row.clearTime : null, favCount: top.favs.length }; source = 'wishlist'; }
+ }
+ if (!best && farm) { const r = farm.recommend || farm.current || farm.frontier;
+ if (r) { best = { key: r.key, lvl: r.lvl, label: r.label, clearTime: r.clearTime }; source = 'recommend'; } }
+ if (best && best.clearTime > 0) best.clearsPerWindow = drop / best.clearTime;
+ return { dropCooldown: drop, types, best, source };
+ }
+
  // ── inventory / stash browser ────────────────────────────────────────────
  // Join every item instance (itemSaveDatas) with its slot (equipped on a hero, stash,
  // backpack, or the trading stash) and its template (DB.items → name/grade/level/type),
@@ -876,7 +914,7 @@
  collect, aggregate, dps, ehp, power, mitigation,
  runeContrib, gold, party, heroSaveMap, gearStatLines, expToNext, partyExp, totalClears, cumXP, ticksToUnix, stageUnlocked,
  bestParkStage, refStageLevel, refDamage, projectLevel, fitFactor,
- bandOfLevel, dropBands, dropStages, favFarm, chestInfo, inventory, storageGrid,
+ bandOfLevel, dropBands, dropStages, favFarm, chestInfo, chestPlan, inventory, storageGrid,
  OFFLINE_RUNES: { gold: OFFLINE_GOLD_RUNES, exp: OFFLINE_EXP_RUNES, unlock: OFFLINE_UNLOCK_RUNE } };
  g.TBHEngine = API;
  if (typeof module !== 'undefined' && module.exports) module.exports = API;

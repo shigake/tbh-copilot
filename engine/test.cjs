@@ -180,6 +180,20 @@ ok(ch.normal.cooldown === ch.normal.base - ch.normal.reduce, 'effective cooldown
 ok(ch.normal.cooldown <= ch.normal.base && ch.normal.cooldown >= 1, 'effective cooldown is sane');
 ok(ch.normal.capacity >= 0 && Number.isFinite(ch.normal.capacity), 'chest capacity from runes is a number');
 
+console.log('\n-- chest planner --');
+const cp = E.chestPlan(psd, { farm: r.farm, favKeys: [] });
+ok(cp.dropCooldown === 300, 'shared field-drop cooldown is ~5 min (300s)');
+ok(cp.types.length === 3, 'chestPlan returns the three chest types');
+const cpN = cp.types.find(t => t.kind === 'normal'), cpB = cp.types.find(t => t.kind === 'boss'), cpA = cp.types.find(t => t.kind === 'act');
+ok(cpN.fillSec === null, 'an auto-opened type faster than the drop cadence never fills (fillSec null)');
+ok(cpB.slowOpen === true, 'boss auto-open (600s) is slower than the 300s drop cadence -> flagged slowOpen');
+ok(!cpA.unlocked && cpA.fillSec === cpA.capacity * cp.dropCooldown, 'a locked (no auto-open) type fills at capacity x drop cadence');
+ok(cp.best && cp.source === 'recommend', 'with no wishlist the best chest stage falls back to the farm recommend');
+ok(cp.best.clearsPerWindow === cp.dropCooldown / cp.best.clearTime, 'clears-per-window = drop cooldown / real clear time');
+const favKey = inv.find(i => i.key && i.grade) ? inv.find(i => i.key && i.grade).key : null;
+const cpFav = E.chestPlan(psd, { farm: r.farm, favKeys: favKey ? [favKey] : [] });
+ok(!favKey || (cpFav.source === 'wishlist' && cpFav.best.favCount >= 1), 'a starred gear key routes the best chest stage to the wishlist farm');
+
 console.log('\n-- power delta (gear) --');
 const rangerSave = psd.heroSaveDatas.find(h => h.heroKey === 201);
 const d = E.powerDelta(rangerSave, psd, 0, 314141);
