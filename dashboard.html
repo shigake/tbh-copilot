@@ -434,10 +434,14 @@ body.light .sslot.ready{background:var(--panel2)}
 .liq.fast{color:var(--good);border-color:#3a6b3f}.liq.med{color:var(--gold);border-color:#5a4a1e}.liq.slow{color:var(--mut)}
 .sellprice{font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
 .sellprice .mktl{color:var(--gold)}
+.sellbar{margin:8px 0 4px}.sellbar .itsearch{margin-bottom:8px}
+.sellsum{display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;font-size:12px;color:var(--mut);margin:2px 0 6px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.sellsum .sscount{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.sellsum .ssval b{color:var(--gold);font-variant-numeric:tabular-nums}
 .selllist{flex:none;border:1px solid var(--line2);border-radius:7px;background:transparent;color:var(--ink);font-size:12px;padding:6px 11px;cursor:pointer}
 .selllist:hover{border-color:var(--good);color:var(--good)}
 .selllist.dis{opacity:.4;pointer-events:none}
-</style></head><body><div class="wrap" id="stage"><div class="top"><div class="logo">TBH <b>CO·PILOT</b></div><div class="live"><span class="dot" id="dot"></span><span id="connTxt">—</span></div><button class="rfbtn" id="refreshBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3.5v5h-5"/></svg></button><button class="rfbtn" id="notifBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 22a2.3 2.3 0 0 0 2.3-2.3H9.7A2.3 2.3 0 0 0 12 22Zm7-5.5v-1l-1.6-1.6V9.6c0-3-1.8-5.4-4.4-6V3a1 1 0 1 0-2 0v.6c-2.6.6-4.4 3-4.4 6v4.3L5 15.5v1Z"/></svg></button><button class="rfbtn" id="themeBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 4a8 8 0 1 0 8 8c0-.4 0-.8-.1-1.2A6.2 6.2 0 0 1 11.2 4.1c.3-.1.5-.1.8-.1Z"/></svg></button><div class="sp"></div><select class="lang" id="lang"></select><div class="chip" id="ptime">—</div><div class="chip" id="ver">v—</div></div><div class="banner" id="banner"></div><div class="strip"><img class="strip-boss" id="stripBoss" alt="" onerror="this.style.display='none'"><div class="s-gold"><div class="lbl"><span id="lblGold">GOLD</span></div><div class="numrow"><span class="coin sprite-tile"><img src="assets/game/runes/AdditionalGold.png" alt="" onerror="this.parentNode.style.display='none'"></span><div class="num" id="gold">0</div></div><div class="sub"><b id="ghr">—</b><span id="lblPerH">/h</span> · <span id="curStage">—</span></div></div><div class="s-stat"><div class="k" id="lblPow">POWER</div><div class="v pow" id="partyPow">—</div><div class="sm" id="partyDps">—</div></div></div><div class="tabs" id="tabs"></div><div class="pane" id="pane-overview"><div id="coachCard"></div><div id="ovHeroes"></div><div class="grid2"><div class="panel"><div class="ptitle" id="tDoNow">DO NOW</div><div id="doNow"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tSummary">SUMMARY</div><div id="ovSummary"></div></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--exp)" id="tTimeline">TIMELINE</div><div id="timeline"></div></div></div><div class="pane" id="pane-farm"><div class="grid2"><div class="panel"><div class="ptitle" style="--c:var(--exp)" id="tFarm2">FARM</div><div id="farm"></div></div><div class="panel"><div class="ptitle" style="--c:var(--warn)" id="tIdle2">IDLE</div><div id="idle"></div></div></div><div class="panel" id="fpTable" style="margin-top:14px"><div class="ptitle" style="--c:var(--gold)" id="tStages">STAGES</div><div id="farmtable"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--violet)" id="tPets">PETS</div><div id="pets"></div></div></div><div class="pane" id="pane-runes"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tRunes2">RUNES</div><div class="treewrap"><svg id="tree" preserveAspectRatio="xMidYMid meet"></svg><div class="tctl"><button id="tFit">fit</button><button id="tIn">+</button><button id="tOut">−</button></div><div class="thint" id="thint"></div><div class="tdetail" id="tdetail"></div></div><div class="legend" id="legend"></div><div class="gsl"><span class="gsl-pre" id="gslPre">enable up to</span><input type="range" id="gslRange" min="0" max="1000" value="1000"><input type="number" id="gslNum" class="gsl-num" min="0" placeholder="gold"><span class="gsl-val" id="gslVal">all</span></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tReco">RECOMENDAR</div><div class="catbtns" id="catBtns"></div><div id="recoList"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--good)" id="tCartPlan">SPENDING PLAN</div><div class="note" id="cartHint" style="margin-top:0"></div><div id="goldCart"></div></div></div><div class="pane" id="pane-whatif"><div class="panel"><div class="ptitle" style="--c:#9db4ff" id="tGear">GEAR</div><div class="herobar" id="wfHeroBar"></div><div class="gsl"><span class="gsl-pre" id="gearLvlPre">up to level</span><input type="range" id="gearLvlRange" min="1" max="100" step="1" value="30"><span class="gsl-val" id="gearLvlVal">30</span></div><div class="slotbar" id="wfSlots"></div><div class="mktnote"></div><div id="wfCands"></div></div><div class="grid2" style="margin-top:14px"><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tProg">PROGRESSION</div><div id="gearProg"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tSynth">SYNTHESIS</div><div id="synth"></div></div></div></div><div class="pane" id="pane-items"><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tItems">ITEMS</div><div id="itemsBar"></div><div class="note" id="itemsCount" style="margin-top:0"></div><div id="itemsList"></div></div></div><div class="pane" id="pane-research"><div class="panel" id="rsCartPanel"><div class="ptitle" style="--c:var(--gold)" id="tCart">CART</div><div id="rsCart"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tResearch">RESEARCH</div><div class="mktnote"></div><div id="rsTop"></div><div id="rsList"></div></div></div><div class="pane" id="pane-sell"><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tSellSlots">LISTING SLOTS</div><div class="note" id="sellSlotNote" style="margin-top:0"></div><div id="sellSlots" class="sellslots"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--good)" id="tSell">BEST TO SELL</div><div class="mktnote"></div><div class="note" id="sellIntro" style="margin-top:0"></div><div id="sellList"></div></div></div><div class="pane" id="pane-chests"><div class="panel"><div class="ptitle" style="--c:var(--violet)" id="tChests">CHESTS</div><div class="note" id="chestIntro" style="margin-top:0"></div><div id="chestList"></div><div class="chestctl"><span class="gsl-pre" id="chestVolLbl">alert volume</span><input type="range" id="chestVol" min="0" max="100" value="60"><button class="fsort" id="chestTest">test</button></div></div></div><div class="pane" id="pane-hist"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tHistPow">HISTORY · POWER</div><svg class="spark" id="sparkPow" preserveAspectRatio="none"></svg><div id="histPow" class="sub"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tHistGold">HISTORY · GOLD</div><svg class="spark" id="sparkGold" preserveAspectRatio="none"></svg><div id="histGold" class="sub"></div></div><div class="note" id="histNote">—</div></div><div class="foot" id="foot">100% local</div></div><div class="gate" id="gate"><div class="gcard"><div class="glogo">TBH <b>CO·PILOT</b></div><p id="gateMsg">—</p><button class="btn" id="connectBtn"> CONNECT</button><button class="btn ghost" id="demoBtn">demo</button><div class="gerr" id="gerr"></div><div class="gnote" id="gnote">SaveFile_Live.es3 · AppData\LocalLow\TesseractStudio\TaskbarHero</div><input type="file" id="fileInput" accept=".es3" style="display:none"></div></div><div class="hsheet" id="hsheet"><div class="hs-card" id="hsCard"></div></div><div class="toast" id="toast"></div><script src="engine/gamedata.js?v=70"></script><script src="engine/i18n.js?v=70"></script><script src="engine/engine.js?v=70"></script><script src="engine/demo.js?v=70"></script><script src="engine/gearnames.js?v=70"></script><script src="engine/materialfx.js?v=70"></script><script src="engine/itemnames.js?v=70"></script><script>
+</style></head><body><div class="wrap" id="stage"><div class="top"><div class="logo">TBH <b>CO·PILOT</b></div><div class="live"><span class="dot" id="dot"></span><span id="connTxt">—</span></div><button class="rfbtn" id="refreshBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3.5v5h-5"/></svg></button><button class="rfbtn" id="notifBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 22a2.3 2.3 0 0 0 2.3-2.3H9.7A2.3 2.3 0 0 0 12 22Zm7-5.5v-1l-1.6-1.6V9.6c0-3-1.8-5.4-4.4-6V3a1 1 0 1 0-2 0v.6c-2.6.6-4.4 3-4.4 6v4.3L5 15.5v1Z"/></svg></button><button class="rfbtn" id="themeBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 4a8 8 0 1 0 8 8c0-.4 0-.8-.1-1.2A6.2 6.2 0 0 1 11.2 4.1c.3-.1.5-.1.8-.1Z"/></svg></button><div class="sp"></div><select class="lang" id="lang"></select><select class="lang cur" id="cur"></select><div class="chip" id="ptime">—</div><div class="chip" id="ver">v—</div></div><div class="banner" id="banner"></div><div class="strip"><img class="strip-boss" id="stripBoss" alt="" onerror="this.style.display='none'"><div class="s-gold"><div class="lbl"><span id="lblGold">GOLD</span></div><div class="numrow"><span class="coin sprite-tile"><img src="assets/game/runes/AdditionalGold.png" alt="" onerror="this.parentNode.style.display='none'"></span><div class="num" id="gold">0</div></div><div class="sub"><b id="ghr">—</b><span id="lblPerH">/h</span> · <span id="curStage">—</span></div></div><div class="s-stat"><div class="k" id="lblPow">POWER</div><div class="v pow" id="partyPow">—</div><div class="sm" id="partyDps">—</div></div></div><div class="tabs" id="tabs"></div><div class="pane" id="pane-overview"><div id="coachCard"></div><div id="ovHeroes"></div><div class="grid2"><div class="panel"><div class="ptitle" id="tDoNow">DO NOW</div><div id="doNow"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tSummary">SUMMARY</div><div id="ovSummary"></div></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--exp)" id="tTimeline">TIMELINE</div><div id="timeline"></div></div></div><div class="pane" id="pane-farm"><div class="grid2"><div class="panel"><div class="ptitle" style="--c:var(--exp)" id="tFarm2">FARM</div><div id="farm"></div></div><div class="panel"><div class="ptitle" style="--c:var(--warn)" id="tIdle2">IDLE</div><div id="idle"></div></div></div><div class="panel" id="fpTable" style="margin-top:14px"><div class="ptitle" style="--c:var(--gold)" id="tStages">STAGES</div><div id="farmtable"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--violet)" id="tPets">PETS</div><div id="pets"></div></div></div><div class="pane" id="pane-runes"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tRunes2">RUNES</div><div class="treewrap"><svg id="tree" preserveAspectRatio="xMidYMid meet"></svg><div class="tctl"><button id="tFit">fit</button><button id="tIn">+</button><button id="tOut">−</button></div><div class="thint" id="thint"></div><div class="tdetail" id="tdetail"></div></div><div class="legend" id="legend"></div><div class="gsl"><span class="gsl-pre" id="gslPre">enable up to</span><input type="range" id="gslRange" min="0" max="1000" value="1000"><input type="number" id="gslNum" class="gsl-num" min="0" placeholder="gold"><span class="gsl-val" id="gslVal">all</span></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tReco">RECOMENDAR</div><div class="catbtns" id="catBtns"></div><div id="recoList"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--good)" id="tCartPlan">SPENDING PLAN</div><div class="note" id="cartHint" style="margin-top:0"></div><div id="goldCart"></div></div></div><div class="pane" id="pane-whatif"><div class="panel"><div class="ptitle" style="--c:#9db4ff" id="tGear">GEAR</div><div class="herobar" id="wfHeroBar"></div><div class="gsl"><span class="gsl-pre" id="gearLvlPre">up to level</span><input type="range" id="gearLvlRange" min="1" max="100" step="1" value="30"><span class="gsl-val" id="gearLvlVal">30</span></div><div class="slotbar" id="wfSlots"></div><div class="mktnote"></div><div id="wfCands"></div></div><div class="grid2" style="margin-top:14px"><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tProg">PROGRESSION</div><div id="gearProg"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tSynth">SYNTHESIS</div><div id="synth"></div></div></div></div><div class="pane" id="pane-items"><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tItems">ITEMS</div><div id="itemsBar"></div><div class="note" id="itemsCount" style="margin-top:0"></div><div id="itemsList"></div></div></div><div class="pane" id="pane-research"><div class="panel" id="rsCartPanel"><div class="ptitle" style="--c:var(--gold)" id="tCart">CART</div><div id="rsCart"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tResearch">RESEARCH</div><div class="mktnote"></div><div id="rsTop"></div><div id="rsList"></div></div></div><div class="pane" id="pane-sell"><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tSellSlots">LISTING SLOTS</div><div class="note" id="sellSlotNote" style="margin-top:0"></div><div id="sellSlots" class="sellslots"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--good)" id="tSell">BEST TO SELL</div><div class="mktnote"></div><div class="note" id="sellIntro" style="margin-top:0"></div><div id="sellBar" class="sellbar"></div><div class="sellsum" id="sellSummary"></div><div id="sellList"></div></div></div><div class="pane" id="pane-chests"><div class="panel"><div class="ptitle" style="--c:var(--violet)" id="tChests">CHESTS</div><div class="note" id="chestIntro" style="margin-top:0"></div><div id="chestList"></div><div class="chestctl"><span class="gsl-pre" id="chestVolLbl">alert volume</span><input type="range" id="chestVol" min="0" max="100" value="60"><button class="fsort" id="chestTest">test</button></div></div></div><div class="pane" id="pane-hist"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tHistPow">HISTORY · POWER</div><svg class="spark" id="sparkPow" preserveAspectRatio="none"></svg><div id="histPow" class="sub"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tHistGold">HISTORY · GOLD</div><svg class="spark" id="sparkGold" preserveAspectRatio="none"></svg><div id="histGold" class="sub"></div></div><div class="note" id="histNote">—</div></div><div class="foot" id="foot">100% local</div></div><div class="gate" id="gate"><div class="gcard"><div class="glogo">TBH <b>CO·PILOT</b></div><p id="gateMsg">—</p><button class="btn" id="connectBtn"> CONNECT</button><button class="btn ghost" id="demoBtn">demo</button><div class="gerr" id="gerr"></div><div class="gnote" id="gnote">SaveFile_Live.es3 · AppData\LocalLow\TesseractStudio\TaskbarHero</div><input type="file" id="fileInput" accept=".es3" style="display:none"></div></div><div class="hsheet" id="hsheet"><div class="hs-card" id="hsCard"></div></div><div class="toast" id="toast"></div><script src="engine/gamedata.js?v=74"></script><script src="engine/i18n.js?v=74"></script><script src="engine/engine.js?v=74"></script><script src="engine/demo.js?v=74"></script><script src="engine/gearnames.js?v=74"></script><script src="engine/materialfx.js?v=74"></script><script src="engine/itemnames.js?v=74"></script><script>
 const PASSWORD='emuMqG3bLYJ938ZDCfieWJ';
 const $=id=>document.getElementById(id);
 const DB=window.TBH_DB,I18N=window.TBH_I18N,ENG=window.TBHEngine;
@@ -447,6 +451,37 @@ let LOC=localStorage.getItem('tbh_loc')||navLoc();
 function navLoc(){const n=(navigator.language||'en').toLowerCase();for(const[c]of I18N.LOCALES)if(c.toLowerCase()===n)return c;for(const[c]of I18N.LOCALES)if(c.split('-')[0]===n.split('-')[0])return c;return 'en-US';}
 const t=(k,...v)=>I18N.t(LOC,k,v.length?v:null);
 const nm=m=>I18N.entityName(m,LOC);
+// ── Currency: Steam returns prices pre-formatted in whatever currency we ask for
+// (currency=N), so no FX API is needed — we just thread the chosen code into the
+// priceoverview calls and key the cache per-currency. IDs verified live against Steam.
+// loc = a BCP-47 locale whose number formatting matches that currency's convention, so the
+// computed total reads the same style as Steam's per-item strings even if the UI is in another language
+const CURRENCIES=[
+ {steam:1,iso:'USD',sym:'$',loc:'en-US'},     {steam:7,iso:'BRL',sym:'R$',loc:'pt-BR'},   {steam:3,iso:'EUR',sym:'€',loc:'de-DE'},
+ {steam:2,iso:'GBP',sym:'£',loc:'en-GB'},     {steam:8,iso:'JPY',sym:'¥',loc:'ja-JP'},    {steam:16,iso:'KRW',sym:'₩',loc:'ko-KR'},
+ {steam:23,iso:'CNY',sym:'¥',loc:'zh-CN'},    {steam:30,iso:'TWD',sym:'NT$',loc:'zh-TW'}, {steam:5,iso:'RUB',sym:'₽',loc:'ru-RU'},
+ {steam:6,iso:'PLN',sym:'zł',loc:'pl-PL'},    {steam:17,iso:'TRY',sym:'₺',loc:'tr-TR'},   {steam:18,iso:'UAH',sym:'₴',loc:'uk-UA'},
+ {steam:10,iso:'IDR',sym:'Rp',loc:'id-ID'},   {steam:14,iso:'THB',sym:'฿',loc:'th-TH'},   {steam:15,iso:'VND',sym:'₫',loc:'vi-VN'},
+ {steam:20,iso:'CAD',sym:'CA$',loc:'en-CA'},  {steam:21,iso:'AUD',sym:'A$',loc:'en-AU'},  {steam:22,iso:'NZD',sym:'NZ$',loc:'en-NZ'},
+ {steam:19,iso:'MXN',sym:'Mex$',loc:'es-MX'}, {steam:24,iso:'INR',sym:'₹',loc:'en-IN'},   {steam:9,iso:'NOK',sym:'kr',loc:'nb-NO'},
+ {steam:13,iso:'SGD',sym:'S$',loc:'en-SG'},   {steam:11,iso:'MYR',sym:'RM',loc:'ms-MY'},  {steam:12,iso:'PHP',sym:'₱',loc:'en-PH'},
+ {steam:29,iso:'HKD',sym:'HK$',loc:'en-HK'},
+];
+// sensible default per UI locale (overridable); anything else falls back to USD
+const LOC_CUR={'en-US':1,'pt-BR':7,'es-ES':3,'fr-FR':3,'de-DE':3,'ja-JP':8,'ko-KR':16,'zh-Hans':23,'zh-Hant':30,'ru-RU':5,'pl-PL':6,'tr-TR':17,'uk-UA':18,'id-ID':10,'th-TH':14,'vi-VN':15};
+const curBy=s=>CURRENCIES.find(c=>c.steam===+s)||CURRENCIES[0];
+let CUR=curBy(localStorage.getItem('tbh_cur')||LOC_CUR[LOC]||1);
+const intlLoc=()=>LOC.replace('zh-Hans','zh-CN').replace('zh-Hant','zh-TW');
+// Steam's lowest_price is the display string; for sums we need a number, and the
+// format varies wildly ($1,234.56 vs R$ 1.234,56 vs ¥ 6 vs 1.500₫). Treat the
+// right-most separator as the decimal point only when 1–2 digits follow it.
+function priceNum(str){if(str==null)return 0;const raw=String(str);const a=raw.search(/\d/);if(a<0)return 0;let b=raw.length;while(b>a&&(raw[b-1]<'0'||raw[b-1]>'9'))b--;let s=raw.slice(a,b).replace(/[^\d.,]/g,'');if(!s)return 0;const dp=Math.max(s.lastIndexOf(','),s.lastIndexOf('.'));if(dp<0)return parseFloat(s)||0;if(s.length-dp-1>2)return parseFloat(s.replace(/[.,]/g,''))||0;return parseFloat(s.slice(0,dp).replace(/[.,]/g,'')+'.'+s.slice(dp+1))||0;}
+const ZERO_DEC=new Set(['JPY','KRW','IDR','VND']);// currencies Steam (and convention) show with no decimals
+function fmtMoney(n){const z=ZERO_DEC.has(CUR.iso);try{const o={style:'currency',currency:CUR.iso};if(z){o.minimumFractionDigits=0;o.maximumFractionDigits=0;}return new Intl.NumberFormat(CUR.loc||intlLoc(),o).format(n||0);}catch(e){return CUR.sym+(n||0).toFixed(z?0:2);}}
+const htmlAttr=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+// currency-scoped cache keys so switching currency never shows a stale wrong-currency price
+const gck=gh=>CUR.steam+'|'+gh.name+'|'+gh.grade;
+const mck=name=>CUR.steam+'|M|'+name;
 const stageName=k=>{const s=DB.stages[String(k)];return s?nm(s.name):('#'+k)};
 const stageLabel=k=>{const s=DB.stages[String(k)];return s?s.label:('#'+k)};
 const heroName=k=>{const h=DB.heroes[String(k)];return h?nm(h.name):('Hero '+k)};
@@ -527,6 +562,8 @@ function slotGearType(heroKey,slot){
 const PROXIES=[u=>'https://corsproxy.io/?url='+encodeURIComponent(u),u=>'https://api.codetabs.com/v1/proxy/?quest='+encodeURIComponent(u),u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u)];
 let priceCache={};try{priceCache=JSON.parse(localStorage.getItem('tbh_prices')||'{}')}catch(e){}
 const PRICE_TTL=6*60*60*1000;// cache Steam prices 6h: they move slowly and the proxies rate-limit hard
+// prune on load: drop expired entries + legacy non-currency-scoped keys so per-currency caching can't grow unbounded
+for(const k in priceCache){const e=priceCache[k];if(!/^\d+\|/.test(k)||!e||Date.now()-(e.t||0)>PRICE_TTL)delete priceCache[k];}
 const MKT_DELAY=600;// ms between priceoverview calls so Steam doesn't throttle the proxy IP
 const TRADE_GRADES=['Legendary','Immortal','Arcana','Beyond','Celestial','Divine','Cosmic'];
 function gearHash(key){const nm=(window.TBH_GEARNAMES||{})[key];if(!nm)return null;const gr=(DB.items[String(key)]||{}).grade;if(!gr)return null;const g=gr.charAt(0)+gr.slice(1).toLowerCase();return TRADE_GRADES.includes(g)?{name:nm,grade:g}:null;}
@@ -535,11 +572,11 @@ let mktDown=false;
 function setMktDown(d){if(mktDown===d)return;mktDown=d;document.querySelectorAll('.mktnote').forEach(e=>{e.textContent=d?'⚠ '+t('mkt_down'):'';e.classList.toggle('show',d);});}
 async function fetchProxy(u){for(const mk of PROXIES){const pu=mk(u);try{const r=await fetch(pu);if(!r.ok){console.warn('[market] '+new URL(pu).host+' HTTP '+r.status);continue;}const j=await r.json();if(j){setMktDown(false);return j;}}catch(e){console.warn('[market] '+new URL(pu).host+': '+(e&&e.message||e));}}console.warn('[market] all CORS proxies failed for '+u);setMktDown(true);return null;}
 function savePriceCache(){try{localStorage.setItem('tbh_prices',JSON.stringify(priceCache))}catch(_){}}
-async function getGearPrice(key){const gh=gearHash(key);if(!gh)return null;const ck=gh.name+'|'+gh.grade,c=priceCache[ck];if(c&&Date.now()-c.t<PRICE_TTL)return c;let resp=false;for(const hash of [gh.name+' ('+gh.grade+') A',gh.name+' ('+gh.grade+')']){const j=await fetchProxy('https://steamcommunity.com/market/priceoverview/?appid=3678970&currency=1&market_hash_name='+encodeURIComponent(hash));if(j){resp=true;if(j.success&&j.lowest_price){const e={price:j.lowest_price,hash:hash,t:Date.now()};priceCache[ck]=e;savePriceCache();return e;}}}if(resp){const e={price:null,t:Date.now()};priceCache[ck]=e;savePriceCache();return e;}return {price:null,fail:true};}
+async function getGearPrice(key){const gh=gearHash(key);if(!gh)return null;const ck=gck(gh),c=priceCache[ck];if(c&&Date.now()-c.t<PRICE_TTL)return c;let resp=false;for(const hash of [gh.name+' ('+gh.grade+') A',gh.name+' ('+gh.grade+')']){const j=await fetchProxy('https://steamcommunity.com/market/priceoverview/?appid=3678970&currency='+CUR.steam+'&market_hash_name='+encodeURIComponent(hash));if(j){resp=true;if(j.success&&j.lowest_price){const e={price:j.lowest_price,hash:hash,t:Date.now()};priceCache[ck]=e;savePriceCache();return e;}}}if(resp){const e={price:null,t:Date.now()};priceCache[ck]=e;savePriceCache();return e;}return {price:null,fail:true};}
 const MKT_SVG='<svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM5.2 5l1.1 6.8c.1.6.6 1 1.2 1h9c.6 0 1.1-.4 1.2-1L20 7H6.4l-.3-2H3V3h3.6c.5 0 .9.4 1 .9L7.6 5H5.2z"/></svg>';
 function mktHtml(p){return '<a class="mktl" href="'+steamLink(p.hash)+'" target="_blank" rel="noopener">'+MKT_SVG+p.price+' <span>Steam →</span></a>';}
 function gearMkt(key){const gh=gearHash(key);if(!gh)return '';return '<a class="mktl lk" href="https://steamcommunity.com/market/search?appid=3678970&q='+encodeURIComponent(gh.name+' ('+gh.grade+')')+'" target="_blank" rel="noopener">'+MKT_SVG+'<span>Steam →</span></a>';}
-async function loadGearPrices(){const els=[...document.querySelectorAll('#wfCands .cmkt')].filter(e=>e.dataset.pk&&!e.dataset.done).slice(0,6);const groups={};for(const el of els){el.dataset.done='1';const gh=gearHash(+el.dataset.pk);if(!gh)continue;const ck=gh.name+'|'+gh.grade;(groups[ck]=groups[ck]||{pk:+el.dataset.pk,els:[]}).els.push(el);}const inj=(g,p)=>{if(p&&p.price)g.els.forEach(e=>e.innerHTML=mktHtml(p));};for(const ck in groups){const c=priceCache[ck];if(c&&Date.now()-c.t<PRICE_TTL){inj(groups[ck],c);continue;}try{inj(groups[ck],await getGearPrice(groups[ck].pk));}catch(e){}await new Promise(r=>setTimeout(r,MKT_DELAY));}}
+async function loadGearPrices(){const els=[...document.querySelectorAll('#wfCands .cmkt')].filter(e=>e.dataset.pk&&!e.dataset.done).slice(0,6);const groups={};for(const el of els){el.dataset.done='1';const gh=gearHash(+el.dataset.pk);if(!gh)continue;const ck=gck(gh);(groups[ck]=groups[ck]||{pk:+el.dataset.pk,els:[]}).els.push(el);}const inj=(g,p)=>{if(p&&p.price)g.els.forEach(e=>e.innerHTML=mktHtml(p));};for(const ck in groups){const c=priceCache[ck];if(c&&Date.now()-c.t<PRICE_TTL){inj(groups[ck],c);continue;}try{inj(groups[ck],await getGearPrice(groups[ck].pk));}catch(e){}await new Promise(r=>setTimeout(r,MKT_DELAY));}}
 let gearSellOnly=false;try{gearSellOnly=localStorage.getItem('tbh_sellonly')==='1'}catch(e){}
 const GRADE_RANK={COMMON:0,UNCOMMON:1,RARE:2,LEGENDARY:3,IMMORTAL:4,ARCANA:5,BEYOND:6,CELESTIAL:7,DIVINE:8,COSMIC:9};
 const STRONGEST=(()=>{const best={};for(const k in DB.items){const it=DB.items[k];if(it.type!=='GEAR'||!it.gt)continue;const r=(GRADE_RANK[it.grade]||0)*1000+(it.lvl||0);if(!best[it.gt]||r>best[it.gt].r)best[it.gt]={k:k,r:r};}const m={};for(const g in best)m[g]=best[g].k;return m;})();
@@ -549,7 +586,7 @@ let rsShown=RS_PAGE;
 let rsType='All',rsSlot='All',rsStats=new Set(),rsCart=new Set();try{rsCart=new Set(JSON.parse(localStorage.getItem('tbh_rscart')||'[]'))}catch(e){}
 function saveRsCart(){try{localStorage.setItem('tbh_rscart',JSON.stringify([...rsCart]))}catch(e){}}
 function rsOwnedSet(){const s=new Set();if(PSD)for(const it of (PSD.itemSaveDatas||[])){const idb=DB.items[String(it.ItemKey)];if(idb&&idb.type==='MATERIAL')s.add(String(it.ItemKey));}return s;}
-async function getMatPrice(name){const ck='M|'+name,c=priceCache[ck];if(c&&Date.now()-c.t<PRICE_TTL)return c;const j=await fetchProxy('https://steamcommunity.com/market/priceoverview/?appid=3678970&currency=1&market_hash_name='+encodeURIComponent(name));if(j&&j.success&&j.lowest_price){const e={price:j.lowest_price,t:Date.now()};priceCache[ck]=e;savePriceCache();return e;}if(j){const e={price:null,t:Date.now()};priceCache[ck]=e;savePriceCache();return e;}return {price:null,fail:true};}
+async function getMatPrice(name){const ck=mck(name),c=priceCache[ck];if(c&&Date.now()-c.t<PRICE_TTL)return c;const j=await fetchProxy('https://steamcommunity.com/market/priceoverview/?appid=3678970&currency='+CUR.steam+'&market_hash_name='+encodeURIComponent(name));if(j&&j.success&&j.lowest_price){const e={price:j.lowest_price,t:Date.now()};priceCache[ck]=e;savePriceCache();return e;}if(j){const e={price:null,t:Date.now()};priceCache[ck]=e;savePriceCache();return e;}return {price:null,fail:true};}
 function matLink(n){return 'https://steamcommunity.com/market/listings/3678970/'+encodeURIComponent(n);}
 function rsSlotLbl(s){return s==='All slots'?t('rs_allslots'):t('rs_slot_'+s.toLowerCase());}
 function rsTypeLbl(x){return x==='All'?t('rs_all'):t('rs_t_'+x.toLowerCase());}
@@ -560,8 +597,8 @@ const matName=m=>(m.names&&(m.names[LOC]||m.names['en-US']))||m.name;
 // once, then render through statName() so they follow the active locale
 let MATSTAT=null;
 function matStatName(s){if(!MATSTAT){const norm=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');MATSTAT={norm,map:{}};for(const k in DB.statStrings){const n=DB.statStrings[k].name;if(n&&n['en-US'])MATSTAT.map[norm(n['en-US'])]=k;if(!MATSTAT.map[norm(k)])MATSTAT.map[norm(k)]=k;}}const k=MATSTAT.map[MATSTAT.norm(s)];if(!k)return s;const n=statName(k);if(n!==k)return n;const v=t('st_'+k);return v!=='st_'+k?v:s;}
-function rsTotal(){const el=$('rsTotal');if(!el)return;const M=window.TBH_MATFX||[];let sum=0,sym='$',miss=0;for(const k of rsCart){const m=M.find(x=>String(x.key)===String(k));if(!m)continue;const c=priceCache['M|'+m.name];if(c&&c.price){const n=parseFloat(c.price.replace(/[^0-9.]/g,''));if(isFinite(n))sum+=n;const sm=c.price.match(/[^\d.,\s]+/);if(sm)sym=sm[0];}else miss++;}el.innerHTML=t('rs_total')+': <b>'+sym+sum.toFixed(2)+'</b>'+(miss?` <span class="rsnp">${t('rs_missing',miss)}</span>`:'');}
-async function loadMatPrices(){const all=[...document.querySelectorAll('#pane-research [data-mk]')];const cartN=[...new Set([...document.querySelectorAll('#pane-research .rscp[data-mk]')].map(e=>e.dataset.mk))];const listN=[...new Set([...document.querySelectorAll('#pane-research .rsmkt[data-mk]')].map(e=>e.dataset.mk))].slice(0,10);const names=[...new Set([...cartN,...listN])];for(const name of names){let p=priceCache['M|'+name];if(!(p&&Date.now()-p.t<PRICE_TTL)){try{p=await getMatPrice(name)}catch(e){p=null}await new Promise(r=>setTimeout(r,MKT_DELAY));}for(const e of all.filter(x=>x.dataset.mk===name)){const cart=e.classList.contains('rscp');
+function rsTotal(){const el=$('rsTotal');if(!el)return;const M=window.TBH_MATFX||[];let sum=0,miss=0;for(const k of rsCart){const m=M.find(x=>String(x.key)===String(k));if(!m)continue;const c=priceCache[mck(m.name)];if(c&&c.price)sum+=priceNum(c.price);else miss++;}el.innerHTML=t('rs_total')+': <b>'+fmtMoney(sum)+'</b>'+(miss?` <span class="rsnp">${t('rs_missing',miss)}</span>`:'');}
+async function loadMatPrices(){const all=[...document.querySelectorAll('#pane-research [data-mk]')];const cartN=[...new Set([...document.querySelectorAll('#pane-research .rscp[data-mk]')].map(e=>e.dataset.mk))];const listN=[...new Set([...document.querySelectorAll('#pane-research .rsmkt[data-mk]')].map(e=>e.dataset.mk))].slice(0,10);const names=[...new Set([...cartN,...listN])];for(const name of names){let p=priceCache[mck(name)];if(!(p&&Date.now()-p.t<PRICE_TTL)){try{p=await getMatPrice(name)}catch(e){p=null}await new Promise(r=>setTimeout(r,MKT_DELAY));}for(const e of all.filter(x=>x.dataset.mk===name)){const cart=e.classList.contains('rscp');
  if(p&&p.price){e.title='';if(cart)e.textContent=p.price;else e.innerHTML=`<a class="mktl" href="${matLink(name)}" target="_blank" rel="noopener">${MKT_SVG}${p.price}</a>`;}
  else if(p&&!p.fail){e.title=t('mkt_nolist');if(cart)e.textContent='—';else e.innerHTML='<span class="rsnp">—</span>';}
  else{e.title=t('mkt_down');if(cart)e.textContent='?';else e.innerHTML='<span class="rsnp">?</span>';}}rsTotal();}rsTotal();}
@@ -1272,13 +1309,30 @@ const SELL_SLOTS=4,SELL_CD=8*3600;// June-15 market rules: 4 listings, 8h relist
 const SELL_LIQ={COMMON:1,UNCOMMON:.95,RARE:.85,EPIC:.78,LEGEND:.68,LEGENDARY:.6,IMMORTAL:.5,ARCANA:.42,BEYOND:.34,CELESTIAL:.27,DIVINE:.2,COSMIC:.14};
 function sellLiq(g){const v=SELL_LIQ[String(g||'').toUpperCase()];return v!=null?v:.5;}
 function sellLiqTag(l){const c=l>=.65?'fast':l>=.38?'med':'slow';return `<span class="liq ${c}">${t('sell_liq_'+c)}</span>`;}
-function sellUsd(s){if(!s)return 0;const n=parseFloat(String(s).replace(/[^0-9.]/g,''));return isFinite(n)?n:0;}
+function sellUsd(s){return priceNum(s);}
 function ckFresh(ck){const c=priceCache[ck];return (c&&Date.now()-c.t<PRICE_TTL)?c:null;}
 function sellDur(sec){sec=Math.max(0,Math.ceil(sec));const h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;return h>0?h+'h'+(m<10?'0':'')+m:m+':'+(s<10?'0':'')+s;}
 let sellSlots=[];try{sellSlots=JSON.parse(localStorage.getItem('tbh_sellslots')||'[]');}catch(e){}
 if(!Array.isArray(sellSlots))sellSlots=[];while(sellSlots.length<SELL_SLOTS)sellSlots.push(null);sellSlots.length=SELL_SLOTS;
+// a listing's identity must NOT carry the currency (cache keys are currency-scoped via gck/mck) — derive a
+// stable currency-free signature; migrate older slots (which stored a cache key in .ck) onto it so a save
+// made before this change keeps its "listed" state.
+const sellSig=c=>c.type==='gear'?c.name+'|'+c.grade:'M|'+c.name;
+for(const s of sellSlots)if(s&&!s.id)s.id=sellSig(s);
 function saveSellSlots(){try{localStorage.setItem('tbh_sellslots',JSON.stringify(sellSlots));}catch(e){}}
 let sellNotified={},sellLoading=false;
+// Sell-tab filters (mirror the Items tab's language): search + type + grade + sort + hide-listed
+let sellQ='',sellType='all',sellGrade=new Set(),sellSort='value',sellHideListed=false,sellShown=[];
+function sellFiltered(cands){
+ const q=sellQ.trim().toLowerCase(),listed=new Set(sellSlots.filter(Boolean).map(s=>s.id));
+ const l=cands.filter(c=>(sellType==='all'||c.type===sellType)
+  &&(!sellGrade.size||sellGrade.has((c.grade||'').toUpperCase()))
+  &&(!sellHideListed||!listed.has(sellSig(c)))
+  &&(!q||(c.dname||'').toLowerCase().includes(q)||(c.name||'').toLowerCase().includes(q)));
+ if(sellSort==='value')return l;// keep sellCandidates' nuanced priced→unpriced→zero order
+ const cmp={price:(a,b)=>b.usd-a.usd||b.score-a.score,qty:(a,b)=>b.qty-a.qty||b.score-a.score,npc:(a,b)=>(b.npc||0)-(a.npc||0)||b.score-a.score}[sellSort];
+ return cmp?l.slice().sort(cmp):l;
+}
 // build the rank list: loose tradeable gear (grouped by Steam hash) + owned matfx materials,
 // each scored as cached-USD-price × grade liquidity = estimated value of spending one 8h slot on it
 function sellCandidates(){
@@ -1288,10 +1342,10 @@ function sellCandidates(){
  const M=window.TBH_MATFX||[],byKey={};for(const m of M)byKey[String(m.key)]=m;
  const gear={},mats={};
  for(const it of PSD.itemSaveDatas||[]){
-  if(!equipped.has(it.UniqueId)){const gh=gearHash(it.ItemKey);if(gh){const ck=gh.name+'|'+gh.grade;
+  if(!equipped.has(it.UniqueId)){const gh=gearHash(it.ItemKey);if(gh){const ck=gck(gh);
    (gear[ck]=gear[ck]||{type:'gear',ck:ck,key:it.ItemKey,name:gh.name,dname:(window.TBH_GEARNAMES||{})[it.ItemKey]||gh.name,grade:gh.grade,qty:0,npc:DB.itemSell[String(it.ItemKey)]||0}).qty++;continue;}}
   const m=byKey[String(it.ItemKey)];if(m){const k=String(it.ItemKey);
-   (mats[k]=mats[k]||{type:'mat',ck:'M|'+m.name,key:it.ItemKey,name:m.name,dname:matName(m),grade:m.grade,qty:0,npc:DB.itemSell[k]||0}).qty+=(it.Quantity||1);}
+   (mats[k]=mats[k]||{type:'mat',ck:mck(m.name),key:it.ItemKey,name:m.name,dname:matName(m),grade:m.grade,qty:0,npc:DB.itemSell[k]||0}).qty+=(it.Quantity||1);}
  }
  for(const k in gear)out.push(gear[k]);for(const k in mats)out.push(mats[k]);
  for(const c of out){const p=ckFresh(c.ck);c.priceStr=p?p.price:undefined;c.priced=!!(p&&p.price);c.unlisted=!!(p&&!p.price);c.usd=sellUsd(c.priceStr);c.liq=sellLiq(c.grade);c.score=c.usd*c.liq;}
@@ -1299,10 +1353,37 @@ function sellCandidates(){
  out.sort((a,b)=>{if(b.score!==a.score)return b.score-a.score;const au=a.priceStr===undefined?1:0,bu=b.priceStr===undefined?1:0;if(au!==bu)return bu-au;return (b.npc||0)-(a.npc||0)||b.qty-a.qty;});
  return out;
 }
-function sellTopFree(){const cands=sellCandidates(),listed=new Set(sellSlots.filter(Boolean).map(s=>s.ck));return cands.find(c=>c.score>0&&!listed.has(c.ck))||cands.find(c=>!listed.has(c.ck))||null;}
-function sellListItem(c){if(!c)return;const i=sellSlots.findIndex(s=>!s);if(i<0){showToast(t('sell_pickfree',SELL_SLOTS));return;}sellSlots[i]={ck:c.ck,name:c.name,dname:c.dname,type:c.type,key:c.key,grade:c.grade,listedAt:Date.now()};saveSellSlots();renderSell();}
+function sellTopFree(){const cands=sellCandidates(),listed=new Set(sellSlots.filter(Boolean).map(s=>s.id));return cands.find(c=>c.score>0&&!listed.has(sellSig(c)))||cands.find(c=>!listed.has(sellSig(c)))||null;}
+function sellListItem(c){if(!c)return;if(sellSlots.some(s=>s&&s.id===sellSig(c)))return;const i=sellSlots.findIndex(s=>!s);if(i<0){showToast(t('sell_pickfree',SELL_SLOTS));return;}sellSlots[i]={id:sellSig(c),name:c.name,dname:c.dname,type:c.type,key:c.key,grade:c.grade,listedAt:Date.now()};saveSellSlots();renderSell();}
 function sellListLink(c){if(c.type==='mat')return matLink(c.name);const p=priceCache[c.ck];if(p&&p.hash)return steamLink(p.hash);const gh=gearHash(c.key);return gh?'https://steamcommunity.com/market/search?appid=3678970&q='+encodeURIComponent(gh.name+' ('+gh.grade+')'):'#';}
-function renderSell(){if($('sellIntro'))$('sellIntro').innerHTML=t('sell_intro')+`<br><span style="color:var(--dim)">${t('sell_estnote')}</span>`;renderSellSlots();renderSellList();loadSellPrices();}
+function renderSell(){if($('sellIntro'))$('sellIntro').innerHTML=t('sell_intro')+`<br><span style="color:var(--dim)">${t('sell_estnote')}</span>`;renderSellSlots();renderSellBar();renderSellList();loadSellPrices();}
+// the filter bar is rendered separately from the list so streaming price updates (which
+// re-render only the list + summary) never steal focus from the search box mid-type
+function renderSellBar(){
+ const bar=$('sellBar');if(!bar)return;
+ if(!PSD){bar.innerHTML='';return;}
+ const cands=sellCandidates();if(!cands.length){bar.innerHTML='';return;}
+ const chip=(on,col,label,attr)=>`<button class="itchip ${on?'on':''}" ${attr} style="--ic:${col||'var(--mut)'}">${label}</button>`;
+ const haveG=new Set(cands.map(c=>(c.grade||'').toUpperCase()).filter(Boolean)),grades=ITEM_GRADES.filter(g=>haveG.has(g));
+ const haveGear=cands.some(c=>c.type==='gear'),haveMat=cands.some(c=>c.type==='mat');
+ // a filter can go stale after a save refresh empties a category — drop selections that no longer exist
+ for(const g of [...sellGrade])if(!haveG.has(g))sellGrade.delete(g);
+ if(sellType!=='all'&&!cands.some(c=>c.type===sellType))sellType='all';
+ const typeOpts=[['all',t('rs_all')]];if(haveGear)typeOpts.push(['gear',t('it_gear')]);if(haveMat)typeOpts.push(['mat',t('it_material')]);
+ const typeBtns=typeOpts.map(([v,l])=>chip(sellType===v,'var(--ink)',l,`data-st="${v}"`)).join('');
+ const gradeChips=grades.map(g=>chip(sellGrade.has(g),GRADE_COL[g],titlecase(g),`data-sg="${g}"`)).join('');
+ const sortBtns=[['value','sell_srt_value'],['price','sell_srt_price'],['qty','sell_srt_qty'],['npc','sell_srt_npc']].map(([v,k])=>chip(sellSort===v,'var(--ink)',t(k),`data-ss="${v}"`)).join('');
+ const hideTgl=sellSlots.some(Boolean)?chip(sellHideListed,'var(--violet)',t('sell_hidelisted'),'data-shl="1"'):'';
+ bar.innerHTML=`<input class="itsearch" id="sellSearch" placeholder="${t('it_search')}" value="${htmlAttr(sellQ)}">`
+  +`<div class="itrow">${typeOpts.length>1?`<span class="itlbl">${t('rs_type')}</span>${typeBtns}<span class="itgap"></span>`:''}<span class="itlbl">${t('it_sort')}</span>${sortBtns}${hideTgl?`<span class="itgap"></span>${hideTgl}`:''}</div>`
+  +(grades.length>1?`<div class="itrow"><span class="itlbl">${t('srt_grade')}</span>${gradeChips}${sellGrade.size?`<button class="itchip clr" id="sellGradeClr">${t('rs_clear')}</button>`:''}</div>`:'');
+ bar.querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>{sellType=b.dataset.st;renderSellBar();renderSellList();});
+ bar.querySelectorAll('[data-sg]').forEach(b=>b.onclick=()=>{const g=b.dataset.sg;sellGrade.has(g)?sellGrade.delete(g):sellGrade.add(g);renderSellBar();renderSellList();});
+ bar.querySelectorAll('[data-ss]').forEach(b=>b.onclick=()=>{sellSort=b.dataset.ss;renderSellBar();renderSellList();});
+ bar.querySelectorAll('[data-shl]').forEach(b=>b.onclick=()=>{sellHideListed=!sellHideListed;renderSellBar();renderSellList();});
+ const _c=$('sellGradeClr');if(_c)_c.onclick=()=>{sellGrade.clear();renderSellBar();renderSellList();};
+ const _s=$('sellSearch');if(_s)_s.oninput=()=>{sellQ=_s.value;clearTimeout(_s._t);_s._t=setTimeout(()=>renderSellList(),160);};
+}
 function renderSellSlots(){
  const el=$('sellSlots');if(!el)return;
  const used=sellSlots.filter(Boolean).length;
@@ -1318,20 +1399,25 @@ function renderSellSlots(){
  sellTick();
 }
 function renderSellList(){
- const el=$('sellList');if(!el)return;
- if(!PSD){el.innerHTML=`<div class="note">${t('sell_demo')}</div>`;return;}
+ const el=$('sellList'),sum=$('sellSummary');if(!el)return;
+ if(!PSD){el.innerHTML=`<div class="note">${t('sell_demo')}</div>`;if(sum)sum.innerHTML='';return;}
  const cands=sellCandidates();
- if(!cands.length){el.innerHTML=`<div class="note">${t('sell_empty')}</div>`;return;}
- const listed=new Set(sellSlots.filter(Boolean).map(s=>s.ck)),free=sellSlots.some(s=>!s);
- el.innerHTML=`<div class="note" style="margin-top:0;margin-bottom:4px">${t('sell_rankhdr')}</div>`+cands.map((c,idx)=>{
+ if(!cands.length){el.innerHTML=`<div class="note">${t('sell_empty')}</div>`;if(sum)sum.innerHTML='';return;}
+ const list=sellFiltered(cands);sellShown=list;
+ const listed=new Set(sellSlots.filter(Boolean).map(s=>s.id)),free=sellSlots.some(s=>!s);
+ // summary: how many shown vs total + total est. market value (unit price × qty) of the priced, filtered set
+ let val=0,unp=0;for(const c of list){if(c.priced)val+=c.usd*c.qty;else if(!c.unlisted)unp++;}
+ if(sum)sum.innerHTML=`<span class="sscount">${t('sell_count',list.length,cands.length)}</span><span class="ssval">${t('sell_estval')}: <b>${fmtMoney(val)}</b></span>${unp?`<span class="rsnp">${t('rs_missing',unp)}</span>`:''}`;
+ if(!list.length){el.innerHTML=`<div class="note">${t('it_none')}</div>`;return;}
+ el.innerHTML=list.map((c,idx)=>{
   const priceCell=c.priced?`<a class="mktl" href="${sellListLink(c)}" target="_blank" rel="noopener">${MKT_SVG}${c.priceStr}</a>`:(c.unlisted?`<span class="rsnp">${t('sell_nolist')}</span>`:`<span class="rsnp">·</span>`);
   const npc=c.npc?` · <span class="npcg" title="${t('sell_npc',fmt(c.npc))}">${fmtK(c.npc)}</span>`:'';
   const liq=c.priced?' '+sellLiqTag(c.liq):'';
-  const isL=listed.has(c.ck);
+  const isL=listed.has(sellSig(c));
   const btn=isL?`<span class="liq med">${t('sell_listed')}</span>`:`<button class="selllist${free?'':' dis'}" data-list="${idx}">${t('sell_list')}</button>`;
   return `<div class="sellrow"><span class="srk">${idx+1}</span><img alt="" class="sri" src="${itemIcon(c.key)}" onerror="this.style.visibility='hidden'"><div class="sellinfo"><div class="sellnm">${c.dname} <span class="sg">${c.grade}</span></div><div class="sellmeta">${t('sell_owned',c.qty)}${liq}${npc}</div></div><div class="sellprice">${priceCell}</div>${btn}</div>`;
  }).join('');
- el.querySelectorAll('[data-list]').forEach(b=>b.onclick=()=>sellListItem(cands[+b.dataset.list]));
+ el.querySelectorAll('[data-list]').forEach(b=>b.onclick=()=>sellListItem(sellShown[+b.dataset.list]));
 }
 function sellTick(){
  for(let i=0;i<SELL_SLOTS;i++){const s=sellSlots[i],el=$('sellCd-'+i);if(!el)continue;
@@ -1409,7 +1495,17 @@ $('gslNum').oninput=function(){goldThrManual=true;const raw=this.value.trim();le
 $('gearLvlRange').oninput=function(){$('gearLvlVal').textContent=this.value;};
 $('gearLvlRange').onchange=function(){gearLvlCap=+this.value;if(curTab==='whatif')renderWhatIf();};
 const sel=$('lang');sel.innerHTML=I18N.LOCALES.map(([c,n])=>`<option value="${c}"${c===LOC?' selected':''}>${n}</option>`).join('');
-sel.onchange=()=>{LOC=sel.value;localStorage.setItem('tbh_loc',LOC);document.documentElement.lang=LOC;treeBuilt=false;if(lastRec)render(lastRec,lastMeta);if(!$('gate').classList.contains('hide'))openGate(handle?'reconnect':'pick');};
+sel.onchange=()=>{LOC=sel.value;localStorage.setItem('tbh_loc',LOC);document.documentElement.lang=LOC;treeBuilt=false;
+ if(!localStorage.getItem('tbh_cur')){CUR=curBy(LOC_CUR[LOC]||1);syncCurSel();}// currency follows language until explicitly chosen
+ if(lastRec)render(lastRec,lastMeta);if(!$('gate').classList.contains('hide'))openGate(handle?'reconnect':'pick');};
+const csel=$('cur');
+function syncCurSel(){csel.innerHTML=CURRENCIES.map(c=>`<option value="${c.steam}"${c.steam===CUR.steam?' selected':''}>${c.sym} ${c.iso}</option>`).join('');csel.title=t('currency');}
+syncCurSel();
+csel.onchange=()=>{CUR=curBy(csel.value);try{localStorage.setItem('tbh_cur',String(CUR.steam));}catch(e){}
+ // currency-scoped keys ⇒ new currency is cold, loaders refetch. render() already re-renders the active tab,
+ // so only fall back to explicit price-tab renders when there's no save driving render().
+ if(lastRec)render(lastRec,lastMeta);
+ else{if(curTab==='research')renderResearch();if(curTab==='whatif')renderWhatIf();if(curTab==='sell')renderSell();}};
 document.documentElement.lang=LOC;
 if(window.TBH_DEMO)render(window.TBH_DEMO.rec,{gold:window.TBH_DEMO.meta.gold,goldPerHour:window.TBH_DEMO.meta.goldPerHour,playTimeH:window.TBH_DEMO.meta.playTimeH,version:window.TBH_DEMO.meta.version});
 (async()=>{try{const h=await idbGet('h');if(h){handle=h;openGate('reconnect');}else openGate('pick');}catch{openGate('pick');}})();
