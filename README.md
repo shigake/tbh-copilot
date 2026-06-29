@@ -4,7 +4,7 @@
 
 An optimization companion for the idle-RPG [TBH: Task Bar Hero](https://store.steampowered.com/app/3678970/TBH_Task_Bar_Hero/).
 It reads your save **locally in the browser**, decrypts it, and tells you the optimal next move: where to
-farm, when to come back, when you'll level, which runes and gear to get, and how much power each change buys.
+farm, when to come back, when you'll level, which runes and gear to get, and the best team builds to run.
 
 [![CI](https://github.com/shigake/tbh-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/shigake/tbh-copilot/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -15,7 +15,7 @@ farm, when to come back, when you'll level, which runes and gear to get, and how
 
 100% local &nbsp;&middot;&nbsp; free, no ads, no tracking &nbsp;&middot;&nbsp; no server, no build step &nbsp;&middot;&nbsp; 16 languages
 
-<img src="screenshots/overview.png" width="860" alt="Overview: a coach card with the single best next move, the party roster with POWER and DPS, and a what-to-do-now list">
+<img src="screenshots/overview.png" width="860" alt="Overview: a coach card with the single best next move, the party roster with DPS and EHP, and a what-to-do-now list">
 
 </div>
 
@@ -34,14 +34,14 @@ nothing ever leaves your machine.
 | Area | What it does |
 |---|---|
 | **Coach & timeline** | A single "do this now" card distilling the best next action, plus a timeline of what lands when: each hero's next level, the offline-reward cap, the gold target for your next planned purchase. |
-| **Party roster** | Game sprites, POWER, DPS share, EHP, level and XP/ETA, unspent ability points, equipped gear. Click a hero for a full stat sheet that breaks every stat down by source. |
+| **Party roster** | Game sprites, DPS share, EHP, level and XP/ETA, unspent ability points, equipped gear. Click a hero for a full stat sheet that breaks every stat down by source. |
+| **Builds** | Curated team comps (tiered S/A/B) and a per-class build for all six heroes — recommended skills, passive priority and gear stats. Save-aware: it marks the heroes you own, flags your current formation, and shows what each comp still needs. |
 | **Farm optimizer** | The wiki Farming Optimizer idea, automated. It calibrates your real clear rate from your measured gold/sec and ranks every cleared stage by gold/hour and exp/hour, with a sortable table (clear time, EXP/HP and Gold/HP density) and level/gold projections at 1/3/5/8 h. It sends you to the dense, fast stage instead of an unclearable floor. |
 | **Idle / return timer** | Offline reward curve, the optimal time to come back (the 8 h cap), and what to park on first. |
 | **Interactive rune tree** | All 197 nodes laid out and colored by category. Pick a category (EXP, Combat, Gold, Items, Chest, Inventory, Offline, Utility) and the tree highlights that branch and lists the three cheapest buyable nodes. Almost-free runes are called out. |
-| **Gear comparator** | For any slot, the POWER delta of every item: the ones in your bag and the ones you don't have yet (capped to gear you can realistically farm), with live Steam Market prices, listing links, and **where each item drops**. ★ an item and the Farm tab gains a wishlist view that ranks stages by where your favorites actually drop. |
+| **Gear comparator** | For any slot, the DPS / EHP delta of every item: the ones in your bag and the ones you don't have yet (capped to gear you can realistically farm), with live Steam Market prices, listing links, and **where each item drops**. ★ an item and the Farm tab gains a wishlist view that ranks stages by where your favorites actually drop. |
 | **Shop / build planner** | Pick the effects you want (Decorations, Engravings, Inscriptions), see which materials grant them, and build a cart with live Steam Market prices — then open every listing with one click. |
 | **Sell advisor** | With the market limited to 4 listing slots on an 8 h relist interval, it ranks your tradeable gear and materials by estimated value *per slot* (Steam price × how fast that grade tends to sell), compares each against its NPC gold value, and tracks the four slots with an 8 h countdown and a background "slot free" notification. Liquidity is a labeled estimate by grade, not live Steam volume. |
-| **History charts** | POWER and gold tracked over time in your browser (IndexedDB), so you can see how fast you're actually growing. |
 | **Chest timers** | Auto-open countdowns for normal / stage-boss / act-boss chests, pre-filled with *your* real cooldowns (base minus your reduction runes) and capacity, read straight from the save. Repeating timer with a synthesized audio alert and a background notification each cycle. |
 | **Notifications** | Opt-in browser notifications while the tab sits in the background: a hero levels up, a planned purchase becomes affordable, a market listing slot frees up, or your offline rewards hit the 8 h cap. |
 | **Install & themes** | Installable as an app (PWA) with offline-cached sprites; dark and light themes. |
@@ -71,9 +71,9 @@ Then:
 2. Done. In Chrome/Edge it tracks the save live and updates as you play. Other browsers load the save on
    demand — click the refresh button to re-read. Or click **demo** to look around first.
 
-Everything lives on one page: an **Overview** (party roster and what-to-do-now), the **Farm**
-optimizer, the **Runes** tree, a **Gear** comparator, the **Shop** build planner, a **Sell** advisor,
-and **History** charts.
+Everything lives on one page: an **Overview** (party roster and what-to-do-now), curated **Builds**, the
+**Farm** optimizer, the **Runes** tree, a **Gear** comparator, the **Shop** build planner, and a **Sell**
+advisor.
 
 ## How it works
 
@@ -84,7 +84,7 @@ the only things fetched from the network are web fonts and the optional Steam Ma
 data is never part of any request.
 
 One engine drives both surfaces: `engine/engine.js` (UMD, runs in the browser and in Node) computes
-effective DPS/EHP/POWER, leveling, the calibrated farm optimizer, idle, the rune tree and planners, and the
+effective DPS/EHP, leveling, the calibrated farm optimizer, idle, the rune tree and planners, and the
 gear and enchant deltas. Every tab calls the same `recommend()`. The stat model uses the exact formulas
 recovered from the game binary (via the community wiki) and was checked against the in-game Status panel,
 and an 83-assertion test suite validates it against a real save on every push.

@@ -8,7 +8,7 @@ const ROOT = path.join(__dirname, '..');
 
 // Hash the actual shipped behavior, independent of the cache-buster value itself: the
 // six engine bundles + dashboard.html with its ?v= query strings stripped out.
-const SHIPPED = ['engine/gamedata.js', 'engine/i18n.js', 'engine/engine.js', 'engine/demo.js', 'engine/gearnames.js', 'engine/materialfx.js', 'engine/itemnames.js'];
+const SHIPPED = ['engine/gamedata.js', 'engine/i18n.js', 'engine/engine.js', 'engine/demo.js', 'engine/gearnames.js', 'engine/materialfx.js', 'engine/itemnames.js', 'engine/builds.js'];
 // Normalize CRLF→LF before hashing so the digest is identical on a Windows working tree
 // (git autocrlf) and a fresh Linux CI checkout — otherwise line endings alone would flip it.
 const norm = p => fs.readFileSync(p, 'utf8').replace(/\r\n/g, '\n');

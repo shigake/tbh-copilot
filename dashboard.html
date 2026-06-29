@@ -471,7 +471,47 @@ body.light .sslot.ready{background:var(--panel2)}
 .selllist{flex:none;border:1px solid var(--line2);border-radius:7px;background:transparent;color:var(--ink);font-size:12px;padding:6px 11px;cursor:pointer}
 .selllist:hover{border-color:var(--good);color:var(--good)}
 .selllist.dis{opacity:.4;pointer-events:none}
-</style></head><body><div class="wrap" id="stage"><div class="top"><div class="logo">TBH <b>CO·PILOT</b></div><div class="live"><span class="dot" id="dot"></span><span id="connTxt">—</span></div><button class="rfbtn" id="refreshBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3.5v5h-5"/></svg></button><button class="rfbtn" id="notifBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 22a2.3 2.3 0 0 0 2.3-2.3H9.7A2.3 2.3 0 0 0 12 22Zm7-5.5v-1l-1.6-1.6V9.6c0-3-1.8-5.4-4.4-6V3a1 1 0 1 0-2 0v.6c-2.6.6-4.4 3-4.4 6v4.3L5 15.5v1Z"/></svg></button><button class="rfbtn" id="themeBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 4a8 8 0 1 0 8 8c0-.4 0-.8-.1-1.2A6.2 6.2 0 0 1 11.2 4.1c.3-.1.5-.1.8-.1Z"/></svg></button><div class="sp"></div><select class="lang" id="lang"></select><select class="lang cur" id="cur"></select><button class="chip shareb" id="shareBtn" title="share"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 13v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6"/></svg></button><div class="chip" id="ptime">—</div><div class="chip" id="ver">v—</div></div><div class="banner" id="banner"></div><div class="strip"><img class="strip-boss" id="stripBoss" alt="" onerror="this.style.display='none'"><div class="s-gold"><div class="lbl"><span id="lblGold">GOLD</span></div><div class="numrow"><span class="coin sprite-tile"><img src="assets/game/runes/AdditionalGold.png" alt="" onerror="this.parentNode.style.display='none'"></span><div class="num" id="gold">0</div></div><div class="sub"><b id="ghr">—</b><span id="lblPerH">/h</span> · <span id="curStage">—</span></div></div><div class="s-stat"><div class="k" id="lblPow">POWER</div><div class="v pow" id="partyPow">—</div><div class="sm" id="partyDps">—</div></div></div><div class="tabs" id="tabs"></div><div class="pane" id="pane-overview"><div id="coachCard"></div><div id="ovHeroes"></div><div class="grid2"><div class="panel"><div class="ptitle" id="tDoNow">DO NOW</div><div id="doNow"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tSummary">SUMMARY</div><div id="ovSummary"></div></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--exp)" id="tTimeline">TIMELINE</div><div id="timeline"></div></div></div><div class="pane" id="pane-farm"><div class="grid2"><div class="panel"><div class="ptitle" style="--c:var(--exp)" id="tFarm2">FARM</div><div id="farm"></div></div><div class="panel"><div class="ptitle" style="--c:var(--warn)" id="tIdle2">IDLE</div><div id="idle"></div></div></div><div class="panel" id="fpTable" style="margin-top:14px"><div class="ptitle" style="--c:var(--gold)" id="tStages">STAGES</div><div id="farmtable"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--violet)" id="tPets">PETS</div><div id="pets"></div></div></div><div class="pane" id="pane-runes"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tRunes2">RUNES</div><div class="treewrap"><svg id="tree" preserveAspectRatio="xMidYMid meet"></svg><div class="tctl"><button id="tFit">fit</button><button id="tIn">+</button><button id="tOut">−</button></div><div class="thint" id="thint"></div><div class="tdetail" id="tdetail"></div></div><div class="legend" id="legend"></div><div class="gsl"><span class="gsl-pre" id="gslPre">enable up to</span><input type="range" id="gslRange" min="0" max="1000" value="1000"><input type="number" id="gslNum" class="gsl-num" min="0" placeholder="gold"><span class="gsl-val" id="gslVal">all</span></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tReco">RECOMENDAR</div><div class="catbtns" id="catBtns"></div><div id="recoList"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--good)" id="tCartPlan">SPENDING PLAN</div><div class="note" id="cartHint" style="margin-top:0"></div><div id="goldCart"></div></div></div><div class="pane" id="pane-whatif"><div class="panel"><div class="ptitle" style="--c:#9db4ff" id="tGear">GEAR</div><div class="herobar" id="wfHeroBar"></div><div class="gsl"><span class="gsl-pre" id="gearLvlPre">up to level</span><input type="range" id="gearLvlRange" min="1" max="100" step="1" value="30"><span class="gsl-val" id="gearLvlVal">30</span></div><div class="slotbar" id="wfSlots"></div><div class="mktnote"></div><div id="wfCands"></div></div><div class="grid2" style="margin-top:14px"><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tProg">PROGRESSION</div><div id="gearProg"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tSynth">SYNTHESIS</div><div id="synth"></div></div></div></div><div class="pane" id="pane-items"><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tItems">ITEMS</div><div id="itemsBar"></div><div class="note" id="itemsCount" style="margin-top:0"></div><div id="itemsList"></div></div></div><div class="pane" id="pane-research"><div class="panel" id="rsCartPanel"><div class="ptitle" style="--c:var(--gold)" id="tCart">CART</div><div id="rsCart"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tResearch">RESEARCH</div><div class="mktnote"></div><div id="rsTop"></div><div id="rsList"></div></div></div><div class="pane" id="pane-sell"><div class="stashworth" id="stashWorth"></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tSellSlots">LISTING SLOTS</div><div class="note" id="sellSlotNote" style="margin-top:0"></div><div id="sellSlots" class="sellslots"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--good)" id="tSell">BEST TO SELL</div><div class="mktnote"></div><div class="note" id="sellIntro" style="margin-top:0"></div><div id="sellBar" class="sellbar"></div><div class="sellsum" id="sellSummary"></div><div id="sellList"></div></div></div><div class="pane" id="pane-cube"><div class="panel"><div class="ptitle" style="--c:var(--violet)" id="tCube">CUBE · CRAFT ROI</div><div class="note" id="cubeIntro" style="margin-top:0"></div><div class="mktnote"></div><div id="cubeTiers" class="cubetiers"></div></div><div class="panel" style="margin-top:14px"><div id="cubeBody"></div></div></div><div class="pane" id="pane-chests"><div class="panel"><div class="ptitle" style="--c:var(--violet)" id="tChests">CHESTS</div><div class="note" id="chestIntro" style="margin-top:0"></div><div id="chestList"></div><div class="chestctl"><span class="gsl-pre" id="chestVolLbl">alert volume</span><input type="range" id="chestVol" min="0" max="100" value="60"><button class="fsort" id="chestTest">test</button></div></div></div><div class="pane" id="pane-hist"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tHistPow">HISTORY · POWER</div><svg class="spark" id="sparkPow" preserveAspectRatio="none"></svg><div id="histPow" class="sub"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tHistGold">HISTORY · GOLD</div><svg class="spark" id="sparkGold" preserveAspectRatio="none"></svg><div id="histGold" class="sub"></div></div><div class="note" id="histNote">—</div></div><div class="foot" id="foot">100% local</div></div><div class="gate" id="gate"><div class="gcard"><div class="glogo">TBH <b>CO·PILOT</b></div><p id="gateMsg">—</p><button class="btn" id="connectBtn"> CONNECT</button><button class="btn ghost" id="demoBtn">demo</button><div class="gerr" id="gerr"></div><div class="gnote" id="gnote">SaveFile_Live.es3 · AppData\LocalLow\TesseractStudio\TaskbarHero</div><input type="file" id="fileInput" accept=".es3" style="display:none"></div></div><div class="hsheet" id="hsheet"><div class="hs-card" id="hsCard"></div></div><div class="toast" id="toast"></div><script src="engine/gamedata.js?v=77"></script><script src="engine/i18n.js?v=77"></script><script src="engine/engine.js?v=77"></script><script src="engine/demo.js?v=77"></script><script src="engine/gearnames.js?v=77"></script><script src="engine/materialfx.js?v=77"></script><script src="engine/itemnames.js?v=77"></script><script>
+/* builds tab */
+#buildsIntro b{color:var(--ink)}
+.bcard{border:1px solid var(--line);border-left:3px solid var(--c,var(--gold));border-radius:12px;background:linear-gradient(180deg,var(--panel),var(--bg2));padding:13px 14px;margin-bottom:12px;box-shadow:inset 0 1px 0 var(--frame-in)}
+.bcard.tier-S{--c:var(--gold)}.bcard.tier-A{--c:var(--exp)}.bcard.tier-B{--c:var(--mut)}
+.bk-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.bk-tier{font-family:var(--px);font-size:13px;width:26px;height:26px;display:grid;place-items:center;border-radius:7px;background:var(--c,var(--gold));color:#10131f;flex:none}
+.bk-line{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.bk-hero{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px 5px;border-radius:9px;border:1px solid transparent}
+.bk-hero:hover{border-color:var(--line2)}
+.bk-hero img{width:34px;height:34px;border-radius:7px;background:var(--art-screen);border:1px solid var(--c);object-fit:cover}
+.bk-hero.miss{opacity:.45}.bk-hero.miss img{filter:grayscale(1)}
+.bk-hero.owned img{box-shadow:0 0 0 1px var(--good)}
+.bk-hn{font-size:10px;color:var(--mut);max-width:62px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bk-arrow{color:var(--dim);font-size:15px;margin:0 1px}
+.bk-tag{margin-left:auto;font-family:var(--px);font-size:9px;letter-spacing:.5px;color:#10131f;background:var(--gold);padding:4px 7px;border-radius:6px}
+.bk-status{margin-top:9px;font-size:12px}
+.bk-cur{color:var(--gold);font-weight:700;font-family:var(--px);font-size:11px;letter-spacing:.5px}
+.bk-ok{color:var(--good)}.bk-miss{color:var(--warn)}
+.bk-sum{margin:9px 0;font-size:13px;color:var(--ink);line-height:1.5}
+.bk-skills{display:flex;flex-direction:column;gap:6px;margin:9px 0}
+.bk-srow{display:flex;align-items:center;gap:8px}
+.bk-shi{width:18px;height:18px;border-radius:4px;flex:none;opacity:.85;image-rendering:pixelated}
+.bk-sks{display:flex;gap:5px;flex-wrap:wrap}
+.bk-sk,.bk-p{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--ink);background:var(--art-screen);border:1px solid var(--line);border-radius:7px;padding:3px 8px 3px 4px}
+.bk-sk img,.bk-p img{width:16px;height:16px;image-rendering:pixelated}
+.bk-when{font-size:12px;color:var(--mut);margin-top:7px}.bk-when b{color:var(--ink)}
+#classBuilds{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:560px){#classBuilds{grid-template-columns:1fr}}
+.bclass{border:1px solid var(--line);border-top:2px solid var(--c,var(--gold));border-radius:12px;background:linear-gradient(180deg,var(--panel),var(--bg2));padding:12px 13px;box-shadow:inset 0 1px 0 var(--frame-in)}
+.cc-head{display:flex;align-items:center;gap:10px;cursor:pointer;margin-bottom:4px}
+.cc-head img{width:40px;height:40px;border-radius:8px;background:var(--art-screen);border:1px solid var(--c);flex:none;object-fit:cover}
+.cc-name{font-family:var(--px);font-size:12px;color:var(--c)}
+.cc-role{font-size:11px;color:var(--mut)}
+.cc-lbl{font-family:var(--px);font-size:9px;letter-spacing:.5px;color:var(--dim);margin:9px 0 5px}
+.cc-row{display:flex;gap:5px;flex-wrap:wrap}
+.cc-gear{font-size:12px;color:var(--mut);margin-top:10px}.cc-gear b,.cc-tip b{color:var(--ink)}
+.cc-tip{font-size:12px;color:var(--mut);margin:7px 0 0;line-height:1.5}
+.bk-dlc,.bk-dlc2{font-family:var(--px);font-size:8px;letter-spacing:.5px;background:var(--violet);color:#10131f;border-radius:5px;padding:2px 5px;margin-left:6px;vertical-align:middle}
+.bk-dlc2{background:none;color:var(--violet);border:1px solid var(--violet)}
+.cc-head .bk-ok,.cc-head .bk-miss,.cc-head .bk-dlc2{margin-left:auto;font-size:11px;flex:none}
+</style></head><body><div class="wrap" id="stage"><div class="top"><div class="logo">TBH <b>CO·PILOT</b></div><div class="live"><span class="dot" id="dot"></span><span id="connTxt">—</span></div><button class="rfbtn" id="refreshBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3.5v5h-5"/></svg></button><button class="rfbtn" id="notifBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 22a2.3 2.3 0 0 0 2.3-2.3H9.7A2.3 2.3 0 0 0 12 22Zm7-5.5v-1l-1.6-1.6V9.6c0-3-1.8-5.4-4.4-6V3a1 1 0 1 0-2 0v.6c-2.6.6-4.4 3-4.4 6v4.3L5 15.5v1Z"/></svg></button><button class="rfbtn" id="themeBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 4a8 8 0 1 0 8 8c0-.4 0-.8-.1-1.2A6.2 6.2 0 0 1 11.2 4.1c.3-.1.5-.1.8-.1Z"/></svg></button><div class="sp"></div><select class="lang" id="lang"></select><select class="lang cur" id="cur"></select><button class="chip shareb" id="shareBtn" title="share"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 13v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6"/></svg></button><div class="chip" id="ptime">—</div><div class="chip" id="ver">v—</div></div><div class="banner" id="banner"></div><div class="strip"><img class="strip-boss" id="stripBoss" alt="" onerror="this.style.display='none'"><div class="s-gold"><div class="lbl"><span id="lblGold">GOLD</span></div><div class="numrow"><span class="coin sprite-tile"><img src="assets/game/runes/AdditionalGold.png" alt="" onerror="this.parentNode.style.display='none'"></span><div class="num" id="gold">0</div></div><div class="sub"><b id="ghr">—</b><span id="lblPerH">/h</span> · <span id="curStage">—</span></div></div><div class="s-stat"><div class="k" id="lblPow">DPS</div><div class="v pow" id="partyPow">—</div></div></div><div class="tabs" id="tabs"></div><div class="pane" id="pane-overview"><div id="coachCard"></div><div id="ovHeroes"></div><div class="grid2"><div class="panel"><div class="ptitle" id="tDoNow">DO NOW</div><div id="doNow"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tSummary">SUMMARY</div><div id="ovSummary"></div></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--exp)" id="tTimeline">TIMELINE</div><div id="timeline"></div></div></div><div class="pane" id="pane-builds"><div class="note" id="buildsIntro" style="margin-bottom:14px"></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tBuildTeams">TEAM COMPS</div><div id="teamBuilds"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--violet)" id="tBuildClasses">BY CLASS</div><div id="classBuilds"></div></div></div><div class="pane" id="pane-farm"><div class="grid2"><div class="panel"><div class="ptitle" style="--c:var(--exp)" id="tFarm2">FARM</div><div id="farm"></div></div><div class="panel"><div class="ptitle" style="--c:var(--warn)" id="tIdle2">IDLE</div><div id="idle"></div></div></div><div class="panel" id="fpTable" style="margin-top:14px"><div class="ptitle" style="--c:var(--gold)" id="tStages">STAGES</div><div id="farmtable"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--violet)" id="tPets">PETS</div><div id="pets"></div></div></div><div class="pane" id="pane-runes"><div class="panel"><div class="ptitle" style="--c:var(--pow)" id="tRunes2">RUNES</div><div class="treewrap"><svg id="tree" preserveAspectRatio="xMidYMid meet"></svg><div class="tctl"><button id="tFit">fit</button><button id="tIn">+</button><button id="tOut">−</button></div><div class="thint" id="thint"></div><div class="tdetail" id="tdetail"></div></div><div class="legend" id="legend"></div><div class="gsl"><span class="gsl-pre" id="gslPre">enable up to</span><input type="range" id="gslRange" min="0" max="1000" value="1000"><input type="number" id="gslNum" class="gsl-num" min="0" placeholder="gold"><span class="gsl-val" id="gslVal">all</span></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tReco">RECOMENDAR</div><div class="catbtns" id="catBtns"></div><div id="recoList"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--good)" id="tCartPlan">SPENDING PLAN</div><div class="note" id="cartHint" style="margin-top:0"></div><div id="goldCart"></div></div></div><div class="pane" id="pane-whatif"><div class="panel"><div class="ptitle" style="--c:#9db4ff" id="tGear">GEAR</div><div class="herobar" id="wfHeroBar"></div><div class="gsl"><span class="gsl-pre" id="gearLvlPre">up to level</span><input type="range" id="gearLvlRange" min="1" max="100" step="1" value="30"><span class="gsl-val" id="gearLvlVal">30</span></div><div class="slotbar" id="wfSlots"></div><div class="mktnote"></div><div id="wfCands"></div></div><div class="grid2" style="margin-top:14px"><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tProg">PROGRESSION</div><div id="gearProg"></div></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tSynth">SYNTHESIS</div><div id="synth"></div></div></div></div><div class="pane" id="pane-items"><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tItems">ITEMS</div><div id="itemsBar"></div><div class="note" id="itemsCount" style="margin-top:0"></div><div id="itemsList"></div></div></div><div class="pane" id="pane-research"><div class="panel" id="rsCartPanel"><div class="ptitle" style="--c:var(--gold)" id="tCart">CART</div><div id="rsCart"></div></div><div class="panel"><div class="ptitle" style="--c:var(--good)" id="tResearch">RESEARCH</div><div class="mktnote"></div><div id="rsTop"></div><div id="rsList"></div></div></div><div class="pane" id="pane-sell"><div class="stashworth" id="stashWorth"></div><div class="panel"><div class="ptitle" style="--c:var(--gold)" id="tSellSlots">LISTING SLOTS</div><div class="note" id="sellSlotNote" style="margin-top:0"></div><div id="sellSlots" class="sellslots"></div></div><div class="panel" style="margin-top:14px"><div class="ptitle" style="--c:var(--good)" id="tSell">BEST TO SELL</div><div class="mktnote"></div><div class="note" id="sellIntro" style="margin-top:0"></div><div id="sellBar" class="sellbar"></div><div class="sellsum" id="sellSummary"></div><div id="sellList"></div></div></div><div class="pane" id="pane-cube"><div class="panel"><div class="ptitle" style="--c:var(--violet)" id="tCube">CUBE · CRAFT ROI</div><div class="note" id="cubeIntro" style="margin-top:0"></div><div class="mktnote"></div><div id="cubeTiers" class="cubetiers"></div></div><div class="panel" style="margin-top:14px"><div id="cubeBody"></div></div></div><div class="pane" id="pane-chests"><div class="panel"><div class="ptitle" style="--c:var(--violet)" id="tChests">CHESTS</div><div class="note" id="chestIntro" style="margin-top:0"></div><div id="chestList"></div><div class="chestctl"><span class="gsl-pre" id="chestVolLbl">alert volume</span><input type="range" id="chestVol" min="0" max="100" value="60"><button class="fsort" id="chestTest">test</button></div></div></div><div class="foot" id="foot">100% local</div></div><div class="gate" id="gate"><div class="gcard"><div class="glogo">TBH <b>CO·PILOT</b></div><p id="gateMsg">—</p><button class="btn" id="connectBtn"> CONNECT</button><button class="btn ghost" id="demoBtn">demo</button><div class="gerr" id="gerr"></div><div class="gnote" id="gnote">SaveFile_Live.es3 · AppData\LocalLow\TesseractStudio\TaskbarHero</div><input type="file" id="fileInput" accept=".es3" style="display:none"></div></div><div class="hsheet" id="hsheet"><div class="hs-card" id="hsCard"></div></div><div class="toast" id="toast"></div><script src="engine/gamedata.js?v=78"></script><script src="engine/i18n.js?v=78"></script><script src="engine/engine.js?v=78"></script><script src="engine/demo.js?v=78"></script><script src="engine/gearnames.js?v=78"></script><script src="engine/materialfx.js?v=78"></script><script src="engine/itemnames.js?v=78"></script><script src="engine/builds.js?v=78"></script><script>
 const PASSWORD='emuMqG3bLYJ938ZDCfieWJ';
 const $=id=>document.getElementById(id);
 const DB=window.TBH_DB,I18N=window.TBH_I18N,ENG=window.TBHEngine;
@@ -537,7 +577,7 @@ const fmtK=n=>{if(n==null||isNaN(n))return'—';n=Math.round(n);if(n>=1e6)return
 const fmtDur=s=>{if(s==null)return'—';s=Math.round(s);if(s<90)return s+'s';const m=Math.round(s/60);return m<90?m+'min':(s/3600).toFixed(1)+'h'};
 const CVAR={Priest:'#ffd98a',Ranger:'#74d28e',Sorcerer:'#a98cff',Knight:'#9db4ff',Hunter:'#74d28e',Slayer:'#ff8a5c'};
 
-const TABS=[['overview','tab_overview'],['farm','tab_farm'],['runes','tab_runes'],['whatif','tab_gear'],['items','tab_items'],['research','tab_research'],['cube','tab_cube'],['sell','tab_sell'],['chests','tab_chests'],['hist','tab_hist']];
+const TABS=[['overview','tab_overview'],['builds','tab_builds'],['farm','tab_farm'],['runes','tab_runes'],['whatif','tab_gear'],['items','tab_items'],['research','tab_research'],['cube','tab_cube'],['sell','tab_sell'],['chests','tab_chests']];
 if(!TABS.some(([id])=>id===(localStorage.getItem('tbh_tab')||'overview')))localStorage.setItem('tbh_tab','overview');
 let curTab=localStorage.getItem('tbh_tab')||'overview';
 function renderTabs(rec){
@@ -551,7 +591,7 @@ function renderTabs(rec){
 function showTab(){TABS.forEach(([id])=>{$('pane-'+id).classList.toggle('on',id===curTab);});
  document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('on',el.dataset.tab===curTab));
  if(curTab==='runes'&&lastRec){drawTree(lastRec.runeTree);applyGoldDefault(lastRec.runeTree.nodes);syncGoldSlider();applyTreeFilters();}
- if(curTab==='hist')drawHistory();if(curTab==='whatif')renderWhatIf();if(curTab==='research')renderResearch();if(curTab==='cube')renderCube();if(curTab==='sell')renderSell();if(curTab==='chests')renderChests();if(curTab==='items')renderItems();}
+ if(curTab==='whatif')renderWhatIf();if(curTab==='research')renderResearch();if(curTab==='cube')renderCube();if(curTab==='sell')renderSell();if(curTab==='chests')renderChests();if(curTab==='items')renderItems();if(curTab==='builds')renderBuilds();}
 
 async function decryptSave(buf){
  const b=new Uint8Array(buf),iv=b.slice(0,16),ct=b.slice(16);
@@ -720,37 +760,19 @@ function renderWhatIf(){
  const ico=c.key?`<img alt="" src="${itemIcon(c.key)}" style="width:34px;height:34px;border-radius:7px;object-fit:contain;flex:none;background:#0a0e16;padding:2px" onerror="this.style.visibility='hidden'">`:`<div style="width:34px;height:34px;border-radius:7px;border:1px dashed var(--line2);flex:none"></div>`;
  const star=c.key&&!c.equipped?`<button class="favstar ${favGear.has(c.key)?'on':''}" data-fav="${c.key}" title="${t('fav_tip')}">${favGear.has(c.key)?'★':'☆'}</button>`:'';
  const drops=c.key&&c.notOwned?`<div class="cdrop">${dropLine(c.key)}</div>`:'';
- return `<div class="cand ${c.equipped?'eq':''} ${best?'best':''}"${c.notOwned?' style="opacity:.82"':''}>${ico}<div class="cn"><div class="cgt">${name} ${tag}</div><div class="cmeta">${c.empty?'':(t('lv_short')+c.level+' · ')}ΔDPS ${dpStr(c.dDps)} · ΔEHP ${dpStr(c.dEhp)}</div>${drops}<div class="cmkt" data-pk="${c.key||''}">${c.key?gearMkt(c.key):''}</div></div>${star}<div class="dp ${dpClass(c.dPower)}">${dpStr(c.dPower)}<div class="sub">ΔPOWER</div></div></div>`;
+ return `<div class="cand ${c.equipped?'eq':''} ${best?'best':''}"${c.notOwned?' style="opacity:.82"':''}>${ico}<div class="cn"><div class="cgt">${name} ${tag}</div><div class="cmeta">${c.empty?'':(t('lv_short')+c.level+' · ')}ΔEHP ${dpStr(c.dEhp)}</div>${drops}<div class="cmkt" data-pk="${c.key||''}">${c.key?gearMkt(c.key):''}</div></div>${star}<div class="dp ${dpClass(c.dDps)}">${dpStr(c.dDps)}<div class="sub">ΔDPS</div></div></div>`;
  }).join(''):`<div class="note">${t('g_noitems')}</div>`)+(cands.length>vis.length?`<div class="note">${t('g_hidden',cands.length-vis.length)}</div>`:'');
  $('wfCands').querySelectorAll('.favstar').forEach(b=>b.onclick=e=>{e.stopPropagation();toggleFavGear(b.dataset.fav);});
  const _st=$('sellToggle');if(_st)_st.onclick=()=>{gearSellOnly=!gearSellOnly;try{localStorage.setItem('tbh_sellonly',gearSellOnly?'1':'0')}catch(e){}renderWhatIf();};
  loadGearPrices();
 }
-const hdb=()=>new Promise((res,rej)=>{const r=indexedDB.open('tbh_lab',1);r.onupgradeneeded=()=>r.result.createObjectStore('hist',{keyPath:'t'});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);});
-async function histPut(rec){try{const db=await hdb();const power=rec.heroes.reduce((a,h)=>a+h.power,0);const pt=rec.__pt||0;if(!pt)return;
- await new Promise((res,rej)=>{const x=db.transaction('hist','readwrite');x.objectStore('hist').put({t:pt,power:Math.round(power),gold:rec.meta.gold,lvl:rec.meta.maxPartyLevel});x.oncomplete=()=>res();x.onerror=()=>rej(x.error);});}catch(e){}}
-async function histAll(){try{const db=await hdb();return await new Promise((res,rej)=>{const x=db.transaction('hist','readonly').objectStore('hist').getAll();x.onsuccess=()=>res(x.result||[]);x.onerror=()=>rej(x.error);});}catch(e){return[];}}
-function spark(svg,pts,key,color){const el=$(svg);if(!el)return;if(!pts.length){el.innerHTML='';return;}
- const W=600,H=90,pad=4,xs=pts.map(p=>p.t),ys=pts.map(p=>p[key]);
- const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
- const sx=t=>x1>x0?pad+(t-x0)/(x1-x0)*(W-2*pad):W/2,sy=v=>y1>y0?H-pad-(v-y0)/(y1-y0)*(H-2*pad):H/2;
- el.setAttribute('viewBox',`0 0 ${W} ${H}`);
- const d=pts.map((p,i)=>(i?'L':'M')+sx(p.t).toFixed(1)+' '+sy(p[key]).toFixed(1)).join(' ');
- const area=`M${sx(pts[0].t)} ${H} `+pts.map(p=>'L'+sx(p.t).toFixed(1)+' '+sy(p[key]).toFixed(1)).join(' ')+` L${sx(pts[pts.length-1].t)} ${H} Z`;
- el.innerHTML=`<path d="${area}" fill="${color}22"/><path d="${d}" fill="none" stroke="${color}" stroke-width="2"/>`;}
-async function drawHistory(){const pts=(await histAll()).sort((a,b)=>a.t-b.t);
- spark('sparkPow',pts,'power','#ff6fae');spark('sparkGold',pts,'gold','#f6c552');
- if(pts.length>=2){const f=pts[0],l=pts[pts.length-1];
- $('histPow').textContent=t('hist_pow_sum',pts.length,fmt(f.power),fmt(l.power),dpStr(l.power-f.power));
- $('histGold').textContent=t('hist_gold_sum',fmt(f.gold),fmt(l.gold));
- }else $('histPow').textContent=t('hist_collecting');}
-function renderLab(){if(curTab==='whatif')renderWhatIf();else if(curTab==='hist')drawHistory();}
+function renderLab(){if(curTab==='whatif')renderWhatIf();}
 
 function render(rec,meta){
  lastRec=rec;lastMeta=meta;
- $('foot').textContent=t('footer');$('lblGold').textContent=t('gold');$('lblPerH').textContent=t('per_hour');$('lblPow').textContent=t('power');
+ $('foot').textContent=t('footer');$('lblGold').textContent=t('gold');$('lblPerH').textContent=t('per_hour');$('lblPow').textContent=t('dps');
  $('tDoNow').textContent=t('do_now');$('tSummary').textContent=t('summary');
- $('tFarm2').textContent=t('farming');$('tIdle2').textContent=t('idle_title');$('tRunes2').textContent=t('tree_title');$('tGear').textContent=t('g_title');$('tStages').textContent=t('f_stages');$('refreshBtn').title=t('refresh_save');var _shb=$('shareBtn');if(_shb)_shb.title=t('share');$('tHistPow').textContent=t('hist_power');$('tHistGold').textContent=t('hist_gold');$('histNote').textContent=t('hist_note');var _tr=$('tResearch');if(_tr)_tr.textContent=t('rs_title');var _tc=$('tCart');if(_tc)_tc.textContent=t('rs_cart');
+ $('tFarm2').textContent=t('farming');$('tIdle2').textContent=t('idle_title');$('tRunes2').textContent=t('tree_title');$('tGear').textContent=t('g_title');$('tStages').textContent=t('f_stages');$('refreshBtn').title=t('refresh_save');var _shb=$('shareBtn');if(_shb)_shb.title=t('share');var _tr=$('tResearch');if(_tr)_tr.textContent=t('rs_title');var _tc=$('tCart');if(_tc)_tc.textContent=t('rs_cart');
  tween($('gold'),meta.gold);$('ghr').textContent=meta.goldPerHour!=null?fmt(meta.goldPerHour):'…';
  $('ptime').innerHTML='<b>'+(meta.playTimeH!=null?meta.playTimeH+'h':'—')+'</b>';
  // warn when the player's game is newer than the bundled wiki data (stats may have changed)
@@ -758,13 +780,52 @@ function render(rec,meta){
  $('ver').textContent='v'+(meta.version||'—')+(drift?' ⚠':'');$('ver').classList.toggle('drift',drift);$('ver').title=drift?t('ver_drift',meta.version,dbVer):'';
  $('curStage').innerHTML='['+stageLabel(rec.meta.currentStage)+'] '+stageName(rec.meta.currentStage);
  var _sb=$('stripBoss');if(_sb){const mi=monsterIcon(rec.meta.currentStage);if(mi){if(_sb.getAttribute('src')!==mi)_sb.src=mi;_sb.style.display='';}else _sb.style.display='none';}
- $('partyPow').textContent=fmt(rec.heroes.reduce((a,h)=>a+h.power,0));
- $('partyDps').textContent=t('dps')+' '+fmtK(rec.meta.partyDPS);
+ $('partyPow').textContent=fmtK(rec.meta.partyDPS);
+ 
  var _tl=$('tTimeline');if(_tl)_tl.textContent=t('tl_title');
  var _tt=[['tPets','pets_title'],['tProg','prog_title'],['tSynth','synth_title'],['tCartPlan','cart_title'],['tChests','chests_title'],['tSell','sell_title'],['tSellSlots','sell_slots_title'],['tItems','items_title']];for(const[id,k]of _tt){const e=$(id);if(e)e.textContent=t(k);}
- if(curTab==='items')renderItems();
+ if(curTab==='items')renderItems();if(curTab==='builds')renderBuilds();
  syncNotifBtn();if(curTab==='chests')renderChests();if(curTab==='cube')renderCube();if(curTab==='sell')renderSell();
  renderTabs(rec);renderCoach(rec);renderOvHeroes(rec);renderDoNow(rec);renderSummary(rec,meta);renderTimeline(rec);renderFarm(rec);renderIdle(rec);renderPets(rec);renderGearProg(rec);renderSynth(rec);renderGoldCart(rec);renderRunes(rec);renderLab();
+}
+function renderBuilds(){
+ const B=window.TBH_BUILDS;if(!B||!$('teamBuilds'))return;
+ const pt=LOC.startsWith('pt'),L=o=>!o?'':(pt&&o.pt?o.pt:(o.en||''));
+ const owned=new Set((lastRec&&lastRec.heroes||[]).map(h=>h.heroKey));
+ const haveSave=!!(lastRec&&owned.size);
+ const dlcOf=hk=>{const c=B.classes.find(x=>x.hk===hk);return!!(c&&c.dlc);};
+ const cur=((PSD&&PSD.commonSaveData&&PSD.commonSaveData.arrangedHeroKey)||[]).map(Number).filter(k=>k>0);
+ const curSet=new Set(cur);
+ const skchip=k=>`<span class="bk-sk"><img alt="" src="assets/game/skills/Skill_${k}.png" onerror="this.style.display='none'">${L(B.skill(k))}</span>`;
+ const pchip=k=>`<span class="bk-p"><img alt="" src="assets/game/skills/Passive_${k}.png" onerror="this.style.display='none'">${L(B.pass(k))}</span>`;
+ const hnDlc=hk=>heroName(hk)+(dlcOf(hk)?' (DLC)':'');
+ $('tBuildTeams').textContent=pt?'TIMES':'TEAM COMPS';
+ $('tBuildClasses').textContent=pt?'POR CLASSE':'BY CLASS';
+ $('buildsIntro').innerHTML=`<span class="dot"></span><div>${pt?'<b>Builds curadas do meta atual.</b> Conecte seu save pra ver quais heróis você já tem e qual time está rodando — o resto é destacado pra você.':'<b>Curated builds from the current meta.</b> Connect your save to see which heroes you own and which team you’re running — the rest is highlighted for you.'} <span style="color:var(--dim)">meta v${B.ver} · ${B.updated}</span></div>`;
+ $('teamBuilds').innerHTML=B.teams.map(tm=>{
+  const line=tm.slots.map(hk=>{
+   const c=CVAR[(DB.heroes[String(hk)]||{}).cls]||'#9db4ff';
+   const st=haveSave?(owned.has(hk)?'owned':'miss'):'';
+   return `<div class="bk-hero ${st}" style="--c:${c}" onclick="showHeroSheet(${hk})"><img alt="" src="${heroIcon(hk)}" onerror="this.style.visibility='hidden'"><span class="bk-hn">${heroName(hk)}</span></div>`;
+  }).join('<span class="bk-arrow">›</span>');
+  let status='';
+  if(haveSave){
+   const need=tm.slots.filter(hk=>!owned.has(hk));
+   const isCur=cur.length===tm.slots.length&&tm.slots.every(hk=>curSet.has(hk));
+   if(isCur)status=`<span class="bk-cur">★ ${pt?'SEU TIME ATUAL':'YOUR CURRENT TEAM'}</span>`;
+   else if(!need.length)status=`<span class="bk-ok">✓ ${pt?'você tem todos os heróis':'you have all heroes'}</span>`;
+   else status=`<span class="bk-miss">✗ ${pt?'falta':'missing'}: ${need.map(hnDlc).join(', ')}</span>`;
+  }
+  const skills=tm.slots.map(hk=>{const ks=(tm.skills&&tm.skills[hk])||[];if(!ks.length)return'';
+   return `<div class="bk-srow"><img class="bk-shi" alt="" src="${heroIcon(hk)}" onerror="this.style.display='none'"><span class="bk-sks">${ks.map(skchip).join('')}</span></div>`;}).join('');
+  return `<div class="bcard tier-${tm.tier}"><div class="bk-top"><span class="bk-tier">${tm.tier}</span><div class="bk-line">${line}</div>${tm.tag?`<span class="bk-tag">${tm.tag}</span>`:''}</div>${status?`<div class="bk-status">${status}</div>`:''}<p class="bk-sum">${L(tm.sum)}</p><div class="bk-skills">${skills}</div><div class="bk-when"><b>${pt?'Quando':'When'}:</b> ${L(tm.when)}</div></div>`;
+ }).join('');
+ $('classBuilds').innerHTML=B.classes.map(cb=>{
+  const c=CVAR[(DB.heroes[String(cb.hk)]||{}).cls]||'#9db4ff';
+  const dlc=cb.dlc?`<span class="bk-dlc">DLC</span>`:'';
+  let own='';if(haveSave)own=owned.has(cb.hk)?`<span class="bk-ok">✓ ${pt?'você tem':'owned'}</span>`:(cb.dlc?`<span class="bk-dlc2">${pt?'requer DLC':'needs DLC'}</span>`:`<span class="bk-miss">${pt?'bloqueado':'locked'}</span>`);
+  return `<div class="bclass" style="--c:${c}"><div class="cc-head" onclick="showHeroSheet(${cb.hk})"><img alt="" src="${heroIcon(cb.hk)}" onerror="this.style.visibility='hidden'"><div style="min-width:0"><div class="cc-name">${heroName(cb.hk)}${dlc}</div><div class="cc-role">${L(cb.role)}</div></div>${own}</div><div class="cc-lbl">${pt?'SKILLS RECOMENDADAS':'RECOMMENDED SKILLS'}</div><div class="cc-row">${cb.skills.map(skchip).join('')}</div><div class="cc-lbl">${pt?'PRIORIDADE DE PASSIVAS':'PASSIVE PRIORITY'}</div><div class="cc-row">${cb.passives.map(pchip).join('')}</div><div class="cc-gear"><b>Gear:</b> ${L(cb.gear)}</div><p class="cc-tip">${L(cb.tip)}</p></div>`;
+ }).join('');
 }
 function renderOvHeroes(rec){
  const pt=LOC.startsWith('pt');
@@ -777,7 +838,7 @@ function renderOvHeroes(rec){
  const ap=lv.ap>0?` · <b style="color:var(--warn)">${t('unspent',lv.ap)}</b>`:'';
  const gear=(gearBy[h.heroKey]||[]).sort((a,b)=>a.slot-b.slot).map(s=>`<img alt="" src="${itemIcon(s.current.itemKey)}" onerror="this.style.display='none'" title="${titlecase(s.current.gearType)} ${t('lv_short')}${s.current.level}">`).join('');
  return `<div class="rcard" style="--c:${c}" onclick="showHeroSheet(${h.heroKey})">${carry}
- <img alt="" class="rsprite" src="${heroIcon(h.heroKey)}" onerror="this.style.visibility='hidden'"><div class="rname">${heroName(h.heroKey)}</div><div class="rcls">${titlecase(h.cls)} · ${t('lv_short')} ${h.level}</div><div class="rpow"><small>${t('power')}</small><b>${fmt(h.power)}</b></div><div class="rdps" title="${t('dps')} share"><div class="bar"><i style="width:${share}%;background:${c}"></i></div><span class="pct">${share}%</span></div><div class="rmeta"><span style="color:var(--exp)"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg> <b>${fmtK(h.dps)}</b></span><span style="color:#9db4ff"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M12 2 20 5.5V12c0 4.6-3.4 7.9-8 9.8C7.4 19.9 4 16.6 4 12V5.5Z"/></svg> <b>${fmtK(h.ehp)}</b></span></div><div class="rbar" title="${pt?'progresso do nível':'level progress'}"><i style="width:${Math.round((lv.pct||0)*100)}%"></i></div><div class="rxp">${t('xp_to_next')}: <b>${fmtK(lv.expToNext)}</b>${lv.etaSec?' · '+t('eta')+' '+fmtDur(lv.etaSec):''}${ap}</div><div class="rgear">${gear}</div></div>`;
+ <img alt="" class="rsprite" src="${heroIcon(h.heroKey)}" onerror="this.style.visibility='hidden'"><div class="rname">${heroName(h.heroKey)}</div><div class="rcls">${titlecase(h.cls)} · ${t('lv_short')} ${h.level}</div><div class="rdps" title="${t('dps')} share"><div class="bar"><i style="width:${share}%;background:${c}"></i></div><span class="pct">${share}%</span></div><div class="rmeta"><span style="color:var(--exp)"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg> <b>${fmtK(h.dps)}</b></span><span style="color:#9db4ff"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M12 2 20 5.5V12c0 4.6-3.4 7.9-8 9.8C7.4 19.9 4 16.6 4 12V5.5Z"/></svg> <b>${fmtK(h.ehp)}</b></span></div><div class="rbar" title="${pt?'progresso do nível':'level progress'}"><i style="width:${Math.round((lv.pct||0)*100)}%"></i></div><div class="rxp">${t('xp_to_next')}: <b>${fmtK(lv.expToNext)}</b>${lv.etaSec?' · '+t('eta')+' '+fmtDur(lv.etaSec):''}${ap}</div><div class="rgear">${gear}</div></div>`;
  }).join('');
  const cp=rec.partyComp;let note='';
  if(cp){note=`<div class="note" style="margin-top:0">${cp.solo?' '+t('comp_solo'):(cp.hasFront?' '+t('comp_hastank'):' '+t('comp_notank'))}`;
@@ -865,7 +926,7 @@ function showHeroSheet(hk){
  const carry=lastRec.meta.carryHero===hk?`<span style="font-size:10.5px;background:var(--pow);color:#1a0710;border-radius:4px;padding:1px 6px;font-family:var(--px);vertical-align:middle">${t('carry')}</span>`:'';
  const share=lastRec.meta.partyDPS?Math.round(h.dps/lastRec.meta.partyDPS*100):0;
  $('hsCard').innerHTML=
- `<div class="hs-head"><img alt="" src="${heroIcon(hk)}" onerror="this.style.visibility='hidden'" style="--c:${c}"><div style="min-width:0"><div class="hn" style="--c:${c}">${heroName(hk)}${carry}</div><div class="hm">${titlecase(h.cls)} · ${t('lv_short')} ${h.level} · ${share}% ${pt?'do DPS da party':'of party DPS'}</div></div><span class="x" onclick="closeHeroSheet()"></span></div><div class="hs-derived"><div class="hs-d dps"><div class="dk">DPS</div><div class="dv">${fmtK(h.dps)}</div><div class="df">${fmtK(avg)} × ${((s.AttackSpeed||0)/100).toFixed(2)}/s</div></div><div class="hs-d ehp"><div class="dk">EHP</div><div class="dv">${fmtK(h.ehp)}</div><div class="df">${fmtK(s.MaxHp)} HP · ${Math.round(mit*100)}% mit @${pt?'nv':'lv'}${sl}</div></div><div class="hs-d pow"><div class="dk">${t('power')}</div><div class="dv">${fmt(h.power)}</div><div class="df">√(DPS·EHP)</div></div></div>${body}`;
+ `<div class="hs-head"><img alt="" src="${heroIcon(hk)}" onerror="this.style.visibility='hidden'" style="--c:${c}"><div style="min-width:0"><div class="hn" style="--c:${c}">${heroName(hk)}${carry}</div><div class="hm">${titlecase(h.cls)} · ${t('lv_short')} ${h.level} · ${share}% ${pt?'do DPS da party':'of party DPS'}</div></div><span class="x" onclick="closeHeroSheet()"></span></div><div class="hs-derived"><div class="hs-d dps"><div class="dk">DPS</div><div class="dv">${fmtK(h.dps)}</div><div class="df">${fmtK(avg)} × ${((s.AttackSpeed||0)/100).toFixed(2)}/s</div></div><div class="hs-d ehp"><div class="dk">EHP</div><div class="dv">${fmtK(h.ehp)}</div><div class="df">${fmtK(s.MaxHp)} HP · ${Math.round(mit*100)}% mit @${pt?'nv':'lv'}${sl}</div></div></div>${body}`;
  $('hsheet').classList.add('show');
  $('hsheet').onclick=e=>{if(e.target===$('hsheet'))closeHeroSheet();};
  document.addEventListener('keydown',function esc(ev){if(ev.key==='Escape'){closeHeroSheet();document.removeEventListener('keydown',esc);}});
@@ -896,7 +957,7 @@ function renderGoldCart(rec){
  $('cartHint').textContent=t('cart_hint');
  const items=(gp&&gp.cart||[]).slice(0,6);
  if(!items.length){el.innerHTML='<div class="note">—</div>';return;}
- el.innerHTML=items.map((c,i)=>`<div class="cart" data-rk="${c.key}" title="${t('reco_locate')}" style="cursor:pointer"><span class="ci">${i+1}.</span><img alt="" class="rscico" src="${runeIcon(c.key)}" onerror="this.style.display='none'"><span class="cn">${nm(c.name)} <span style="color:var(--dim)">${runeEffect(c.st,c.value)}</span></span><span style="color:var(--pow)">+${fmt(c.dPower)}</span><span class="cc">${fmtK(c.cost)}</span><span class="${c.affordable?'g':''}" style="font-size:11.5px;color:${c.affordable?'var(--good)':'var(--dim)'}">${c.affordable?'✓ '+t('cart_now'):t('cart_save')}</span></div>`).join('');
+ el.innerHTML=items.map((c,i)=>`<div class="cart" data-rk="${c.key}" title="${t('reco_locate')}" style="cursor:pointer"><span class="ci">${i+1}.</span><img alt="" class="rscico" src="${runeIcon(c.key)}" onerror="this.style.display='none'"><span class="cn">${nm(c.name)} <span style="color:var(--dim)">${runeEffect(c.st,c.value)}</span></span><span class="cc">${fmtK(c.cost)}</span><span class="${c.affordable?'g':''}" style="font-size:11.5px;color:${c.affordable?'var(--good)':'var(--dim)'}">${c.affordable?'✓ '+t('cart_now'):t('cart_save')}</span></div>`).join('');
  el.querySelectorAll('[data-rk]').forEach(x=>x.onclick=()=>focusRune(x.dataset.rk));
 }
 let farmSort=localStorage.getItem('tbh_farmsort')||'gold';
@@ -1123,7 +1184,7 @@ function showNode(n,key){if(!n)return;const d=$('tdetail');
  const effTxt=n.st?runeEffect(n.st,n.value):'';
  const cost=n.cost!=null?`<span class="g">${fmt(n.cost)}</span> ${t('node_cost')}${n.farmSeconds?' ('+t('runes_secs',Math.round(n.farmSeconds))+')':''}`:'';
  const stTxt=t('st_'+(n.status==='available'?'available':n.status));
- d.innerHTML=`<div class="dn"><img alt="" src="${runeIcon(key)}" onerror="this.style.display='none'">${runeName(key)}</div><div class="de">${effTxt}</div><div class="dmeta">${t('node_lv',n.level,n.max)} · ${stTxt}<br>${cost}${n.dPower>0?' · <span style="color:var(--pow)">+'+fmt(n.dPower)+' '+t('power')+'</span>':''}</div>`;
+ d.innerHTML=`<div class="dn"><img alt="" src="${runeIcon(key)}" onerror="this.style.display='none'">${runeName(key)}</div><div class="de">${effTxt}</div><div class="dmeta">${t('node_lv',n.level,n.max)} · ${stTxt}<br>${cost}</div>`;
  d.classList.add('show');
 }
 function attachPanZoom(){const svg=$('tree');let drag=null;
@@ -1440,7 +1501,7 @@ async function loadCubePrices(){
  for(const fn of todo){if(curTab!=='cube')break;try{await fn();}catch(e){}await new Promise(r=>setTimeout(r,MKT_DELAY));if(++n%4===0&&curTab==='cube')renderCubeBody();}
  cubeLoading=false;if(curTab==='cube')renderCubeBody();
 }
-// Shareable run card: a self-contained PNG (party POWER/DPS, stage, gold/h, best farm, stash value)
+// Shareable run card: a self-contained PNG (party DPS, stage, gold/h, best farm, stash value)
 // drawn on a canvas and downloaded. 100% local — nothing is uploaded. Good for posting a run.
 async function shareCard(){
  const rec=lastRec,meta=lastMeta||{};
@@ -1457,16 +1518,16 @@ async function shareCard(){
  x.fillStyle='#7c8aa8';x.font='20px '+mono;x.fillText('shigake.github.io/tbh-copilot',66,134);
  x.fillStyle='#cdd7ee';x.font='26px '+mono;x.fillText(('['+stageLabel(rec.meta.currentStage)+'] '+stageName(rec.meta.currentStage)).slice(0,46),66,198);
  const stat=(lbl,val,cx,cy,col)=>{x.fillStyle='#7c8aa8';x.font='600 18px '+px;x.fillText(lbl,cx,cy);x.fillStyle=col||'#e8eefc';x.font='700 50px '+mono;x.fillText(String(val),cx,cy+56);};
- const power=rec.heroes.reduce((a,h)=>a+(h.power||0),0),lvl=Math.max(0,...rec.heroes.map(h=>h.level||0));
- stat('POWER',fmt(power),66,280,'#ff8fb0');
- stat('DPS',fmtK(rec.meta.partyDPS),440,280,'#9db4ff');
- stat('GOLD / H',meta.goldPerHour!=null?fmtK(meta.goldPerHour):'—',790,280,'#f6c552');
+ const lvl=Math.max(0,...rec.heroes.map(h=>h.level||0));
+ 
+ stat('DPS',fmtK(rec.meta.partyDPS),66,280,'#9db4ff');
+ stat('GOLD / H',meta.goldPerHour!=null?fmtK(meta.goldPerHour):'—',440,280,'#f6c552');
  x.fillStyle='#7c8aa8';x.font='600 18px '+px;x.fillText('BEST FARM',66,396);
  const bf=rec.farm&&rec.farm.recommend?('['+stageLabel(rec.farm.recommend.key)+'] '+stageName(rec.farm.recommend.key)):'—';
  x.fillStyle='#7ee0b0';x.font='700 30px '+mono;
  const fit=(s,mw)=>{if(x.measureText(s).width<=mw)return s;while(s.length>1&&x.measureText(s+'…').width>mw)s=s.slice(0,-1);return s+'…';};
  x.fillText(fit(bf,348),66,440);
- stat('LEVEL',lvl||'—',790,396,'#cdd7ee');
+ stat('LEVEL',lvl||'—',790,280,'#cdd7ee');
  try{const priced=sellCandidates().filter(c=>c.priced&&c.usd>0);if(priced.length){let tot=0;for(const c of priced)tot+=c.usd*c.qty;stat('STASH',fmtMoney(tot),440,396,'#f6c552');}}catch(e){}
  x.fillStyle='#5a6680';x.font='18px '+mono;x.fillText(t('footer'),66,H-52);
  cv.toBlob(b=>{if(!b)return;const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='tbh-copilot.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000);},'image/png');
@@ -1591,7 +1652,7 @@ async function processSaveBuffer(buffer){
  // 5s-15min sanity bounds for one stage clear: outside that it's an idle gap or a stage switch, not a clear
  if(cs!=null){const sk=String(c.currentStageKey),st=ENG.DB.stages[sk];if(st&&cs>CLEAR_SEC_MIN&&cs<CLEAR_SEC_MAX){clearStore[sk]={hp:st.totalHP,waves:st.waves,clearSec:cs};try{localStorage.setItem('tbh_clearmodel',JSON.stringify(clearStore))}catch(e){}}}
  lastGps=gps;lastEps=eps;lastCs=cs;lastMeta={gold:ENG.gold(psd),goldPerHour:gps!=null?Math.round(gps*3600):null,playTimeH:+(c.playTime/3600).toFixed(1),version:c.version};
- const rec=ENG.recommend(psd,{goldPerSec:gps!=null?gps:undefined,expPerSec:eps!=null?eps:undefined,clearSec:manualOn()?undefined:(cs!=null?cs:undefined),clearSamples:calSamples(),elapsedSec:0});rec.__pt=Math.round(c.playTime||0);histPut(rec);
+ const rec=ENG.recommend(psd,{goldPerSec:gps!=null?gps:undefined,expPerSec:eps!=null?eps:undefined,clearSec:manualOn()?undefined:(cs!=null?cs:undefined),clearSamples:calSamples(),elapsedSec:0});rec.__pt=Math.round(c.playTime||0);
  render(rec,lastMeta);setLive(true);checkNotifications(rec);dotWrote();
 }
 // phosphor heartbeat: a cyan ring on the connection dot each time we read the save
