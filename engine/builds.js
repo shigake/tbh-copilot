@@ -1,9 +1,9 @@
 // engine/builds.js — curated TBH: Task Bar Hero build catalog (team comps + per-class).
 // Rendered save-aware in the Builds tab: owned heroes and your live formation are highlighted.
-// Meta synced to the late-June-2026 game build (v1.00.20): Priest·Ranger·Sorcerer is the top
-// farm comp; Hunter shifted into a Knight·Hunter·Priest elemental setup. Text is EN + PT-BR;
-// other locales fall back to EN (matches the rest of the app). Curated from the current meta —
-// not an in-game export. Skill / passive icons live under assets/game/skills/.
+// Sourced from recent (late-June-2026) community build videos — each build links its source.
+// The current fast-clear meta: a fully-free Priest·Ranger·Sorcerer comp where the Priest tanks
+// the front herself, the Sorcerer kites with Frozen Orb (Ice Orb), and everyone wears Arcana
+// Knight Boots to keep pace between waves. Text is EN + PT-BR; other locales fall back to EN.
 (function () {
   // active-skill display names by skill key -> [en, pt-BR]
   var S = {
@@ -13,7 +13,7 @@
     20101: ['Rapid Fire', 'Tiro Rápido'], 20201: ['Scatter Shot', 'Tiro Disperso'],
     20301: ['Arrow Rain', 'Chuva de Flechas'], 20401: ['Swift Surge', 'Surto Veloz'],
     20501: ['Piercing Arrow', 'Flecha Perfurante'], 20601: ['Skewer Shot', 'Disparo Espetador'],
-    30101: ['Fireball', 'Bola de Fogo'], 30201: ['Ice Orb', 'Orbe de Gelo'],
+    30101: ['Fireball', 'Bola de Fogo'], 30201: ['Ice Orb (Frozen Orb)', 'Orbe de Gelo'],
     30301: ['Lightning', 'Raio'], 30401: ['Flame Hydra', 'Hidra de Chamas'],
     30501: ['Snowstorm', 'Nevasca'], 30601: ['Meteor Strike', 'Golpe Meteórico'],
     40101: ['Heal', 'Cura'], 40201: ['Blessing of Might', 'Bênção do Poder'],
@@ -37,101 +37,104 @@
     AreaOfEffectDamage: ['AoE Damage', 'Dano em Área'], FireDamagePercent: ['Fire Damage', 'Dano de Fogo'],
     ColdDamagePercent: ['Cold Damage', 'Dano de Gelo'], LightningDamagePercent: ['Lightning Damage', 'Dano de Raio'],
     CastSpeed: ['Cast Speed', 'Vel. de Conjuração'], SkillHealAmount: ['Heal Amount', 'Cura'],
-    HpLeech: ['Life Leech', 'Roubo de Vida']
+    HpLeech: ['Life Leech', 'Roubo de Vida'], MovementSpeed: ['Move Speed', 'Vel. de Movimento'],
+    HpRegenPerSec: ['HP Regen', 'Regen. de HP']
   };
   var pick = function (e) { return e ? { en: e[0], pt: e[1] } : null; };
+  var Y = function (id) { return 'https://www.youtube.com/watch?v=' + id; };
 
   window.TBH_BUILDS = {
     ver: '1.00.20',
-    updated: '2026-06-28',
+    updated: '2026-06-29',
     skill: function (k) { return pick(S[k]) || { en: 'Skill ' + k, pt: 'Skill ' + k }; },
     pass: function (k) { return pick(P[k]) || { en: k, pt: k }; },
 
     // ---- team compositions, slot order = formation front -> back ----
     teams: [
       {
-        id: 'prs', tier: 'S', slots: [401, 201, 301], tag: 'META',
-        sum: { en: 'The strongest farm team right now. The Priest tanks the front and buffs the whole party, the Ranger melts single targets and bosses, and the Sorcerer wipes packs.',
-               pt: 'O time de farm mais forte agora. O Priest segura a frente e buffa a party inteira, o Ranger derrete alvo único e chefes, e o Sorcerer limpa as ondas.' },
-        when: { en: 'Mid/late game, once the Ranger has gear and you can keep the backline alive.',
-                pt: 'Meio/fim de jogo, quando o Ranger já tem gear e você consegue manter a retaguarda viva.' },
-        skills: { 401: [40201, 40401], 201: [20401, 20601], 301: [30401, 30601] }
+        id: 'prs', tier: 'S', slots: [401, 201, 301], tag: 'BROKEN', clear: 'Torment 3-9 · ~70s',
+        sum: { en: 'The strongest team in the game and fully free — no DLC. The Priest tanks the front herself and buffs the party +140% damage, the Ranger is a glass-cannon auto-attacker, and the Sorcerer kites packs with Frozen Orb. This is the comp clearing Torment 3-9 in ~70 seconds.',
+               pt: 'O time mais forte do jogo e 100% grátis — sem DLC. A Priest segura a frente sozinha e buffa +140% de dano na party, o Ranger é um glass cannon de ataque básico, e o Sorcerer kita as ondas com o Orbe de Gelo. É a comp que limpa o Tormento 3-9 em ~70 segundos.' },
+        when: { en: 'Your end-game farm and push comp. Put Arcana Knight Boots on the Sorcerer so it keeps pace between waves, and stack Cooldown Reduction + Cast Speed on the Priest.',
+                pt: 'Sua comp de farm e push do end-game. Põe as Botas do Knight (Arcana) no Sorcerer pra ele acompanhar entre as ondas, e empilha Redução de Recarga + Vel. de Conjuração na Priest.' },
+        skills: { 401: [40401, 40201], 201: [20101, 20401], 301: [30201, 30401] },
+        src: [{ u: Y('DgA6i61PL24'), by: 'Sir Eat Alot' }, { u: Y('X972q4q_YD4'), by: 'Task Bar Hero Dicas' }]
       },
       {
-        id: 'kpr', tier: 'A', slots: [101, 401, 201],
-        sum: { en: 'The safest sustain comp. Knight holds the front, Priest heals the line, Ranger pours in clean free damage from the back.',
-               pt: 'A comp de sustento mais segura. O Knight segura a frente, o Priest cura a linha e o Ranger entrega dano limpo da retaguarda.' },
-        when: { en: 'Best when deaths or failed pushes are wasting your idle time.',
-                pt: 'Melhor quando mortes ou pushes falhos estão desperdiçando seu tempo de idle.' },
-        skills: { 101: [10201, 10401], 401: [40201, 40101], 201: [20101, 20201] }
-      },
-      {
-        id: 'khp', tier: 'A', slots: [101, 501, 401],
-        sum: { en: 'Elemental burst comp. Knight soaks the hits, Hunter clears packs and freezes bosses with fire/cold bolts, Priest keeps the line healthy.',
-               pt: 'Comp de explosão elemental. O Knight absorve, o Hunter limpa ondas e congela chefes com virotes de fogo/gelo, e o Priest mantém a linha saudável.' },
-        when: { en: 'Great farm option once survival is solved and you own the Hunter DLC.',
-                pt: 'Ótima opção de farm quando a sobrevivência está resolvida e você tem a DLC do Hunter.' },
-        skills: { 101: [10201, 10401], 501: [50101, 50201], 401: [40201, 40101] }
+        id: 'srs', tier: 'A', slots: [601, 201, 301], tag: 'NEW', clear: 'Torment 1-3 · ~72-76s',
+        sum: { en: 'The meta-breaker: swap the Priest for a Slayer and crank movement speed. The Slayer self-sustains up front with Life Leech while the Ranger and Sorcerer melt — clears Torment 1-3 in ~72-76s, even without the Arcana Frozen Orb.',
+               pt: 'O quebra-meta: troca a Priest por um Slayer e aumenta a velocidade de movimento. O Slayer se sustenta sozinho na frente com Roubo de Vida enquanto Ranger e Sorcerer derretem — limpa o Tormento 1-3 em ~72-76s, mesmo sem o Orbe de Gelo Arcana.' },
+        when: { en: 'When you want to push without a Priest, or you own the Slayer and have good movement-speed gear.',
+                pt: 'Quando você quer empurrar sem Priest, ou tem o Slayer e gear bom de velocidade de movimento.' },
+        skills: { 601: [60101, 60601], 201: [20101, 20401], 301: [30201, 30401] },
+        src: [{ u: Y('OpZcWv9QS4A'), by: 'MyGamerAcademia' }]
       },
       {
         id: 'kr', tier: 'B', slots: [101, 201],
-        sum: { en: 'The starter core. Two heroes, rock-steady early idle clears — your first real formation.',
-               pt: 'O núcleo inicial. Dois heróis, clears de idle bem estáveis no começo — sua primeira formação de verdade.' },
-        when: { en: 'Early game, before the Priest / 3rd slot. Slot in the Priest the moment you unlock it.',
-                pt: 'Início de jogo, antes do Priest / 3º slot. Encaixe o Priest assim que desbloquear.' },
+        sum: { en: 'The starter core. Two heroes, rock-steady early idle clears — your first real formation before the Priest and a third slot come online.',
+               pt: 'O núcleo inicial. Dois heróis, clears de idle bem estáveis no começo — sua primeira formação de verdade antes do Priest e do terceiro slot.' },
+        when: { en: 'Early game. Slot in the Priest the moment you unlock it, then build toward the meta comp above.',
+                pt: 'Início de jogo. Encaixe o Priest assim que desbloquear e evolua pra comp meta acima.' },
         skills: { 101: [10201, 10301], 201: [20101, 20201] }
-      },
-      {
-        id: 'ksp', tier: 'B', slots: [101, 301, 401],
-        sum: { en: 'Maximum AoE wave clear. The Sorcerer nukes packs from behind a Knight wall while the Priest keeps everyone standing.',
-               pt: 'Limpeza máxima em área. O Sorcerer detona ondas atrás do muro do Knight enquanto o Priest mantém todo mundo de pé.' },
-        when: { en: 'When stages throw big mobs at you — protect the Sorcerer before judging its damage.',
-                pt: 'Quando as fases jogam muitos inimigos — proteja o Sorcerer antes de julgar o dano dele.' },
-        skills: { 101: [10201, 10401], 301: [30101, 30401], 401: [40201, 40101] }
       }
     ],
 
     // ---- per-class builds ----
     classes: [
       {
+        hk: 301, dlc: false,
+        role: { en: 'Frozen Orb Kiter (AoE)', pt: 'Kiter de Orbe de Gelo (Área)' },
+        skills: [30201, 30401, 30601],
+        passives: ['CooldownReduction', 'AreaOfEffectDamage', 'CriticalChance', 'CriticalDamage', 'FireDamagePercent'],
+        gear: { en: 'Cooldown Reduction, AoE Damage + Size, Crit — Staff + Orb. Wear Arcana Knight Boots to keep pace between waves.',
+                pt: 'Red. de Recarga, Dano e Tamanho de Área, Crítico — Cajado + Orbe. Use as Botas do Knight (Arcana) pra acompanhar entre as ondas.' },
+        tip: { en: 'The current fast-clear mage: Ice Orb (Frozen Orb) slows packs so you kite while Flame Hydra / Meteor melt them. Cooldown Reduction is king — every skill is on a cooldown. The Knight-Boots trick lets the slow Sorcerer move at the party’s fastest speed.',
+               pt: 'O mago de fast clear do momento: o Orbe de Gelo dá slow pra você kitar enquanto Hidra de Chamas / Meteoro derretem. Redução de Recarga é o rei — toda skill tem cooldown. As Botas do Knight deixam o Sorcerer lento andar na velocidade do membro mais rápido.' },
+        src: [{ u: Y('ScZmLZtQrLM'), by: 'Namoratow' }, { u: Y('DgA6i61PL24'), by: 'Sir Eat Alot' }]
+      },
+      {
+        hk: 201, dlc: false,
+        role: { en: 'Glass-Cannon Auto-Attacker', pt: 'Glass Cannon de Ataque Básico' },
+        skills: [20101, 20401, 20601],
+        passives: ['AttackSpeed', 'CriticalChance', 'CriticalDamage', 'ProjectileDamage', 'DodgeChance'],
+        gear: { en: 'Attack Damage + Attack Speed (both mandatory), Crit, and Physical-Damage decorations / engravings (amethyst) — Bow + Arrow. Go full glass cannon for Torment.',
+                pt: 'Dano de Ataque + Vel. de Ataque (ambos obrigatórios), Crítico, e decorações / gravações de Dano Físico (ametista) — Arco + Flecha. Vai full glass cannon pro Tormento.' },
+        tip: { en: 'The endgame solo carry once the Priest falls off (~Torment 2-7). Meta discovery: Physical-Damage decorations buff her basic attacks, so with high Attack Speed you lean on auto-attacks over cooldown skills. Rapid Fire early, swap to Swift Surge (~Lv 21) for single-target. Arcana, F2P-friendly.',
+               pt: 'O carry solo do endgame quando a Priest cai (~Tormento 2-7). Descoberta do meta: decorações de Dano Físico aumentam o ataque básico dela, então com Vel. de Ataque alta você foca nos autos em vez das skills de cooldown. Tiro Rápido cedo, troca pra Surto Veloz (~Nv 21) pro alvo único. Arcana, amigável a F2P.' },
+        src: [{ u: Y('Yw-k52X_GOw'), by: 'MyGamerAcademia' }, { u: Y('a7zg3o4URHg'), by: 'Tudo Sobre TBH' }, { u: Y('2AjaaRf1D8o'), by: 'Starker MMOs' }]
+      },
+      {
+        hk: 401, dlc: true,
+        role: { en: 'Lifesteal Tank & Party Buffer', pt: 'Tank de Roubo de Vida e Buff' },
+        skills: [40201, 40401, 40601],
+        passives: ['CooldownReduction', 'MaxHp', 'Armor', 'HpLeech', 'SkillHealAmount'],
+        gear: { en: 'Max HP, Armor, HP Leech, Cooldown Reduction, Cast Speed — Scepter + Tome.',
+                pt: 'HP Máx, Armadura, Roubo de Vida, Red. de Recarga, Vel. de Conjuração — Cetro + Tomo.' },
+        tip: { en: 'Blessing of Might is an always-on +140% party-damage buff; with HP Leech + Sanctuary she becomes nearly unkillable and tanks the front herself — no Knight. She carries from early game to ~Torment 2-7; past that enemies one-shot her, so transition to a solo Ranger.',
+               pt: 'Bênção do Poder é um buff de +140% de dano na party sempre ativo; com Roubo de Vida + Santuário ela fica quase imortal e tanka a frente sozinha — sem Knight. Carrega do early até ~Tormento 2-7; depois disso os inimigos dão one-shot, então migre pra um Ranger solo.' },
+        src: [{ u: Y('C0dAl4ptLHM'), by: 'Starker MMOs' }, { u: Y('MY8mgZc_ZUU'), by: 'MyGamerAcademia' }]
+      },
+      {
+        hk: 601, dlc: true,
+        role: { en: 'Meta-Breaker Bruiser', pt: 'Brigão Quebra-Meta' },
+        skills: [60101, 60201, 60601],
+        passives: ['MovementSpeed', 'PhysicalDamagePercent', 'MaxHp', 'HpLeech', 'CriticalDamage'],
+        gear: { en: 'Movement Speed, Physical Damage, HP Leech, Crit, Max HP — Axe + Hatchet.',
+                pt: 'Vel. de Movimento, Dano Físico, Roubo de Vida, Crítico, HP Máx — Machado + Machadinha.' },
+        tip: { en: 'The off-meta breaker: drop the Priest, push movement speed, and the Slayer carves Torment 1-3 in ~72-76s — even without the Arcana Frozen Orb. A self-sustaining frontline carry thanks to HP Leech.',
+               pt: 'O quebra-meta: tira o Priest, aumenta a vel. de movimento e o Slayer corta o Tormento 1-3 em ~72-76s — mesmo sem o Orbe de Gelo Arcana. Um carry de frente que se sustenta sozinho com Roubo de Vida.' },
+        src: [{ u: Y('OpZcWv9QS4A'), by: 'MyGamerAcademia' }]
+      },
+      {
         hk: 101, dlc: false,
-        role: { en: 'Front-line Tank', pt: 'Tanque da Linha de Frente' },
+        role: { en: 'Front-line Tank (situational)', pt: 'Tanque de Frente (situacional)' },
         skills: [10201, 10401, 10601],
         passives: ['MaxHp', 'Armor', 'BlockChance', 'DamageReduction', 'PhysicalDamagePercent'],
         gear: { en: 'Max HP, Armor, Damage Reduction, Block — Sword + Shield.',
                 pt: 'HP Máx, Armadura, Redução de Dano, Bloqueio — Espada + Escudo.' },
-        tip: { en: 'The default anchor. Stack survivability so failed runs start at the front line, not on your DPS.',
-               pt: 'A âncora padrão. Empilhe sobrevivência pra que runs falhos comecem pela linha de frente, não pelo seu DPS.' }
-      },
-      {
-        hk: 201, dlc: false,
-        role: { en: 'Ranged Single-Target DPS', pt: 'DPS de Alvo Único à Distância' },
-        skills: [20101, 20401, 20601],
-        passives: ['AttackSpeed', 'CriticalChance', 'CriticalDamage', 'ProjectileDamage', 'DodgeChance'],
-        gear: { en: 'Attack Speed, Crit Chance, Crit Damage, Projectile Damage — Bow + Arrow.',
-                pt: 'Vel. de Ataque, Chance e Dano Crítico, Dano de Projétil — Arco + Flecha.' },
-        tip: { en: 'Build pure attack speed early (Rapid Fire), then swap to Swift Surge + Skewer Shot for boss damage.',
-               pt: 'Foque vel. de ataque cedo (Tiro Rápido) e depois troque pra Surto Veloz + Disparo Espetador pro dano em chefe.' }
-      },
-      {
-        hk: 301, dlc: false,
-        role: { en: 'AoE Burst Caster', pt: 'Conjurador de Dano em Área' },
-        skills: [30101, 30401, 30601],
-        passives: ['CooldownReduction', 'AreaOfEffectDamage', 'FireDamagePercent', 'LightningDamagePercent', 'CastSpeed'],
-        gear: { en: 'Cooldown Reduction, AoE, Fire/Cold/Lightning Damage, Cast Speed — Staff + Orb.',
-                pt: 'Red. de Recarga, Área, Dano de Fogo/Gelo/Raio, Vel. de Conjuração — Cajado + Orbe.' },
-        tip: { en: 'Fireball early for its low cooldown; swap to Flame Hydra (a rapid-fire fireball turret) for a big DPS jump. Needs a tank in front.',
-               pt: 'Bola de Fogo cedo pela recarga baixa; troque pra Hidra de Chamas (uma torre de bolas de fogo) pra dar um salto de DPS. Precisa de um tank na frente.' }
-      },
-      {
-        hk: 401, dlc: true,
-        role: { en: 'Sustain Support & Off-Tank', pt: 'Suporte de Sustento e Semi-Tank' },
-        skills: [40201, 40101, 40401],
-        passives: ['CooldownReduction', 'SkillHealAmount', 'MaxHp', 'Armor', 'DamageAbsorption'],
-        gear: { en: 'Max HP, Armor, Damage Absorption, Cooldown Reduction, Heal Amount — Scepter + Tome.',
-                pt: 'HP Máx, Armadura, Absorção de Dano, Red. de Recarga, Cura — Cetro + Tomo.' },
-        tip: { en: 'Blessing of Might is non-negotiable — an always-on party buff. Run Heal early, upgrade to Sanctuary for late Act 2/3.',
-               pt: 'Bênção do Poder é obrigatória — um buff de party sempre ativo. Use Cura cedo e troque pra Santuário no fim do Ato 2/3.' }
+        tip: { en: 'The free meta uses the Priest as the tank, so the Knight is situational now — but his Arcana Boots are the best-in-slot move-speed item for the whole party (everyone moves at the fastest member’s speed between waves).',
+               pt: 'O meta grátis usa a Priest como tank, então o Knight é situacional agora — mas as Botas dele (Arcana) são o melhor item de vel. de movimento pra party inteira (todos andam na velocidade do mais rápido entre as ondas).' },
+        src: [{ u: Y('DgA6i61PL24'), by: 'Sir Eat Alot' }]
       },
       {
         hk: 501, dlc: true,
@@ -140,18 +143,8 @@
         passives: ['CriticalChance', 'CriticalDamage', 'FireDamagePercent', 'ColdDamagePercent', 'CooldownReduction'],
         gear: { en: 'Attack Speed, Crit Chance, Crit Damage, Fire/Cold Damage — Crossbow + Bolts.',
                 pt: 'Vel. de Ataque, Chance e Dano Crítico, Dano de Fogo/Gelo — Besta + Virotes.' },
-        tip: { en: 'Pure damage — never spread stats thin. Explosive Bolt + Frost Bolt clear packs and freeze bosses. Pair behind a Knight + Priest.',
-               pt: 'Dano puro — nunca espalhe stats. Virote Explosivo + Virote de Gelo limpam ondas e congelam chefes. Encaixe atrás de Knight + Priest.' }
-      },
-      {
-        hk: 601, dlc: true,
-        role: { en: 'Melee Bruiser', pt: 'Brigão Corpo a Corpo' },
-        skills: [60101, 60201, 60601],
-        passives: ['MaxHp', 'PhysicalDamagePercent', 'AreaOfEffect', 'HpLeech', 'CriticalDamage'],
-        gear: { en: 'Max HP, Physical Damage, AoE, HP Leech, Crit Damage — Axe + Hatchet.',
-                pt: 'HP Máx, Dano Físico, Área, Roubo de Vida, Dano Crítico — Machado + Machadinha.' },
-        tip: { en: 'A self-sustaining frontline damage dealer — HP Leech keeps him alive while he carves through packs.',
-               pt: 'Um dano de linha de frente que se sustenta sozinho — o Roubo de Vida o mantém vivo enquanto corta as ondas.' }
+        tip: { en: 'A strong DLC alternative: Explosive Bolt + Frost Bolt clear packs and freeze bosses. Pure damage — never spread stats thin. Pair behind a tank (Knight or Priest).',
+               pt: 'Uma alternativa DLC forte: Virote Explosivo + Virote de Gelo limpam ondas e congelam chefes. Dano puro — nunca espalhe stats. Encaixe atrás de um tank (Knight ou Priest).' }
       }
     ]
   };
