@@ -46,6 +46,8 @@
   window.TBH_BUILDS = {
     ver: '1.00.20',
     updated: '2026-06-29',
+    // benchmark clear times from the source videos, keyed by stage label (Torment difficulty)
+    benchmarks: { '3-9': '~70s', '1-3': '~72-76s' },
     skill: function (k) { return pick(S[k]) || { en: 'Skill ' + k, pt: 'Skill ' + k }; },
     pass: function (k) { return pick(P[k]) || { en: k, pt: k }; },
 
